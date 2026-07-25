@@ -1,0 +1,115 @@
+<!-- @dsCard group="05 · Tema" name="Tema claro & escuro" subtitle="Duas matrizes desenhadas individualmente" w=1280 h=1500 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Tema claro & escuro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<style>
+  /* escopo do tema escuro para demonstração lado a lado (espelha tokens.css) */
+  .scope-dark{
+    --color-bg:#171614;--color-surface-default:#201E1B;--color-surface-sunken:#131210;
+    --color-text-primary:#F2F0EC;--color-text-secondary:#C4BFB6;--color-text-muted:#948E84;
+    --color-border-default:#37342F;--color-border-strong:#4A463F;
+    --color-interactive:var(--red-400);--color-interactive-hover:var(--red-300);--color-interactive-subtle:#2A1416;
+    --color-text-on-brand:#1A0B0B;--color-link:var(--red-300);
+    --color-success:#5DB878;--color-success-bg:#17251C;--color-brand-red:var(--red-400);
+    --color-focus:#fff;--color-focus-offset:#171614;
+  }
+  .demo{ background:var(--color-bg); border:1px solid var(--color-border-default); border-radius:var(--radius-sm); padding:var(--space-5); }
+  .demo-hd{ font-size:var(--fs-xs); font-weight:600; letter-spacing:var(--ls-wide); text-transform:uppercase; color:var(--color-text-muted); margin-bottom:var(--space-4); }
+  .ui-card{ background:var(--color-surface-default); border:1px solid var(--color-border-default); border-left:4px solid var(--color-brand-red); border-radius:var(--radius-sm); padding:var(--space-5); box-shadow:var(--shadow-sm); }
+  .ui-eyebrow{ font-size:var(--fs-xs); font-weight:600; letter-spacing:var(--ls-wide); text-transform:uppercase; color:var(--color-interactive); }
+  .ui-h{ font-family:var(--font-heading); font-size:var(--fs-xl); color:var(--color-text-primary); margin:var(--space-2) 0; line-height:var(--lh-tight); }
+  .ui-p{ color:var(--color-text-secondary); font-size:var(--fs-sm); margin-bottom:var(--space-4); }
+  .ui-btn{ font-family:var(--font-body); font-weight:600; font-size:var(--fs-sm); height:var(--button-height-md); padding:0 var(--space-5); border-radius:var(--radius-md); border:0; cursor:pointer; }
+  .ui-btn.p{ background:var(--color-interactive); color:var(--color-text-on-brand); }
+  .ui-btn.s{ background:transparent; color:var(--color-interactive); border:1px solid var(--color-interactive); }
+  .ui-field{ margin:var(--space-4) 0; }
+  .ui-label{ display:block; font-size:var(--fs-sm); font-weight:600; color:var(--color-text-primary); margin-bottom:6px; }
+  .ui-input{ width:100%; height:var(--field-height); padding:0 var(--space-3); border:1px solid var(--color-border-strong); border-radius:var(--radius-md); background:var(--color-surface-sunken); color:var(--color-text-primary); font-family:var(--font-body); font-size:var(--fs-base); }
+  .ui-input::placeholder{ color:var(--color-text-muted); }
+  .ui-badge{ display:inline-flex; gap:6px; align-items:center; font-size:var(--fs-xs); font-weight:600; padding:4px 10px; border-radius:var(--radius-pill); background:var(--color-success-bg); color:var(--color-success); }
+  .ui-row{ display:flex; gap:var(--space-3); align-items:center; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head">
+    <div>
+      <div class="accent-bar"></div>
+      <span class="eyebrow">Fundamentos · Tema</span>
+      <h1>Tema claro &amp; escuro</h1>
+      <p class="lead">Duas matrizes de cor desenhadas individualmente — o escuro não é uma inversão do claro. Mesmo componente, dois ambientes, contraste preservado nos dois.</p>
+    </div>
+    <button class="theme-toggle" id="themeBtn">◐ Tema escuro</button>
+  </header>
+
+  <section>
+    <div class="grid grid-2">
+
+      <!-- Claro -->
+      <div class="demo">
+        <div class="demo-hd">◐ Tema claro</div>
+        <div class="ui-card">
+          <span class="ui-eyebrow">Orçamento sem compromisso</span>
+          <h3 class="ui-h">Redes de proteção sob medida</h3>
+          <p class="ui-p">Instalação profissional para janelas, sacadas, escadas e áreas de piscina. Atendimento em toda a região.</p>
+          <div class="ui-field">
+            <label class="ui-label" for="l1">Seu telefone / WhatsApp</label>
+            <input class="ui-input" id="l1" placeholder="(48) 90000-0000">
+          </div>
+          <div class="ui-row">
+            <button class="ui-btn p">Pedir orçamento</button>
+            <button class="ui-btn s">Ver serviços</button>
+            <span class="ui-badge">✓ Enviado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Escuro -->
+      <div class="demo scope-dark">
+        <div class="demo-hd">◑ Tema escuro</div>
+        <div class="ui-card">
+          <span class="ui-eyebrow">Orçamento sem compromisso</span>
+          <h3 class="ui-h">Redes de proteção sob medida</h3>
+          <p class="ui-p">Instalação profissional para janelas, sacadas, escadas e áreas de piscina. Atendimento em toda a região.</p>
+          <div class="ui-field">
+            <label class="ui-label" for="d1">Seu telefone / WhatsApp</label>
+            <input class="ui-input" id="d1" placeholder="(48) 90000-0000">
+          </div>
+          <div class="ui-row">
+            <button class="ui-btn p">Pedir orçamento</button>
+            <button class="ui-btn s">Ver serviços</button>
+            <span class="ui-badge">✓ Enviado</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">Decisões do tema escuro</h2>
+    <div class="grid grid-3">
+      <div class="panel panel-pad"><div class="kicker">Fundo quente</div><p class="muted" style="font-size:var(--fs-sm)">Base <span class="mono">#171614</span> — near-black aquecido. Nunca preto puro nem azul-escuro tech.</p></div>
+      <div class="panel panel-pad"><div class="kicker">Vermelho clareia</div><p class="muted" style="font-size:var(--fs-sm)">Ação usa <span class="mono">#D93B43</span> (red-400) com texto grafite — mantém contraste sem “vibrar” no escuro.</p></div>
+      <div class="panel panel-pad"><div class="kicker">Elevação por luz</div><p class="muted" style="font-size:var(--fs-sm)">Superfícies sobem clareando (surface &gt; bg), não só por sombra — sombras ficam mais densas.</p></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <p class="muted" style="font-size:var(--fs-xs)">Conteúdo das telas é fictício, para aprovação. Alternância real do site usará <span class="mono">data-theme</span> na raiz + <span class="mono">prefers-color-scheme</span>.</p>
+
+</div></div>
+<script>
+(function(){var b=document.getElementById('themeBtn');if(!b)return;b.addEventListener('click',function(){var r=document.documentElement;var d=r.getAttribute('data-theme')==='dark';r.setAttribute('data-theme',d?'light':'dark');b.textContent=d?'◐ Tema escuro':'◑ Tema claro';});})();
+</script>
+</body>
+</html>

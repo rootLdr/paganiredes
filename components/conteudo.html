@@ -1,0 +1,322 @@
+<!-- @dsCard group="10 · Conteúdo" name="Blocos de conteúdo" subtitle="Cards, depoimentos, FAQ, indicadores, selos, CTA" w=1280 h=2500 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Conteúdo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<div class="doc"><div class="wrap">
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Componentes · Conteúdo</span>
+    <h1>Blocos de conteúdo</h1>
+    <p class="lead">Os blocos que montam as páginas da Pagani Redes: serviços, produtos, depoimentos, perguntas frequentes, números, selos, galeria e chamadas para orçamento. Base clara e leve, com o vermelho da marca usado só como acento. Todo texto de exemplo aqui é fictício e está sinalizado.</p>
+  </div></header>
+
+  <!-- 1. CARDS DE SERVIÇO -->
+  <section>
+    <h2 class="sec-title">1 · Cards de serviço</h2>
+    <p class="sec-desc">Apresentam os serviços principais em uma grade de três. Cada card traz foto, título, um resumo curto e um link para a página do serviço. O acento vermelho na lateral é o motivo da marca.</p>
+    <div class="grid grid-3">
+      <article class="pg-card pg-card--service pg-card--interactive">
+        <div class="pg-card__media pg-ph" style="aspect-ratio:4/3">FOTO</div>
+        <div class="pg-card__body">
+          <h3 class="pg-card__title">Redes de proteção</h3>
+          <p class="pg-card__text">Instalação em janelas, sacadas e escadas, com fixação reforçada e acabamento discreto.</p>
+          <p style="margin-top:var(--space-3)"><a class="pg-link" href="#">Ver serviço</a></p>
+        </div>
+      </article>
+      <article class="pg-card pg-card--service pg-card--interactive">
+        <div class="pg-card__media pg-ph" style="aspect-ratio:4/3">FOTO</div>
+        <div class="pg-card__body">
+          <h3 class="pg-card__title">Telas mosquiteiras</h3>
+          <p class="pg-card__text">Telas removíveis e fixas para manter o ambiente arejado sem insetos.</p>
+          <p style="margin-top:var(--space-3)"><a class="pg-link" href="#">Ver serviço</a></p>
+        </div>
+      </article>
+      <article class="pg-card pg-card--service pg-card--interactive">
+        <div class="pg-card__media pg-ph" style="aspect-ratio:4/3">FOTO</div>
+        <div class="pg-card__body">
+          <h3 class="pg-card__title">Capas de piscina</h3>
+          <p class="pg-card__text">Capas sob medida para proteção e segurança, com estrutura de sustentação.</p>
+          <p style="margin-top:var(--space-3)"><a class="pg-link" href="#">Ver serviço</a></p>
+        </div>
+      </article>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-5)">
+      <div class="panel panel-pad">
+        <p class="kicker">Quando usar</p>
+        <ul class="clean">
+          <li>Página inicial e páginas de serviços, para dar visão geral.</li>
+          <li>Quando há foto real de cada serviço disponível.</li>
+          <li>Grupos de 2 a 3 itens equivalentes em importância.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <p class="kicker">Quando evitar</p>
+        <ul class="clean">
+          <li>Para um único serviço isolado — use o card de produto ou um bloco maior.</li>
+          <li>Sem foto: o placeholder não deve ir ao ar em produção.</li>
+          <li>Textos longos — o resumo deve caber em duas linhas.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: cada <code>.pg-card__media</code> vira <code>&lt;img&gt;</code> com <code>alt</code> descrevendo o serviço (ex.: "Rede de proteção instalada em sacada"). O card inteiro pode ser clicável, mas mantenha o link visível. Responsivo: 3 colunas no desktop, 2 em tablet, 1 empilhado no mobile.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 2. CARD DE PRODUTO -->
+  <section>
+    <h2 class="sec-title">2 · Card de produto</h2>
+    <p class="sec-desc">Versão sem acento lateral, para itens de catálogo ou destaques. Traz foto, título, texto curto e um botão secundário de ação.</p>
+    <div class="grid grid-3">
+      <article class="pg-card pg-card--interactive">
+        <div class="pg-card__media pg-ph" style="aspect-ratio:4/3">FOTO</div>
+        <div class="pg-card__body">
+          <h3 class="pg-card__title">Rede fio 2mm reforçada</h3>
+          <p class="pg-card__text">Malha resistente para sacadas e áreas com pets. Fixação em kit completo.</p>
+          <p style="margin-top:var(--space-4)"><a class="pg-btn pg-btn--secondary pg-btn--sm" href="#">Ver detalhes</a></p>
+        </div>
+      </article>
+    </div>
+    <div class="note" style="margin-top:var(--space-5)"><strong>Regra:</strong> o botão secundário (contorno) sinaliza ação de apoio. Reserve o botão primário vermelho para a ação principal da página (pedir orçamento). Não use dois primários lado a lado.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 3. DEPOIMENTO -->
+  <section>
+    <h2 class="sec-title">3 · Depoimento</h2>
+    <p class="sec-desc">Prova social sóbria: fala do cliente, nome e contexto. Sem exageros nem apelo ao medo — apenas relato real e verificável.</p>
+    <div class="grid grid-2">
+      <figure class="pg-quote" style="margin:0">
+        <span class="pg-quote__mark">&ldquo;</span>
+        <p class="pg-quote__text">A equipe instalou as redes das sacadas em uma manhã, com muito cuidado e organização. Ficou firme e quase invisível.</p>
+        <figcaption class="pg-quote__who">
+          <span class="pg-quote__avatar pg-ph" style="font-size:0"></span>
+          <span>
+            <span class="pg-quote__name">Marina Beulke</span><br>
+            <span class="pg-quote__meta">Apartamento em Blumenau · SC</span>
+          </span>
+        </figcaption>
+      </figure>
+      <div class="panel panel-pad">
+        <p class="kicker">Marcação de exemplo</p>
+        <p style="margin-bottom:var(--space-3)"><span class="pg-badge pg-badge--warning">exemplo fictício</span></p>
+        <p class="muted">Nome, cidade e a fala acima são fictícios, para demonstração. Em produção, use depoimentos reais com autorização do cliente. O avatar é o placeholder <code>.pg-ph</code>; ao virar foto, exige <code>alt</code> com o nome da pessoa.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 4. FAQ -->
+  <section>
+    <h2 class="sec-title">4 · Perguntas frequentes (FAQ)</h2>
+    <p class="sec-desc">Blocos <code>&lt;details&gt;</code> que abrem e fecham. Respondem dúvidas comuns de forma direta, reduzindo atrito antes do contato.</p>
+    <div class="panel panel-pad">
+      <details class="pg-faq" open>
+        <summary>A instalação danifica a janela ou a parede?</summary>
+        <div class="pg-faq__a">Não. Usamos fixação apropriada para cada tipo de esquadria e alvenaria, com acabamento discreto e reversível na maioria dos casos.</div>
+      </details>
+      <details class="pg-faq">
+        <summary>Vocês atendem apartamentos e casas?</summary>
+        <div class="pg-faq__a">Sim, atendemos os dois. Fazemos a medição no local e indicamos a melhor solução para sacadas, janelas, escadas e áreas externas.</div>
+      </details>
+      <details class="pg-faq">
+        <summary>Quanto tempo leva para instalar?</summary>
+        <div class="pg-faq__a">Depende do número de vãos, mas a maioria das instalações residenciais é concluída no mesmo dia após a aprovação do orçamento.</div>
+      </details>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: <code>&lt;summary&gt;</code> é focável e operável por teclado por padrão; o "+/–" é decorativo. Não deixe todos abertos por padrão — apenas o primeiro, se necessário. Responsivo: ocupa a largura total e empilha naturalmente.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 5. BLOCO INSTITUCIONAL -->
+  <section>
+    <h2 class="sec-title">5 · Bloco institucional</h2>
+    <p class="sec-desc">Texto de apresentação da empresa ao lado de uma imagem. Comunica experiência e proximidade, sem clichês vazios.</p>
+    <div class="grid grid-2">
+      <div>
+        <p class="kicker">Sobre a Pagani</p>
+        <h3 style="font-size:var(--fs-xl);margin-bottom:var(--space-3)">Mais de 20 anos protegendo famílias em Santa Catarina</h3>
+        <p style="color:var(--color-text-secondary);margin-bottom:var(--space-3)">Somos uma empresa familiar de Santa Catarina especializada em redes de proteção, telas, cercados, capas de piscina e portões. Equipe própria, medição no local e instalação com garantia.</p>
+        <p style="color:var(--color-text-secondary)">O trabalho é feito com cuidado em cada detalhe, do primeiro contato à entrega. <span class="pg-badge pg-badge--warning">exemplo fictício</span> nos números e datas usados nas demonstrações.</p>
+      </div>
+      <div class="pg-ph" style="aspect-ratio:4/3;border-radius:var(--radius-sm)">FOTO — EQUIPE</div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: a foto recebe <code>alt</code> descritivo (ex.: "Equipe Pagani instalando rede em sacada"). Responsivo: texto e imagem lado a lado no desktop, empilhados no mobile (texto primeiro).</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 6. INDICADORES / NÚMEROS -->
+  <section>
+    <h2 class="sec-title">6 · Indicadores e números</h2>
+    <p class="sec-desc">Quatro métricas que resumem a trajetória da empresa. O número usa o acento vermelho; o rótulo, texto secundário. <span class="pg-badge pg-badge--warning">exemplo fictício</span> — troque pelos dados reais.</p>
+    <div class="panel panel-pad">
+      <div class="grid grid-4">
+        <div class="pg-stat">
+          <div class="pg-stat__num"><span class="pg-stat__accent">20+</span></div>
+          <div class="pg-stat__label">anos de experiência</div>
+        </div>
+        <div class="pg-stat">
+          <div class="pg-stat__num"><span class="pg-stat__accent">8.500</span></div>
+          <div class="pg-stat__label">instalações realizadas</div>
+        </div>
+        <div class="pg-stat">
+          <div class="pg-stat__num"><span class="pg-stat__accent">30</span></div>
+          <div class="pg-stat__label">cidades atendidas</div>
+        </div>
+        <div class="pg-stat">
+          <div class="pg-stat__num"><span class="pg-stat__accent">100%</span></div>
+          <div class="pg-stat__label">sob medida</div>
+        </div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: garanta que o número faça sentido lido junto com o rótulo (ex.: "20+ anos de experiência"). Não use números sem contexto. Responsivo: 4 colunas no desktop, 2 em tablet, 1 no mobile.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 7. SELOS DE CONFIANÇA -->
+  <section>
+    <h2 class="sec-title">7 · Selos de confiança</h2>
+    <p class="sec-desc">Linha de pequenos selos que reforçam credenciais concretas. Sóbrios, sem estrelas nem apelos exagerados.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+        <span class="pg-seal">Instalação com garantia</span>
+        <span class="pg-seal">Equipe própria</span>
+        <span class="pg-seal">Atendimento em SC</span>
+        <span class="pg-seal">Medição no local</span>
+        <span class="pg-seal">Orçamento sem compromisso</span>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-5)">
+      <div class="panel panel-pad">
+        <p class="kicker">Quando usar</p>
+        <ul class="clean">
+          <li>Perto do rodapé ou de uma chamada, para reforçar confiança.</li>
+          <li>Apenas com afirmações verdadeiras e verificáveis.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <p class="kicker">Quando evitar</p>
+        <ul class="clean">
+          <li>Como enfeite genérico ou com promessas vagas.</li>
+          <li>Em excesso — 3 a 5 selos bastam.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 8. ÁREA DE ATUAÇÃO -->
+  <section>
+    <h2 class="sec-title">8 · Área de atuação</h2>
+    <p class="sec-desc">Cidades atendidas, em chips. Ajuda o visitante a confirmar rapidamente se está na região. <span class="pg-badge pg-badge--warning">exemplo fictício</span> — lista de cidades para demonstração.</p>
+    <div class="panel panel-pad">
+      <p class="kicker">Santa Catarina</p>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-2)">
+        <span class="pg-seal">Blumenau</span>
+        <span class="pg-seal">Joinville</span>
+        <span class="pg-seal">Florianópolis</span>
+        <span class="pg-seal">Itajaí</span>
+        <span class="pg-seal">Balneário Camboriú</span>
+        <span class="pg-seal">Brusque</span>
+        <span class="pg-seal">Gaspar</span>
+        <span class="pg-seal">Indaial</span>
+        <span class="pg-seal">Timbó</span>
+        <span class="pg-seal">Pomerode</span>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: se a lista crescer, considere um <code>&lt;ul&gt;</code> semântico em vez de chips soltos. Responsivo: os chips quebram em várias linhas conforme a largura.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 9. GALERIA DE INSTALAÇÕES -->
+  <section>
+    <h2 class="sec-title">9 · Galeria de instalações</h2>
+    <p class="sec-desc">Grade de fotos de trabalhos concluídos. Mostra qualidade e variedade sem texto — a imagem fala.</p>
+    <div class="grid grid-4">
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+      <div class="pg-ph" style="aspect-ratio:1/1;border-radius:var(--radius-xs)">FOTO</div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: cada foto exige <code>alt</code> descrevendo o local e o serviço (ex.: "Rede em sacada de apartamento, vista externa"). Fotos puramente decorativas repetidas podem usar <code>alt=""</code>. Responsivo: 4 colunas no desktop, 2 em tablet, 1 no mobile.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 10. ANTES E DEPOIS -->
+  <section>
+    <h2 class="sec-title">10 · Antes e depois</h2>
+    <p class="sec-desc">Comparação lado a lado que mostra o resultado da instalação. Rótulos claros evitam confusão de leitura.</p>
+    <div class="grid grid-2">
+      <figure style="margin:0">
+        <div class="pg-ph" style="aspect-ratio:4/3;border-radius:var(--radius-sm)">FOTO — ANTES</div>
+        <figcaption class="muted" style="margin-top:var(--space-2);font-weight:var(--fw-semibold)">Antes</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div class="pg-ph" style="aspect-ratio:4/3;border-radius:var(--radius-sm)">FOTO — DEPOIS</div>
+        <figcaption class="muted" style="margin-top:var(--space-2);font-weight:var(--fw-semibold)">Depois</figcaption>
+      </figure>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: o rótulo "Antes/Depois" vai no texto visível (não só na imagem) e o <code>alt</code> de cada foto descreve a cena. Responsivo: lado a lado no desktop, empilhado no mobile mantendo a ordem antes → depois.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 11. CTA DE ORÇAMENTO -->
+  <section>
+    <h2 class="sec-title">11 · Chamada para orçamento</h2>
+    <p class="sec-desc">Bloco de destaque com fundo da marca e um único botão. Fecha a página convidando ao contato, de forma direta e sem pressão.</p>
+    <div class="pg-cta">
+      <h2>Peça seu orçamento sem compromisso</h2>
+      <p>Fazemos a medição no local e apresentamos a melhor solução para o seu imóvel. Resposta rápida e atendimento próximo.</p>
+      <a class="pg-btn pg-btn--primary pg-btn--lg" href="#">Pedir orçamento</a>
+    </div>
+    <div class="note" style="margin-top:var(--space-5)"><strong>Regra:</strong> use uma única chamada principal por página e um só botão dentro do bloco. O fundo vermelho já concentra a atenção; dentro dele o botão fica branco (definido no componente). Não empilhe vários CTAs iguais.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 12. CTA WHATSAPP -->
+  <section>
+    <h2 class="sec-title">12 · Faixa de WhatsApp</h2>
+    <p class="sec-desc">Atalho para o canal de conversa. Cor externa do WhatsApp reservada só a este botão, como pill.</p>
+    <div class="panel panel-pad" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-4)">
+      <div>
+        <p style="font-weight:var(--fw-semibold);margin-bottom:2px">Prefere conversar agora?</p>
+        <p class="muted">Fale com a equipe pelo WhatsApp e tire suas dúvidas.</p>
+      </div>
+      <a class="pg-btn pg-btn--whatsapp pg-btn--lg" href="#">
+        <span class="pg-ico" aria-hidden="true"></span>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <p class="muted" style="margin-top:var(--space-4)">Acessibilidade: o texto do botão descreve a ação ("Falar no WhatsApp"); o ícone é decorativo (<code>aria-hidden</code>). A cor verde é exclusiva deste canal — não a use em outros botões. Responsivo: texto e botão em linha no desktop, empilhados no mobile.</p>
+  </section>
+
+</div></div>
+</body>
+</html>

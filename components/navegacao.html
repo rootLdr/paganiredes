@@ -1,0 +1,292 @@
+<!-- @dsCard group="08 · Navegação" name="Navegação" subtitle="Header, menu desktop e mobile, breadcrumbs, footer" w=1280 h=1750 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Navegação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  /* apoio local à documentação — sem redefinir tokens */
+  .pg-logo { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; }
+  .pg-logo__mark { width: 26px; height: 26px; flex: none; display: block; }
+  .pg-logo__word { font-family: "Archivo", var(--font-body); font-weight: 900; font-size: var(--fs-md); letter-spacing: 0.01em; color: var(--color-text-primary); line-height: 1; }
+  .pg-footer .pg-logo__word { color: var(--color-text-inverse); }
+  .demo-frame { border: 1px solid var(--color-border-default); border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface-default); }
+  .demo-frame--narrow { max-width: 420px; }
+  .drawer-mock { width: 300px; max-width: 100%; }
+  .drawer-mock .pg-nav__link { display: block; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border-subtle); }
+  .drawer-mock .pg-nav__link.is-active::after { left: 0; right: auto; bottom: 6px; width: 18px; }
+  .subnav { display: flex; flex-wrap: wrap; gap: var(--space-5); border-bottom: 1px solid var(--color-border-default); padding: 0 var(--space-2); }
+  .footer-contact { display: flex; flex-direction: column; gap: 6px; }
+  .footer-contact .pg-badge { align-self: flex-start; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Componentes · Navegação</span>
+    <h1>Navegação</h1>
+    <p class="lead">Estruturas que orientam o visitante pelo site da Pagani: cabeçalho e menu, versão mobile em gaveta, abas secundárias, trilha de páginas e rodapé. Cinza conduz a hierarquia; o vermelho da marca marca apenas o item ativo e as ações. Foco visível e ordem de tabulação lógica em todos.</p>
+  </div></header>
+
+  <!-- 1. HEADER DESKTOP -->
+  <section aria-labelledby="s-header">
+    <h2 class="sec-title" id="s-header">1. Cabeçalho (desktop)</h2>
+    <p class="sec-desc">Logo à esquerda, navegação primária à direita e uma ação de contato pelo WhatsApp. O item da página atual recebe o acento vermelho e <code>aria-current="page"</code>. É um <code>&lt;header&gt;</code> com <code>&lt;nav aria-label&gt;</code>.</p>
+
+    <div class="demo-frame" style="margin-bottom: var(--space-5)">
+      <header class="pg-header">
+        <a href="#" class="pg-logo" aria-label="Pagani Redes — página inicial">
+          <svg class="pg-logo__mark" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+            <rect x="10" y="1.5" width="9" height="9" rx="1.5" transform="rotate(45 14.5 6)" fill="var(--neutral-400)"/>
+            <rect x="1.5" y="10.5" width="9" height="9" rx="1.5" transform="rotate(45 6 15)" fill="var(--color-brand-red)"/>
+            <rect x="18.5" y="10.5" width="9" height="9" rx="1.5" transform="rotate(45 23 15)" fill="var(--gray-800)"/>
+          </svg>
+          <span class="pg-logo__word">PAGANI</span>
+        </a>
+        <nav class="pg-nav" aria-label="Navegação principal">
+          <a href="#" class="pg-nav__link is-active" aria-current="page">Início</a>
+          <a href="#" class="pg-nav__link">Serviços</a>
+          <a href="#" class="pg-nav__link">Sobre</a>
+          <a href="#" class="pg-nav__link">Portfólio</a>
+          <a href="#" class="pg-nav__link">Contato</a>
+          <a href="#" class="pg-btn pg-btn--whatsapp pg-btn--sm">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            WhatsApp
+          </a>
+        </nav>
+      </header>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Em todas as páginas do site, fixo no topo.</li>
+          <li>Até 5–6 destinos primários; o excedente vai para o rodapé ou submenu.</li>
+          <li>Uma única ação de destaque (WhatsApp) por cabeçalho.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Não acumule dois itens ativos: só a página atual leva o acento.</li>
+          <li>Não use o vermelho em links inativos — ele conduziria a atenção errada.</li>
+          <li>Abaixo de 768px não empilhe os links: troque pela gaveta (item 2).</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top: var(--space-4)">Acessibilidade: o link ativo carrega <code>aria-current="page"</code> além do acento visual (cor não é o único sinal). O logo é um link com <code>aria-label</code> e o SVG é <code>aria-hidden</code>. Foco visível pelo anel de token em cada link. Responsivo: a partir de 768px este layout dá lugar à gaveta.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 2. MENU MOBILE -->
+  <section aria-labelledby="s-mobile">
+    <h2 class="sec-title" id="s-mobile">2. Menu mobile (gaveta)</h2>
+    <p class="sec-desc">Abaixo de 768px a navegação colapsa num botão de ícone que abre uma gaveta lateral. Os mesmos destinos aparecem empilhados, com o WhatsApp em bloco ao final. Abaixo, os dois estados lado a lado: header colapsado e gaveta aberta.</p>
+
+    <div class="grid grid-2">
+      <div>
+        <div class="kicker">a · Header colapsado</div>
+        <div class="demo-frame demo-frame--narrow">
+          <header class="pg-header">
+            <a href="#" class="pg-logo" aria-label="Pagani Redes — página inicial">
+              <svg class="pg-logo__mark" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+                <rect x="10" y="1.5" width="9" height="9" rx="1.5" transform="rotate(45 14.5 6)" fill="var(--neutral-400)"/>
+                <rect x="1.5" y="10.5" width="9" height="9" rx="1.5" transform="rotate(45 6 15)" fill="var(--color-brand-red)"/>
+                <rect x="18.5" y="10.5" width="9" height="9" rx="1.5" transform="rotate(45 23 15)" fill="var(--gray-800)"/>
+              </svg>
+              <span class="pg-logo__word">PAGANI</span>
+            </a>
+            <button type="button" class="pg-btn pg-btn--icon pg-btn--secondary" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer-demo">
+              <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+          </header>
+        </div>
+      </div>
+
+      <div>
+        <div class="kicker">b · Gaveta aberta</div>
+        <nav id="drawer-demo" class="panel panel-pad drawer-mock" aria-label="Navegação principal (mobile)">
+          <a href="#" class="pg-nav__link is-active" aria-current="page">Início</a>
+          <a href="#" class="pg-nav__link">Serviços</a>
+          <a href="#" class="pg-nav__link">Sobre</a>
+          <a href="#" class="pg-nav__link">Portfólio</a>
+          <a href="#" class="pg-nav__link" style="border-bottom: 0">Contato</a>
+          <a href="#" class="pg-btn pg-btn--whatsapp pg-btn--block" style="margin-top: var(--space-4)">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            Falar no WhatsApp
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top: var(--space-5)">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Em telas estreitas (&lt; 768px), onde os links não cabem em linha.</li>
+          <li>Quando a lista de destinos precisa de espaço vertical confortável ao toque.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Não esconda o menu atrás do ícone no desktop, onde há espaço horizontal.</li>
+          <li>Não deixe o botão sem rótulo: ícone sozinho exige <code>aria-label</code>.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top: var(--space-4)">Acessibilidade: o botão traz <code>aria-label="Abrir menu"</code>, <code>aria-expanded</code> e <code>aria-controls</code> apontando para a gaveta; alvo de toque de 44px. Ao abrir, o foco entra na gaveta e o <kbd>Esc</kbd> a fecha (foco preso enquanto aberta). Responsivo: a gaveta substitui o menu horizontal no breakpoint de 768px.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 3. NAVEGAÇÃO SECUNDÁRIA / ABAS -->
+  <section aria-labelledby="s-subnav">
+    <h2 class="sec-title" id="s-subnav">3. Navegação secundária (abas)</h2>
+    <p class="sec-desc">Uma linha de links para navegar entre categorias irmãs dentro de uma seção — por exemplo, os tipos de produto na página de Serviços. A aba atual usa o mesmo acento do cabeçalho, mantendo a leitura da hierarquia.</p>
+
+    <div class="demo-frame panel-pad" style="margin-bottom: var(--space-5)">
+      <nav class="pg-nav subnav" aria-label="Categorias de serviços">
+        <a href="#" class="pg-nav__link is-active" aria-current="page">Redes</a>
+        <a href="#" class="pg-nav__link">Telas</a>
+        <a href="#" class="pg-nav__link">Capas</a>
+        <a href="#" class="pg-nav__link">Cercados</a>
+      </nav>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Para alternar entre subpáginas de mesmo nível dentro de uma seção.</li>
+          <li>Quando há de 2 a 6 categorias curtas e estáveis.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Não use como navegação primária do site — esse papel é do cabeçalho.</li>
+          <li>Não misture níveis diferentes de hierarquia na mesma linha de abas.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top: var(--space-4)">Acessibilidade: envolvido por <code>&lt;nav aria-label&gt;</code> próprio, distinto do menu principal; a aba atual leva <code>aria-current="page"</code>. Responsivo: em telas estreitas as abas quebram em várias linhas ou rolam horizontalmente, preservando o alvo de toque.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 4. BREADCRUMBS -->
+  <section aria-labelledby="s-crumb">
+    <h2 class="sec-title" id="s-crumb">4. Trilha de navegação (breadcrumbs)</h2>
+    <p class="sec-desc">Mostra a posição da página atual dentro da estrutura do site e permite voltar aos níveis anteriores. O último item é a página atual — sem link e com <code>aria-current</code>.</p>
+
+    <div class="demo-frame panel-pad" style="margin-bottom: var(--space-5)">
+      <nav aria-label="Trilha de navegação">
+        <div class="pg-breadcrumb">
+          <a href="#">Início</a>
+          <span class="pg-breadcrumb__sep" aria-hidden="true">/</span>
+          <a href="#">Serviços</a>
+          <span class="pg-breadcrumb__sep" aria-hidden="true">/</span>
+          <span aria-current="page">Redes de proteção</span>
+        </div>
+      </nav>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Em sites com hierarquia de dois ou mais níveis (seção → subpágina).</li>
+          <li>Quando o visitante pode chegar direto por busca e precisa se situar.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Em páginas de nível único (a própria home), onde não há trilha a mostrar.</li>
+          <li>Não transforme o último item em link — ele representa a página atual.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top: var(--space-4)">Acessibilidade: o <code>&lt;nav aria-label="Trilha de navegação"&gt;</code> nomeia a região; os separadores <code>/</code> são decorativos (<code>aria-hidden</code>) e não entram na ordem de leitura; o item final usa <code>aria-current="page"</code>. Responsivo: a trilha quebra em várias linhas (<code>flex-wrap</code>) sem estourar a largura.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 5. FOOTER -->
+  <section aria-labelledby="s-footer">
+    <h2 class="sec-title" id="s-footer">5. Rodapé</h2>
+    <p class="sec-desc">Encerra a página com três colunas: bloco institucional, lista de serviços e contato/atuação. Fundo escuro invertido, para separar do conteúdo sem competir com o cabeçalho. Dados de contato e cidades abaixo são <strong>exemplo fictício</strong>.</p>
+
+    <div class="demo-frame" style="margin-bottom: var(--space-5)">
+      <footer class="pg-footer">
+        <div class="pg-footer__cols">
+          <div>
+            <a href="#" class="pg-logo" aria-label="Pagani Redes — página inicial" style="margin-bottom: var(--space-3)">
+              <svg class="pg-logo__mark" viewBox="0 0 26 26" aria-hidden="true" focusable="false">
+                <rect x="10" y="1.5" width="9" height="9" rx="1.5" transform="rotate(45 14.5 6)" fill="var(--neutral-400)"/>
+                <rect x="1.5" y="10.5" width="9" height="9" rx="1.5" transform="rotate(45 6 15)" fill="var(--color-brand-red)"/>
+                <rect x="18.5" y="10.5" width="9" height="9" rx="1.5" transform="rotate(45 23 15)" fill="#FFFFFF"/>
+              </svg>
+              <span class="pg-logo__word">PAGANI</span>
+            </a>
+            <p style="font-size: var(--fs-sm); opacity: 0.82; max-width: 34ch; line-height: var(--lh-normal)">Redes de proteção, telas e cercados com mais de 20 anos de instalação em Santa Catarina. Segurança feita com cuidado.</p>
+          </div>
+
+          <nav aria-label="Serviços (rodapé)">
+            <div class="pg-footer__title">Serviços</div>
+            <ul class="clean" style="list-style: none; padding: 0; color: inherit">
+              <li style="margin-bottom: var(--space-2)"><a href="#">Redes de proteção</a></li>
+              <li style="margin-bottom: var(--space-2)"><a href="#">Telas de sombreamento</a></li>
+              <li style="margin-bottom: var(--space-2)"><a href="#">Capas para piscina</a></li>
+              <li style="margin-bottom: var(--space-2)"><a href="#">Cercados</a></li>
+            </ul>
+          </nav>
+
+          <div>
+            <div class="pg-footer__title">Contato · Atuação</div>
+            <div class="footer-contact">
+              <span class="pg-badge pg-badge--warning">exemplo fictício</span>
+              <a href="#">(48) 90000-0000 · WhatsApp</a>
+              <span style="font-size: var(--fs-sm); opacity: 0.82">contato@exemplo-pagani.com.br</span>
+              <span style="font-size: var(--fs-sm); opacity: 0.82; margin-top: var(--space-2)">Atende: Florianópolis, São José, Palhoça e Biguaçu (SC)</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Ao final de toda página, reunindo contato, serviços e institucional.</li>
+          <li>Para links secundários que não cabem no cabeçalho.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color: var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Não repita a ação primária do site de forma competitiva com o topo.</li>
+          <li>Não exponha dados reais de contato antes de validá-los — marque exemplos.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top: var(--space-4)">Acessibilidade: cada coluna de links é uma <code>&lt;nav aria-label&gt;</code> própria; o contraste do texto claro sobre fundo invertido atende AA; foco visível preservado. Responsivo: abaixo de 640px as três colunas empilham em uma só. Nota: telefone, e-mail e cidades acima são fictícios, sinalizados pelo selo próximo ao bloco de contato.</p>
+  </section>
+
+</div></div>
+</body>
+</html>
