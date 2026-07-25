@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Paleta de cores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<style>
+  /* ---- vitrine da paleta: colunas de barras empilhadas ---- */
+  .pal-eyebrow { font-size:var(--fs-xs); letter-spacing:0.22em; text-transform:uppercase; font-weight:var(--fw-bold); color:var(--color-text-muted); }
+  .pal-name { font-family:var(--font-heading); font-size:var(--fs-3xl); line-height:1.05; color:var(--color-text-primary); margin:4px 0 var(--space-2); }
+  .pal-sub { color:var(--color-text-secondary); font-size:var(--fs-sm); max-width:34ch; }
+
+  .stacks { display:grid; grid-template-columns:1.35fr 1fr; gap:var(--space-6); align-items:start; margin-top:var(--space-6); }
+  @media (max-width:860px){ .stacks{ grid-template-columns:1fr; } }
+
+  .stack-card {
+    background:var(--color-surface-default);
+    border:1px solid var(--color-border-default);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-sm);
+    padding:var(--space-3);
+  }
+  .stack-head { display:flex; align-items:baseline; justify-content:space-between; padding:6px var(--space-2) var(--space-3); }
+  .stack-head .t { font-size:var(--fs-sm); font-weight:var(--fw-bold); letter-spacing:0.1em; text-transform:uppercase; color:var(--color-text-secondary); }
+  .stack-head .n { font-size:var(--fs-xs); color:var(--color-text-muted); }
+
+  .bands { border-radius:var(--radius-md); overflow:hidden; }
+  .band {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 var(--space-4); height:64px;
+  }
+  .band .bn { font-weight:var(--fw-semibold); font-size:var(--fs-sm); }
+  .band .bh { font-family:ui-monospace,"SFMono-Regular",Menlo,monospace; font-size:var(--fs-xs); letter-spacing:0.02em; opacity:0.78; }
+  .band.tall { height:82px; }
+
+  /* ---- papéis semânticos ---- */
+  .role { display:flex; align-items:center; gap:var(--space-3); padding:var(--space-3) 0; border-bottom:1px solid var(--color-border-subtle); }
+  .role:last-child { border-bottom:0; }
+  .role .box { width:44px; height:44px; border-radius:var(--radius-sm); border:1px solid var(--color-border-default); flex:none; }
+  .role .n { font-family:ui-monospace,Menlo,monospace; font-size:var(--fs-sm); color:var(--color-text-primary); }
+  .role .u { font-size:var(--fs-xs); color:var(--color-text-muted); }
+
+  .sem-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-3); }
+  @media (max-width:640px){ .sem-grid{ grid-template-columns:repeat(2,1fr);} }
+  .sem { border-radius:var(--radius-md); min-height:96px; padding:var(--space-3); display:flex; flex-direction:column; justify-content:flex-end; }
+  .sem .sn { font-weight:var(--fw-bold); font-size:var(--fs-sm); }
+  .sem .sh { font-family:ui-monospace,Menlo,monospace; font-size:var(--fs-xs); opacity:0.8; margin-top:3px; }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head">
+    <div>
+      <div class="accent-bar"></div>
+      <span class="eyebrow">Fundamentos · Cores</span>
+      <h1>Paleta de cores</h1>
+      <p class="lead">Base limpa e leve. Os <b>cinzas</b> conduzem — branco nas superfícies, cinza-tinta no texto. O <b>vermelho da marca</b> entra só como acento, onde importa: ações, links e ênfase. Nada de fundo escuro.</p>
+    </div>
+  </header>
+
+  <div class="note">
+    <strong>Regra-chave:</strong> superfícies em branco (<span class="mono">#FFFFFF</span>) e cinza quase-branco (<span class="mono">#F7F8FA</span>). O <b>vermelho</b> (<span class="mono">#A81F27</span>) é acento — <span class="tag tag-aa">AA em branco</span> — nunca cobre grandes áreas. Texto em cinza-tinta (<span class="mono">#171A1E</span>).
+  </div>
+
+  <section>
+    <div class="pal-eyebrow">Palette</div>
+    <div class="pal-name">Pagani Redes</div>
+    <div class="pal-sub">Neutros claros com um único acento quente — refinado, não pesado.</div>
+
+    <div class="stacks">
+
+      <!-- NEUTROS -->
+      <div class="stack-card">
+        <div class="stack-head"><span class="t">Neutros</span><span class="n">a base do sistema</span></div>
+        <div class="bands">
+          <div class="band" style="background:#FFFFFF;color:#171A1E"><span class="bn">Branco · superfície</span><span class="bh">#FFFFFF</span></div>
+          <div class="band" style="background:#F7F8FA;color:#171A1E"><span class="bn">Fundo de página</span><span class="bh">#F7F8FA</span></div>
+          <div class="band" style="background:#EFF1F4;color:#171A1E"><span class="bn">Área rebaixada</span><span class="bh">#EFF1F4</span></div>
+          <div class="band" style="background:#E3E6EA;color:#3B4149"><span class="bn">Borda</span><span class="bh">#E3E6EA</span></div>
+          <div class="band" style="background:#D2D7DD;color:#3B4149"><span class="bn">Linha / borda forte</span><span class="bh">#D2D7DD</span></div>
+          <div class="band" style="background:#7E858F;color:#FFFFFF"><span class="bn">Texto muted</span><span class="bh">#7E858F</span></div>
+          <div class="band" style="background:#5B626C;color:#FFFFFF"><span class="bn">Texto suave</span><span class="bh">#5B626C</span></div>
+          <div class="band tall" style="background:#171A1E;color:#F3F4F6"><span class="bn">Texto principal</span><span class="bh">#171A1E</span></div>
+        </div>
+      </div>
+
+      <!-- ACENTO -->
+      <div class="stack-card">
+        <div class="stack-head"><span class="t">Acento · Marca</span><span class="n">só onde importa</span></div>
+        <div class="bands">
+          <div class="band tall" style="background:#FBECEC;color:#871A20"><span class="bn">Destaque suave</span><span class="bh">#FBECEC</span></div>
+          <div class="band tall" style="background:#C42A32;color:#FFFFFF"><span class="bn">Vermelho · marca</span><span class="bh">#C42A32</span></div>
+          <div class="band tall" style="background:#A81F27;color:#FFFFFF"><span class="bn">Ação / link</span><span class="bh">#A81F27</span></div>
+          <div class="band tall" style="background:#871A20;color:#FBECEC"><span class="bn">Hover / active</span><span class="bh">#871A20</span></div>
+        </div>
+        <div class="stack-head" style="padding-top:var(--space-4)"><span class="t">Semânticas</span></div>
+        <div class="sem-grid">
+          <div class="sem" style="background:#2E7D50;color:#EAF3EC"><span class="sn">Sucesso</span><span class="sh">#2E7D50</span></div>
+          <div class="sem" style="background:#B0801F;color:#FBF0D6"><span class="sn">Alerta</span><span class="sh">#B0801F</span></div>
+          <div class="sem" style="background:#C42A32;color:#FBECEC"><span class="sn">Erro</span><span class="sh">#C42A32</span></div>
+          <div class="sem" style="background:#4A6673;color:#EAEFF3"><span class="sn">Info</span><span class="sh">#4A6673</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Papéis semânticos -->
+  <section>
+    <h2 class="sec-title">Papéis semânticos</h2>
+    <p class="sec-desc">Componentes consomem estes papéis — nunca o valor cru. Trocar o token muda todo o sistema.</p>
+    <div class="grid grid-2">
+      <div class="panel panel-pad">
+        <div class="kicker">Superfície &amp; texto</div>
+        <div class="role"><div class="box" style="background:var(--color-bg)"></div><div><div class="n">bg</div><div class="u">fundo da página</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-surface-default)"></div><div><div class="n">surface-default</div><div class="u">cards, seções (branco)</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-surface-sunken)"></div><div><div class="n">surface-sunken</div><div class="u">áreas rebaixadas, inputs</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-text-primary)"></div><div><div class="n">text-primary</div><div class="u">texto principal — AAA</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-text-secondary)"></div><div><div class="n">text-secondary</div><div class="u">apoio — AA</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-text-muted)"></div><div><div class="n">text-muted</div><div class="u">metadados (uso restrito)</div></div></div>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Interativo &amp; borda</div>
+        <div class="role"><div class="box" style="background:var(--color-interactive)"></div><div><div class="n">interactive</div><div class="u">botão/link primário (vermelho)</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-interactive-hover)"></div><div><div class="n">interactive-hover</div><div class="u">hover/foco de ação</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-interactive-subtle)"></div><div><div class="n">interactive-subtle</div><div class="u">fundo suave de destaque</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-brand)"></div><div><div class="n">brand</div><div class="u">acento da marca</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-border-default)"></div><div><div class="n">border-default</div><div class="u">contorno de card</div></div></div>
+        <div class="role"><div class="box" style="background:var(--color-border-strong)"></div><div><div class="n">border-strong</div><div class="u">divisórias fortes</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabela tokens -->
+  <section>
+    <h2 class="sec-title">Referência — tokens de cor</h2>
+    <div class="panel" style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Token</th><th>HEX</th><th>RGB</th><th>Aplicação</th><th>Contraste</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">interactive / red-600</td><td class="mono">#A81F27</td><td class="mono">168,31,39</td><td>Ações, links, ênfase</td><td><span class="tag tag-aa">AA em branco</span></td></tr>
+          <tr><td class="mono">brand / red-500</td><td class="mono">#C42A32</td><td class="mono">196,42,50</td><td>Acento da marca, áreas com texto branco</td><td><span class="tag tag-note">com #fff</span></td></tr>
+          <tr><td class="mono">text-primary / gray-900</td><td class="mono">#171A1E</td><td class="mono">23,26,30</td><td>Texto principal, superfície inversa</td><td><span class="tag tag-aaa">AAA em branco</span></td></tr>
+          <tr><td class="mono">text-secondary / gray-600</td><td class="mono">#5B626C</td><td class="mono">91,98,108</td><td>Texto de apoio</td><td><span class="tag tag-aa">AA em branco</span></td></tr>
+          <tr><td class="mono">bg / gray-50</td><td class="mono">#F7F8FA</td><td class="mono">247,248,250</td><td>Fundo de página</td><td><span class="tag tag-note">superfície</span></td></tr>
+          <tr><td class="mono">border-default / gray-200</td><td class="mono">#E3E6EA</td><td class="mono">227,230,234</td><td>Contorno de card, divisórias</td><td><span class="tag tag-note">borda</span></td></tr>
+          <tr><td class="mono">success / green-600</td><td class="mono">#2E7D50</td><td class="mono">46,125,80</td><td>Confirmação, envio ok</td><td><span class="tag tag-aa">AA em #fff</span></td></tr>
+          <tr><td class="mono">warning / amber-600</td><td class="mono">#B0801F</td><td class="mono">176,128,31</td><td>Atenção, pendência</td><td><span class="tag tag-aa">AA em #fff</span></td></tr>
+          <tr><td class="mono">info / slate-600</td><td class="mono">#4A6673</td><td class="mono">74,102,115</td><td>Informação neutra</td><td><span class="tag tag-aa">AA em #fff</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad"><div class="kicker" style="color:var(--color-success)">Combinações permitidas</div><ul class="clean"><li>Texto tinta (900) sobre branco / cinza claro.</li><li>Branco sobre vermelho 500 (botões, acento).</li><li>Vermelho 600 sobre branco (ações e links).</li></ul></div>
+      <div class="panel panel-pad"><div class="kicker" style="color:var(--color-error)">Combinações a evitar</div><ul class="clean"><li>Vermelho cobrindo grandes áreas (volta a pesar).</li><li>Fundo escuro/preto no sistema claro.</li><li>Texto muted (500) para leitura longa.</li></ul></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <p class="muted" style="font-size:var(--fs-xs)">Contrastes verificados contra branco (#FFFFFF) e cinza de fundo (#F7F8FA). Paleta enxuta: um acento, muitos neutros — o vermelho existe para guiar o olho, não para dominar a tela.</p>
+
+</div></div>
+</body>
+</html>

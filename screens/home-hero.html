@@ -1,0 +1,347 @@
+<!-- @dsCard group="13 · Telas" name="Home — Hero" subtitle="3 variantes numeradas" w=1280 h=2600 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Home · Hero (3 variantes)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="../components/components.css">
+<style>
+  /* Apoio local desta tela. Prefixo .hero- para não vazar. Só tokens. */
+  .hero-doc-title { font-family: var(--font-heading); font-size: var(--fs-4xl); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--color-text-primary); margin: var(--space-3) 0 var(--space-2); }
+
+  /* conteúdo fictício, aguardando dados reais */
+  .ficticio { text-decoration: underline dotted; text-decoration-color: var(--color-text-muted); text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: help; }
+
+  /* etiqueta de variante — mesmo espírito do catálogo de logos */
+  .hero-var-head { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4); flex-wrap: wrap; }
+  .hero-var-tag { font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--color-text-primary); background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-left: var(--border-width-4) solid var(--color-brand); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-4); }
+  .hero-var-legend { font-size: var(--fs-sm); color: var(--color-text-secondary); max-width: 62ch; }
+
+  /* moldura da variante */
+  .hero-frame { background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); box-shadow: var(--shadow-xs); overflow: clip; }
+  .hero-frame a:focus-visible, .hero-frame button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+  /* header do site */
+  .hero-brand { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; border-radius: var(--radius-xs); }
+  .hero-brand__img { height: 34px; width: auto; display: block; }
+  .hero-brand__word { font-family: "Archivo", var(--font-body); font-weight: 900; font-size: var(--fs-md); letter-spacing: 0.02em; color: var(--color-text-primary); line-height: 1; white-space: nowrap; }
+  .hero-brand__word em { font-style: normal; font-weight: 800; color: var(--color-text-muted); }
+  .hero-menu-btn { display: none; }
+  .hero-header-actions { display: flex; align-items: center; gap: var(--space-3); }
+
+  /* placeholder honesto de foto (a foto real ainda não existe) */
+  .hero-ph { display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-5); background: var(--color-surface-sunken); border: 1px solid var(--color-border-default); border-radius: var(--radius-xs); color: var(--color-text-muted); font-size: var(--fs-xs); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: var(--ls-wide); line-height: var(--lh-snug); }
+  .hero-ph span { max-width: 44ch; }
+
+  /* blocos de texto do hero */
+  .hero-title { font-size: var(--fs-4xl); margin: var(--space-3) 0 var(--space-4); max-width: 18ch; text-wrap: pretty; }
+  .hero-sub { font-size: var(--fs-md); color: var(--color-text-secondary); line-height: var(--lh-normal); max-width: 52ch; text-wrap: pretty; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+  .hero-cta-note { margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+  /* faixa de confiança */
+  .hero-trust { list-style: none; margin: var(--space-6) 0 0; padding: var(--space-5) 0 0; border-top: 1px solid var(--color-border-subtle); display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); }
+  .hero-trust li { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--color-text-secondary); }
+  .hero-trust svg { width: 20px; height: 20px; flex: none; color: var(--color-text-muted); }
+
+  /* ---- Hero 1 · clássica dividida ---- */
+  .hero-split { max-width: var(--container-max); margin: 0 auto; padding: var(--space-8) var(--space-5); display: grid; grid-template-columns: 55fr 45fr; gap: var(--space-7); align-items: center; }
+  .hero-split .hero-ph { aspect-ratio: 4 / 3; }
+
+  /* ---- Hero 2 · imagem dominante ---- */
+  .hero-stage { position: relative; }
+  .hero-ph--pano { aspect-ratio: 16 / 9; border: 0; border-radius: 0; min-height: 420px; }
+  .hero-overlay { position: absolute; left: var(--space-6); bottom: var(--space-6); width: min(560px, calc(100% - (2 * var(--space-6)))); background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); box-shadow: var(--shadow-md); padding: var(--space-6); }
+  .hero-overlay .hero-title { font-size: var(--fs-3xl); margin-top: var(--space-2); }
+  .hero-overlay .hero-sub { font-size: var(--fs-base); }
+  .hero-trust--compact { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2) var(--space-4); }
+  .hero-trust--compact li { font-size: var(--fs-xs); }
+  .hero-trust--compact svg { width: 16px; height: 16px; }
+
+  /* ---- Hero 3 · centrada e tipográfica ---- */
+  .hero-center { max-width: var(--container-narrow); margin: 0 auto; padding: var(--space-8) var(--space-5) var(--space-7); text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero-center .hero-title { max-width: 22ch; margin-left: auto; margin-right: auto; }
+  .hero-center .hero-ctas { justify-content: center; }
+  /* motivo da marca: filete com losango (módulos que se encaixam) */
+  .hero-motif { display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin-top: var(--space-5); }
+  .hero-motif i { display: block; width: 56px; height: 1px; background: var(--color-border-strong); }
+  .hero-motif svg { width: 10px; height: 10px; display: block; color: var(--color-brand); }
+  .hero-seals { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-6); }
+  .hero-seals .pg-seal { white-space: nowrap; }
+  .hero-seals .pg-seal svg { width: 14px; height: 14px; color: var(--color-text-muted); flex: none; }
+  .hero-services { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-5) var(--space-8); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .hero-services .hero-ph { aspect-ratio: 4 / 3; border: 0; border-bottom: 1px solid var(--color-border-subtle); border-radius: 0; padding: var(--space-3); font-size: var(--fs-xs); }
+
+  /* ---- responsivo ---- */
+  @media (max-width: 1150px) {
+    .hero-nav { display: none; }
+    .hero-menu-btn { display: inline-flex; }
+    /* em larguras médias o cartão fica mais alto que a foto: empilha */
+    .hero-ph--pano { aspect-ratio: 4 / 3; min-height: 0; }
+    .hero-overlay { position: static; width: auto; margin: calc(-1 * var(--space-6)) var(--space-4) var(--space-5); }
+  }
+  @media (max-width: 920px) {
+    .hero-split { grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-7) var(--space-5); }
+  }
+  @media (max-width: 768px) {
+    .hero-services { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .hero-brand__word { display: none; }
+    .hero-header-wa .hero-wa-label { display: none; }
+    .hero-title, .hero-overlay .hero-title { font-size: var(--fs-2xl); }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .hero-ctas .pg-btn { width: 100%; }
+    .hero-trust { flex-direction: column; gap: var(--space-3); }
+    .hero-trust--compact { display: grid; grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Telas · Home</span>
+    <p class="hero-doc-title">Home — Hero (primeira dobra)</p>
+    <p class="lead">Três estruturas diferentes para a primeira dobra da home: dividida, imagem dominante e centrada tipográfica. Mesmo conteúdo, mesmos componentes <code>.pg-*</code>, hierarquias distintas — para escolher pelo desenho, não pela cor.</p>
+  </div></header>
+
+  <div class="note" role="note"><strong>Todo conteúdo comercial desta tela é fictício.</strong> Telefone, cidades, prazos, garantias e promessas são exemplos para avaliar o desenho — nada foi aprovado pelo cliente. Os trechos com sublinhado pontilhado marcam o que aguarda dados reais.</div>
+
+  <!-- ============ HERO 1 ============ -->
+  <section aria-labelledby="v1-title">
+    <div class="hero-var-head">
+      <span class="hero-var-tag">Hero 1</span>
+      <p class="hero-var-legend">Clássica dividida — texto à esquerda (55), foto à direita (45). A mais segura e a mais fácil de ler.</p>
+    </div>
+    <div class="hero-frame">
+      <header class="pg-header">
+        <a href="#" class="hero-brand">
+          <img class="hero-brand__img" src="../assets/logo-tight.svg" alt="Pagani Redes de Proteção — logotipo">
+          <span class="hero-brand__word">PAGANI <em>REDES</em></span>
+        </a>
+        <nav class="pg-nav hero-nav" aria-label="Navegação principal">
+          <a href="#" class="pg-nav__link">Redes de proteção</a>
+          <a href="#" class="pg-nav__link">Telas mosquiteiras</a>
+          <a href="#" class="pg-nav__link">Capas de piscina</a>
+          <a href="#" class="pg-nav__link">A empresa</a>
+          <a href="#" class="pg-nav__link">Contato</a>
+        </nav>
+        <div class="hero-header-actions">
+          <a href="#" class="pg-btn pg-btn--whatsapp hero-header-wa">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            <span class="hero-wa-label">WhatsApp</span>
+          </a>
+          <button type="button" class="pg-btn pg-btn--icon pg-btn--tertiary hero-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="hero-split">
+        <div>
+          <span class="eyebrow">Redes de proteção em Santa Catarina</span>
+          <h1 class="hero-title" id="v1-title">Rede de proteção em janela, sacada e escada, para casa com criança ou pet</h1>
+          <p class="hero-sub">Instalamos redes de proteção, telas mosquiteiras e capas de piscina em <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Florianópolis, São José, Palhoça e Biguaçu</span> — com <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">medição no local</span>, instalação limpa e <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">garantia de fábrica</span>.</p>
+          <div class="hero-ctas">
+            <a href="#" class="pg-btn pg-btn--whatsapp">
+              <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+              Chamar no WhatsApp
+            </a>
+            <a href="#orcamento" class="pg-btn pg-btn--secondary">Pedir orçamento</a>
+          </div>
+          <p class="hero-cta-note">Atendimento pelo WhatsApp <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">(48) 99999-0000</span></p>
+          <ul class="hero-trust">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l8 8-8 8-8-8z"/></svg>
+              Em Santa Catarina <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">desde 2003</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18v6H3z"/><path d="M7.5 9v2.5M12 9v3.5M16.5 9v2.5"/></svg>
+              <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Medição gratuita no local</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3.5l6.5 2.5v5.2c0 4.2-2.8 7-6.5 8.3-3.7-1.3-6.5-4.1-6.5-8.3V6z"/><path d="M9.2 12l2 2 3.8-4"/></svg>
+              <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Garantia de fábrica</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+              <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Instalação no mesmo dia</span>
+            </li>
+          </ul>
+        </div>
+        <div class="hero-ph" role="img" aria-label="Reserva de espaço para foto de rede instalada em sacada">
+          <span>Foto necessária — rede de proteção instalada em sacada de apartamento, criança ou pet visível com adulto por perto, luz natural, horizontal 4:3, mínimo 2000&nbsp;px</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HERO 2 ============ -->
+  <section aria-labelledby="v2-title">
+    <div class="hero-var-head">
+      <span class="hero-var-tag">Hero 2</span>
+      <p class="hero-var-legend">Imagem dominante — foto larga com o texto num cartão sólido sobreposto embaixo, à esquerda. Mais emocional; depende de foto boa.</p>
+    </div>
+    <div class="hero-frame">
+      <header class="pg-header">
+        <a href="#" class="hero-brand">
+          <img class="hero-brand__img" src="../assets/logo-tight.svg" alt="Pagani Redes de Proteção — logotipo">
+          <span class="hero-brand__word">PAGANI <em>REDES</em></span>
+        </a>
+        <nav class="pg-nav hero-nav" aria-label="Navegação principal">
+          <a href="#" class="pg-nav__link">Redes de proteção</a>
+          <a href="#" class="pg-nav__link">Telas mosquiteiras</a>
+          <a href="#" class="pg-nav__link">Capas de piscina</a>
+          <a href="#" class="pg-nav__link">A empresa</a>
+          <a href="#" class="pg-nav__link">Contato</a>
+        </nav>
+        <div class="hero-header-actions">
+          <a href="#" class="pg-btn pg-btn--whatsapp hero-header-wa">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            <span class="hero-wa-label">WhatsApp</span>
+          </a>
+          <button type="button" class="pg-btn pg-btn--icon pg-btn--tertiary hero-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="hero-stage">
+        <div class="hero-ph hero-ph--pano" role="img" aria-label="Reserva de espaço para foto panorâmica de instalação">
+          <span>Foto necessária — instalador da Pagani finalizando rede em sacada, família ao fundo dentro do apartamento, luz de dia, horizontal 16:9, mínimo 2400&nbsp;px de largura</span>
+        </div>
+        <div class="hero-overlay">
+          <span class="eyebrow">Redes de proteção em Santa Catarina</span>
+          <h2 class="hero-title" id="v2-title">Rede de proteção em janela, sacada e escada, para casa com criança ou pet</h2>
+          <p class="hero-sub">Redes, telas mosquiteiras e capas de piscina em <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Florianópolis, São José, Palhoça e Biguaçu</span>, com <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">medição no local</span> e instalação limpa.</p>
+          <div class="hero-ctas">
+            <a href="#" class="pg-btn pg-btn--whatsapp">
+              <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+              Chamar no WhatsApp
+            </a>
+            <a href="#orcamento" class="pg-btn pg-btn--secondary">Pedir orçamento</a>
+          </div>
+          <ul class="hero-trust hero-trust--compact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l8 8-8 8-8-8z"/></svg>
+              Em SC <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">desde 2003</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18v6H3z"/><path d="M7.5 9v2.5M12 9v3.5M16.5 9v2.5"/></svg>
+              <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Medição gratuita no local</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3.5l6.5 2.5v5.2c0 4.2-2.8 7-6.5 8.3-3.7-1.3-6.5-4.1-6.5-8.3V6z"/><path d="M9.2 12l2 2 3.8-4"/></svg>
+              <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Garantia de fábrica</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+              WhatsApp <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">(48) 99999-0000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HERO 3 ============ -->
+  <section aria-labelledby="v3-title">
+    <div class="hero-var-head">
+      <span class="hero-var-tag">Hero 3</span>
+      <p class="hero-var-legend">Centrada e tipográfica — sem foto grande na primeira dobra; título forte, CTAs no centro e faixa de serviços com miniaturas. A que mais aguenta a falta de foto boa. Traz o losango da marca como filete discreto.</p>
+    </div>
+    <div class="hero-frame">
+      <header class="pg-header">
+        <a href="#" class="hero-brand">
+          <img class="hero-brand__img" src="../assets/logo-tight.svg" alt="Pagani Redes de Proteção — logotipo">
+          <span class="hero-brand__word">PAGANI <em>REDES</em></span>
+        </a>
+        <nav class="pg-nav hero-nav" aria-label="Navegação principal">
+          <a href="#" class="pg-nav__link">Redes de proteção</a>
+          <a href="#" class="pg-nav__link">Telas mosquiteiras</a>
+          <a href="#" class="pg-nav__link">Capas de piscina</a>
+          <a href="#" class="pg-nav__link">A empresa</a>
+          <a href="#" class="pg-nav__link">Contato</a>
+        </nav>
+        <div class="hero-header-actions">
+          <a href="#" class="pg-btn pg-btn--whatsapp hero-header-wa">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            <span class="hero-wa-label">WhatsApp</span>
+          </a>
+          <button type="button" class="pg-btn pg-btn--icon pg-btn--tertiary hero-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="hero-center">
+        <span class="eyebrow">Redes de proteção em Santa Catarina</span>
+        <h2 class="hero-title" id="v3-title">Rede de proteção em janela, sacada e escada, para casa com criança ou pet</h2>
+        <div class="hero-motif" aria-hidden="true">
+          <i></i>
+          <svg viewBox="0 0 10 10" fill="currentColor"><path d="M5 0l5 5-5 5-5-5z"/></svg>
+          <i></i>
+        </div>
+        <p class="hero-sub" style="margin-top: var(--space-4)">Redes, telas mosquiteiras e capas de piscina em <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Florianópolis, São José, Palhoça e Biguaçu</span> — <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">medição no local</span>, instalação limpa e <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">garantia de fábrica</span>.</p>
+        <div class="hero-ctas">
+          <a href="#" class="pg-btn pg-btn--whatsapp">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            Chamar no WhatsApp
+          </a>
+          <a href="#orcamento" class="pg-btn pg-btn--secondary">Pedir orçamento</a>
+        </div>
+        <p class="hero-cta-note">WhatsApp <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">(48) 99999-0000</span></p>
+        <div class="hero-seals">
+          <span class="pg-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l8 8-8 8-8-8z"/></svg>Em SC <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">desde 2003</span></span>
+          <span class="pg-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18v6H3z"/><path d="M7.5 9v2.5M12 9v3.5M16.5 9v2.5"/></svg><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Medição gratuita no local</span></span>
+          <span class="pg-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3.5l6.5 2.5v5.2c0 4.2-2.8 7-6.5 8.3-3.7-1.3-6.5-4.1-6.5-8.3V6z"/><path d="M9.2 12l2 2 3.8-4"/></svg><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Garantia de fábrica</span></span>
+          <span class="pg-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Instalação no mesmo dia</span></span>
+        </div>
+      </div>
+
+      <div class="hero-services">
+        <article class="pg-card">
+          <div class="hero-ph" role="img" aria-label="Reserva de espaço para foto de rede de proteção em janela">
+            <span>Foto — rede de proteção em janela de apartamento, 4:3</span>
+          </div>
+          <div class="pg-card__body">
+            <h3 class="pg-card__title">Redes de proteção</h3>
+            <p class="pg-card__text">Janela, sacada, escada e quadra esportiva.</p>
+          </div>
+        </article>
+        <article class="pg-card">
+          <div class="hero-ph" role="img" aria-label="Reserva de espaço para foto de tela mosquiteira">
+            <span>Foto — tela mosquiteira instalada em janela de cozinha, 4:3</span>
+          </div>
+          <div class="pg-card__body">
+            <h3 class="pg-card__title">Telas mosquiteiras</h3>
+            <p class="pg-card__text">Sob medida, com moldura de alumínio.</p>
+          </div>
+        </article>
+        <article class="pg-card">
+          <div class="hero-ph" role="img" aria-label="Reserva de espaço para foto de capa de piscina">
+            <span>Foto — capa de piscina residencial tensionada, 4:3</span>
+          </div>
+          <div class="pg-card__body">
+            <h3 class="pg-card__title">Capas de piscina</h3>
+            <p class="pg-card__text">Proteção tensionada para piscina de casa e condomínio.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</div></div>
+</body>
+</html>

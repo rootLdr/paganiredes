@@ -1,0 +1,372 @@
+<!-- @dsCard group="11 · Feedback" name="Feedback & status" subtitle="Alertas, toast, modal, loading, skeleton, vazio, erro, confirmação" w=1280 h=2200 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Feedback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<div class="doc"><div class="wrap">
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Componentes · Feedback</span>
+    <h1>Feedback &amp; status</h1>
+    <p class="lead">Como a interface responde ao cliente: confirma o que deu certo, avisa o que precisa de atenção e nunca deixa a pessoa no escuro. Tom sóbrio, direto e sem alarmismo — do jeito que a Pagani atende há mais de 20 anos.</p>
+  </div></header>
+
+  <!-- 1. ALERTAS -->
+  <section>
+    <h2 class="sec-title">Alertas</h2>
+    <p class="sec-desc">Mensagem persistente e contextual, ancorada ao conteúdo a que se refere. Fica na tela até a situação mudar. Use os quatro tons conforme a gravidade — reserve o vermelho (erro) para o que realmente impede a pessoa de seguir.</p>
+    <div class="panel panel-pad">
+      <div class="grid stack">
+        <div class="pg-alert pg-alert--info">
+          <div>
+            <div class="pg-alert__title">Medição sob agendamento</div>
+            <div class="pg-alert__text">A visita técnica é gratuita e sem compromisso. Combinamos dia e horário pelo WhatsApp.</div>
+          </div>
+        </div>
+        <div class="pg-alert pg-alert--success">
+          <div>
+            <div class="pg-alert__title">Orçamento recebido</div>
+            <div class="pg-alert__text">Seu pedido chegou até nós. Retornamos com os valores em até 1 dia útil.</div>
+          </div>
+        </div>
+        <div class="pg-alert pg-alert--warning">
+          <div>
+            <div class="pg-alert__title">Confirme suas medidas</div>
+            <div class="pg-alert__text">A largura informada parece incomum para uma sacada. Vale conferir antes de enviar.</div>
+          </div>
+        </div>
+        <div class="pg-alert pg-alert--error">
+          <div>
+            <div class="pg-alert__title">Não conseguimos enviar seu pedido</div>
+            <div class="pg-alert__text">Não conseguimos enviar seu pedido. Verifique a conexão e tente novamente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Informação que precisa permanecer visível enquanto for relevante.</li>
+          <li>Mensagem ligada a um trecho específico da página (um formulário, uma seção).</li>
+          <li>Explicar um estado atual: pendência, sucesso registrado, atenção necessária.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Confirmação rápida que não exige leitura demorada — prefira o toast.</li>
+          <li>Decisão que precisa ser tomada antes de continuar — prefira o modal.</li>
+          <li>Empilhar vários alertas de erro: revise o fluxo em vez de acumular avisos.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: alertas que surgem em resposta a uma ação recebem <code>role="alert"</code> (urgente) ou <code>aria-live="polite"</code> (informativo), para que leitores de tela anunciem o conteúdo. A cor nunca é o único sinal — o título já descreve a natureza da mensagem.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 2. TOAST -->
+  <section>
+    <h2 class="sec-title">Toast</h2>
+    <p class="sec-desc">Confirmação efêmera que aparece, comunica e some sozinha em poucos segundos. Não interrompe e não exige clique. Ideal para retorno imediato de uma ação bem-sucedida.</p>
+    <div class="panel panel-pad">
+      <div class="pg-toast" role="status" aria-live="polite">✓ Orçamento enviado</div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Confirmar uma ação simples: enviado, salvo, copiado.</li>
+          <li>Retorno que não exige leitura atenta nem resposta.</li>
+          <li>Feedback que pode desaparecer sem prejuízo.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Erros ou mensagens que a pessoa precisa reler — use alerta.</li>
+          <li>Conteúdo longo ou com link importante que sumiria cedo demais.</li>
+          <li>Algo que dependa de decisão — use modal.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: use <code>aria-live="polite"</code> (ou <code>role="status"</code>) para anunciar sem atropelar o que está sendo lido. Mantenha o toast tempo suficiente na tela e nunca coloque nele a única forma de acessar uma informação.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 3. BADGES -->
+  <section>
+    <h2 class="sec-title">Badges de status</h2>
+    <p class="sec-desc">Rótulos curtos que sinalizam o estado de um item numa lista ou card — o andamento de um pedido, uma novidade, um item sob medida. Complementam o texto, nunca o substituem.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center">
+        <span class="pg-badge pg-badge--brand">Sob medida</span>
+        <span class="pg-badge pg-badge--neutral">Novo</span>
+        <span class="pg-badge pg-badge--success">Enviado</span>
+        <span class="pg-badge pg-badge--warning">Pendente</span>
+        <span class="pg-badge pg-badge--error">Erro</span>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Marcar o estado de um item dentro de uma lista ou tabela.</li>
+          <li>Destacar uma condição curta e categórica (uma ou duas palavras).</li>
+          <li>Diferenciar rapidamente itens semelhantes.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Frases ou explicações — badge não é lugar de texto corrido.</li>
+          <li>Muitos badges no mesmo item, competindo por atenção.</li>
+          <li>Ações clicáveis: badge comunica estado, não é botão.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: a palavra dentro do badge já carrega o significado, então a informação não depende só da cor. Garanta contraste suficiente entre texto e fundo em cada tom.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 4. MODAL -->
+  <section>
+    <h2 class="sec-title">Modal de confirmação</h2>
+    <p class="sec-desc">Interrompe o fluxo para exigir uma decisão antes de prosseguir. Use com parcimônia: só quando a ação merece uma pausa consciente. Sempre oferece uma saída clara (Cancelar) ao lado da ação principal.</p>
+    <div class="pg-modal-overlay">
+      <div class="pg-modal" role="dialog" aria-modal="true" aria-labelledby="mdl-t" aria-describedby="mdl-d">
+        <div class="pg-modal__body">
+          <h3 class="pg-modal__title" id="mdl-t">Enviar seu pedido de orçamento?</h3>
+          <p class="pg-modal__text" id="mdl-d">Vamos encaminhar suas medidas e dados de contato para a nossa equipe. Você poderá ajustar tudo depois, se precisar.</p>
+        </div>
+        <div class="pg-modal__foot">
+          <button class="pg-btn pg-btn--tertiary" type="button">Cancelar</button>
+          <button class="pg-btn pg-btn--primary" type="button">Confirmar</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>A ação exige uma decisão consciente antes de seguir.</li>
+          <li>Confirmar algo relevante ou de difícil desfazimento.</li>
+          <li>Concentrar a atenção em uma única escolha objetiva.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Apenas informar algo — alerta ou toast bastam.</li>
+          <li>Como aviso corriqueiro: modal em excesso vira ruído.</li>
+          <li>Fluxos longos ou formulários extensos dentro do overlay.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: use <code>role="dialog"</code> com <code>aria-modal="true"</code>, prenda o foco dentro do modal enquanto ele estiver aberto, feche com a tecla <code>Esc</code> e devolva o foco ao elemento que o abriu. O botão principal fica à direita; o Cancelar sempre presente.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 5. LOADING -->
+  <section>
+    <h2 class="sec-title">Carregando</h2>
+    <p class="sec-desc">Sinaliza que algo está em andamento. Um indicador solto para carregamentos de área; dentro do botão, para mostrar que a ação foi recebida e está sendo processada — evitando cliques repetidos.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap">
+        <span class="pg-spinner" role="status" aria-label="Carregando"></span>
+        <button class="pg-btn pg-btn--primary" type="button" disabled aria-busy="true">
+          <span class="pg-spinner" style="width:16px;height:16px;border-width:2px"></span>
+          Enviando…
+        </button>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Uma ação leva mais que um instante para responder.</li>
+          <li>Confirmar que o clique foi registrado e algo acontece.</li>
+          <li>Bloquear reenvios enquanto o pedido é processado.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Carregamentos instantâneos, onde o giro só pisca e distrai.</li>
+          <li>Estruturas de conteúdo previsíveis — prefira o skeleton.</li>
+          <li>Deixar o spinner girando sem nunca resolver ou avisar de falha.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: marque o indicador com <code>role="status"</code> e um <code>aria-label</code> descritivo. No botão, use <code>aria-busy="true"</code> e mantenha-o desabilitado enquanto processa. A animação respeita <code>prefers-reduced-motion</code>.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 6. SKELETON -->
+  <section>
+    <h2 class="sec-title">Skeleton</h2>
+    <p class="sec-desc">Prévia da estrutura do conteúdo enquanto ele carrega. Mostra onde as coisas vão aparecer, reduzindo a sensação de espera. Use quando o formato do que vem é conhecido — como um card de obra da galeria.</p>
+    <div class="panel panel-pad">
+      <div class="pg-card panel-like" style="max-width:320px" aria-hidden="true">
+        <div class="pg-skeleton" style="height:120px"></div>
+        <div class="pg-card__body">
+          <div class="pg-skeleton" style="height:14px;margin-bottom:10px"></div>
+          <div class="pg-skeleton" style="height:14px;width:70%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>O layout do conteúdo é previsível (cards, listas, galeria).</li>
+          <li>Carregamentos de página ou seção que levam um instante.</li>
+          <li>Suavizar a transição entre vazio e conteúdo real.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Ações pontuais dentro de um botão — use o spinner.</li>
+          <li>Conteúdo de forma imprevisível, onde o molde não corresponde.</li>
+          <li>Esperas muito longas sem qualquer mensagem de contexto.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: o skeleton é decorativo — marque-o com <code>aria-hidden="true"</code> e anuncie o carregamento por um <code>role="status"</code> à parte. A animação de brilho para quando o usuário prefere menos movimento.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 7. EMPTY STATE -->
+  <section>
+    <h2 class="sec-title">Estado vazio</h2>
+    <p class="sec-desc">O que a tela mostra quando ainda não há conteúdo. Em vez de um espaço em branco, explica com calma a situação e oferece o próximo passo natural.</p>
+    <div class="panel panel-pad">
+      <div class="pg-empty">
+        <svg class="pg-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <circle cx="8.5" cy="10" r="1.5"></circle>
+          <path d="M21 16l-5-5L5 19"></path>
+        </svg>
+        <div class="pg-empty__title">Nenhuma foto ainda</div>
+        <p style="margin-bottom:var(--space-5)">Assim que registrarmos as obras desta categoria, elas aparecem aqui.</p>
+        <button class="pg-btn pg-btn--secondary" type="button">Ver outras obras</button>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Listas, galerias ou resultados de busca sem itens.</li>
+          <li>Primeiro acesso, antes de qualquer conteúdo existir.</li>
+          <li>Orientar o próximo passo em vez de deixar a tela vazia.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Quando o vazio é, na verdade, uma falha — mostre um erro.</li>
+          <li>Durante o carregamento — use skeleton até os dados chegarem.</li>
+          <li>Texto pesado ou tom de culpa: mantenha acolhedor e breve.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: o ícone é decorativo (<code>aria-hidden="true"</code>); o significado vive no título e no texto. Ofereça sempre uma ação clara e alcançável por teclado como saída.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 8. PÁGINA DE ERRO 404 -->
+  <section>
+    <h2 class="sec-title">Página não encontrada (404)</h2>
+    <p class="sec-desc">Quando o endereço não existe mais ou foi digitado errado. Reconhece o problema sem drama e devolve a pessoa a um caminho conhecido.</p>
+    <div class="panel panel-pad">
+      <div style="text-align:center;padding:var(--space-6) var(--space-4)">
+        <div style="font-family:var(--font-heading);font-weight:var(--fw-bold);font-size:var(--fs-5xl);line-height:1;color:var(--color-brand)">404</div>
+        <h2 style="font-size:var(--fs-2xl);margin:var(--space-4) 0 var(--space-2)">Página não encontrada</h2>
+        <p style="color:var(--color-text-secondary);max-width:44ch;margin:0 auto var(--space-5)">O endereço que você procurou não existe ou foi movido. Pode ser um link antigo — vamos te levar de volta ao início.</p>
+        <button class="pg-btn pg-btn--primary" type="button">Voltar ao início</button>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Rota inexistente, link quebrado ou página removida.</li>
+          <li>Erros de servidor equivalentes (500), com texto adaptado.</li>
+          <li>Sempre com uma rota de retorno bem visível.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Falhas pontuais dentro de uma tela funcional — use alerta.</li>
+          <li>Linguagem técnica ou códigos crus sem explicação.</li>
+          <li>Becos sem saída: nunca deixe a página sem próximo passo.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: o número grande é reforço visual — o título em texto comunica o erro para leitores de tela. Garanta que o botão de retorno seja o primeiro alvo natural de foco.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 9. CONFIRMAÇÃO DE ENVIO -->
+  <section>
+    <h2 class="sec-title">Orçamento enviado</h2>
+    <p class="sec-desc">Tela de sucesso após o cliente concluir o pedido. Confirma com clareza que deu certo, informa o prazo de retorno e abre um canal direto de conversa. <span class="pg-badge pg-badge--warning">exemplo fictício</span></p>
+    <div class="panel panel-pad">
+      <div style="text-align:center;padding:var(--space-6) var(--space-4)">
+        <div style="width:64px;height:64px;border-radius:var(--radius-pill);background:var(--color-success-bg);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4)">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="var(--color-success)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </div>
+        <h2 style="font-size:var(--fs-2xl);margin-bottom:var(--space-2)">Recebemos seu pedido</h2>
+        <p style="color:var(--color-text-secondary);max-width:46ch;margin:0 auto var(--space-5)">Nossa equipe vai analisar suas medidas e retornar com o orçamento em até 1 dia útil. Se preferir adiantar, é só chamar a gente.</p>
+        <a class="pg-btn pg-btn--whatsapp" href="#" role="button">Falar agora no WhatsApp</a>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4)">
+      <div class="panel panel-pad">
+        <div class="kicker">Quando usar</div>
+        <ul class="clean">
+          <li>Ao concluir um envio importante: orçamento, contato, agendamento.</li>
+          <li>Para confirmar o recebimento e deixar claro o que vem a seguir.</li>
+          <li>Quando faz sentido oferecer um canal direto de continuidade.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Quando evitar</div>
+        <ul class="clean">
+          <li>Ações triviais que um toast já confirma sem interromper.</li>
+          <li>Prometer prazos que a operação não consegue cumprir.</li>
+          <li>Esconder o próximo passo atrás de linguagem vaga.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--space-3)">Acessibilidade: anuncie a tela de sucesso com <code>role="status"</code> ao carregar e leve o foco ao título. O ícone de check é decorativo (<code>aria-hidden="true"</code>); a confirmação está no texto. O botão WhatsApp tem rótulo explícito.</p>
+  </section>
+
+</div></div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!-- @dsCard group="07 · Ações" name="Ações — botões & links" subtitle="Primário, secundário, terciário, ícone, WhatsApp e estados" w=1280 h=1500 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Ações</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<div class="doc"><div class="wrap">
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Componentes · Ações</span>
+    <h1>Ações — botões &amp; links</h1>
+    <p class="lead">Botões e links guiam o visitante até o próximo passo — pedir orçamento, ligar, falar no WhatsApp. A hierarquia é firme: uma única ação principal por bloco, o vermelho de ação reservado ao que mais importa. Tudo com alvo de toque de 44&nbsp;px e foco visível.</p>
+  </div></header>
+
+  <!-- 1. PRIMÁRIO — TAMANHOS -->
+  <section>
+    <h2 class="sec-title">Botão primário</h2>
+    <p class="sec-desc">A ação principal da tela. Usa o vermelho de ação (<code>--color-interactive</code>, #A81F27, AA em branco) com texto branco. No máximo um primário por bloco. Três tamanhos para adaptar ao peso do contexto — do card compacto ao herói.</p>
+    <div class="panel panel-pad">
+      <div class="stack">
+        <div style="display:flex; align-items:center; gap:var(--space-4); flex-wrap:wrap;">
+          <button class="pg-btn pg-btn--primary pg-btn--sm">Pequeno</button>
+          <button class="pg-btn pg-btn--primary">Padrão</button>
+          <button class="pg-btn pg-btn--primary pg-btn--lg">Grande</button>
+        </div>
+        <p class="muted">Alturas: 36&nbsp;px (sm), 44&nbsp;px (padrão), 52&nbsp;px (lg). O padrão já garante o alvo mínimo de toque de 44&nbsp;px; o <code>sm</code> só para densidade em interfaces auxiliares, nunca como CTA de página.</p>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4);">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>A ação que você mais quer que o visitante faça: "Solicitar orçamento".</li>
+          <li>Uma vez por bloco ou seção — para não competir consigo mesmo.</li>
+          <li>Tamanho <code>lg</code> em heróis e CTAs de fim de página.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Dois ou mais primários lado a lado disputando atenção.</li>
+          <li>Ações secundárias como "Voltar" ou "Cancelar".</li>
+          <li>Tamanho <code>sm</code> como chamada principal — fica fraco e difícil de tocar.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. HIERARQUIA: SECUNDÁRIO / TERCIÁRIO / DESTRUTIVO -->
+  <section>
+    <h2 class="sec-title">Níveis de ação</h2>
+    <p class="sec-desc">Cada nível carrega um peso visual. Primário chama; secundário (contorno) apoia; terciário (texto) é a saída discreta; destrutivo alerta e é raro. Combine-os para montar uma hierarquia clara — um primário forte cercado de opções mais leves.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex; align-items:center; gap:var(--space-4); flex-wrap:wrap;">
+        <button class="pg-btn pg-btn--primary">Solicitar orçamento</button>
+        <button class="pg-btn pg-btn--secondary">Ver serviços</button>
+        <button class="pg-btn pg-btn--tertiary">Voltar</button>
+        <button class="pg-btn pg-btn--danger">Excluir pedido</button>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4);">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li><strong>Secundário:</strong> ação alternativa relevante ("Ver serviços") ao lado do primário.</li>
+          <li><strong>Terciário:</strong> ações de baixo peso — "Voltar", "Cancelar", links de apoio.</li>
+          <li><strong>Destrutivo:</strong> só para remover/apagar algo, sempre com confirmação.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Mais de um primário no mesmo grupo — rebaixe os demais a secundário.</li>
+          <li>Destrutivo para ações comuns ou reversíveis.</li>
+          <li>Empilhar níveis iguais sem hierarquia, deixando o visitante em dúvida.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ÍCONE + TEXTO / SÓ-ÍCONE -->
+  <section>
+    <h2 class="sec-title">Botões com ícone</h2>
+    <p class="sec-desc">O ícone reforça a ação, mas nunca a substitui sem apoio textual. Botão só-ícone exige <code>aria-label</code> obrigatório para leitores de tela e mantém o alvo quadrado de 44&nbsp;px.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex; align-items:center; gap:var(--space-4); flex-wrap:wrap;">
+        <a href="tel:+554800000000" class="pg-btn pg-btn--primary">
+          <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+          Ligar agora
+        </a>
+        <button class="pg-btn pg-btn--secondary">
+          <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H5.2L4 17.2Z"/></svg>
+          Enviar mensagem
+        </button>
+        <button class="pg-btn pg-btn--tertiary pg-btn--icon" aria-label="Ligar para a Pagani Redes">
+          <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+        </button>
+      </div>
+      <p class="muted" style="margin-top:var(--space-4);">O ícone recebe <code>aria-hidden="true"</code> quando acompanha texto; no botão só-ícone, o <code>aria-label</code> descreve a ação por completo.</p>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4);">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Ícone + texto para reforçar uma ação frequente (telefone, mensagem).</li>
+          <li>Só-ícone em barras compactas, onde o significado já é óbvio.</li>
+          <li>Sempre com <code>aria-label</code> claro no botão só-ícone.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Só-ícone para ações ambíguas ou pouco convencionais.</li>
+          <li>Omitir o <code>aria-label</code> — deixa a ação invisível para leitores de tela.</li>
+          <li>Ícone puramente decorativo que não ajuda a entender a ação.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHATSAPP -->
+  <section>
+    <h2 class="sec-title">Botão WhatsApp</h2>
+    <p class="sec-desc">Canal preferido de contato da Pagani. Formato pill com a cor externa fixa do WhatsApp (<code>--color-whatsapp</code>) — é um botão de canal, não substitui o primário vermelho da ação principal.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex; align-items:center; gap:var(--space-4); flex-wrap:wrap;">
+        <a href="#" class="pg-btn pg-btn--whatsapp">
+          <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="#" class="pg-btn pg-btn--whatsapp pg-btn--lg">
+          <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+          Fale conosco agora
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4);">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Contato direto e imediato, o canal favorito do cliente Pagani.</li>
+          <li>Perto de telefone e formulário, como opção rápida de conversa.</li>
+          <li>Rótulo explícito: "Falar no WhatsApp".</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Como botão primário da tela — ele é canal, não a ação principal.</li>
+          <li>Repetido várias vezes no mesmo bloco, virando ruído.</li>
+          <li>Recolorido: a cor verde é da marca WhatsApp e deve ser mantida.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ESTADOS -->
+  <section>
+    <h2 class="sec-title">Estados</h2>
+    <p class="sec-desc">Todo botão responde a interação com clareza. O <em>hover</em> escurece o fundo do primário (<code>--color-interactive-hover</code>, #871A20); o foco exibe um anel de alto contraste; desabilitado perde cor e cursor; carregando bloqueia novos cliques e mostra progresso.</p>
+    <div class="panel panel-pad">
+      <div style="display:flex; align-items:center; gap:var(--space-4); flex-wrap:wrap;">
+        <button class="pg-btn pg-btn--primary">Normal</button>
+        <button class="pg-btn pg-btn--primary" style="background:var(--color-interactive-hover)">Hover</button>
+        <button class="pg-btn pg-btn--primary" style="box-shadow:var(--focus-ring)">Foco</button>
+        <button class="pg-btn pg-btn--primary" disabled>Desabilitado</button>
+        <button class="pg-btn pg-btn--primary" aria-busy="true">
+          <span class="pg-spinner" style="width:16px;height:16px;border-width:2px"></span>
+          Enviando…
+        </button>
+      </div>
+      <p class="muted" style="margin-top:var(--space-4);">O <em>hover</em> e o foco acima são simulados por <code>style</code> só para exibir os dois estados juntos; na prática vêm de <code>:hover</code> e <code>:focus-visible</code> do próprio componente. Tabule pelos botões desta página para ver o anel de foco real.</p>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4);">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li><strong>Carregando:</strong> após enviar formulário, para evitar duplo clique.</li>
+          <li><strong>Desabilitado:</strong> enquanto um campo obrigatório não foi preenchido.</li>
+          <li>Manter sempre foco visível — obrigatório para navegação por teclado.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Remover o anel de foco (<code>outline:none</code>) sem oferecer substituto.</li>
+          <li>Deixar botão desabilitado sem explicar o que falta para habilitar.</li>
+          <li>Estado carregando sem trava — permitindo reenvios acidentais.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LINKS DE TEXTO -->
+  <section>
+    <h2 class="sec-title">Links de texto</h2>
+    <p class="sec-desc">Para navegação e ações leves dentro de um texto corrido. Sublinhado por padrão e na cor de link (<code>--color-link</code>), com foco visível — nunca confie só na cor para indicar que é clicável.</p>
+    <div class="panel panel-pad">
+      <p style="max-width:64ch;">Atendemos toda Santa Catarina há mais de 20 anos. Conheça nossos
+        <a href="#" class="pg-link">serviços de redes de proteção</a>, veja a
+        <a href="#" class="pg-link">galeria de instalações</a> ou consulte as
+        <a href="#" class="pg-link">perguntas frequentes</a> antes de solicitar seu orçamento.</p>
+    </div>
+    <div class="grid grid-2" style="margin-top:var(--space-4);">
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-success)">Quando usar</div>
+        <ul class="clean">
+          <li>Navegação inline dentro de parágrafos e textos institucionais.</li>
+          <li>Ações de baixo peso que não merecem um botão.</li>
+          <li>Rótulo descritivo — o texto do link diz para onde leva.</li>
+        </ul>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker" style="color:var(--color-error)">Quando evitar</div>
+        <ul class="clean">
+          <li>Como CTA principal — ali o lugar é do botão primário.</li>
+          <li>Rótulos genéricos como "clique aqui" ou "saiba mais" soltos.</li>
+          <li>Remover o sublinhado, deixando o link indistinguível do texto.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:var(--space-6);">
+      <strong>Cor de ação é sempre semântica.</strong> Botões e links usam
+      <code>--color-interactive</code> / <code>--color-link</code> (vermelho 600, #A81F27, AA em branco),
+      nunca o vermelho de marca cru (<code>--color-brand</code>, #C42A32). O vermelho de marca fica
+      reservado a acentos e ênfase — não a superfícies clicáveis.
+    </div>
+  </section>
+
+</div></div>
+</body>
+</html>

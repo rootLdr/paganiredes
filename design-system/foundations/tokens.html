@@ -1,0 +1,129 @@
+<!-- @dsCard group="06 · Tokens" name="Tokens estruturais" subtitle="Espaço, raio, sombra, movimento, grid, dimensões" w=1280 h=1900 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Tokens estruturais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<style>
+  .sp{ display:flex; align-items:center; gap:var(--space-4); padding:var(--space-2) 0; }
+  .sp .bar{ background:var(--color-interactive-subtle); border:1px solid var(--color-interactive); height:16px; }
+  .sp .lbl{ font-size:var(--fs-sm); } .sp .lbl .mono{ color:var(--color-text-muted); }
+  .rad{ display:flex; flex-direction:column; align-items:center; gap:var(--space-2); }
+  .rad .box{ width:100%; height:70px; background:var(--color-surface-sunken); border:2px solid var(--color-brand-graphite); }
+  .rad .t{ font-size:var(--fs-xs); color:var(--color-text-secondary); text-align:center; }
+  .sh{ padding:var(--space-4); background:var(--color-surface-default); border-radius:var(--radius-sm); text-align:center; font-size:var(--fs-xs); color:var(--color-text-secondary); }
+  .mo{ font-size:var(--fs-sm); }
+  .mo .swatch-mo{ height:8px; background:var(--color-interactive); border-radius:var(--radius-pill); margin-top:6px; animation: slide 2.4s var(--ease-standard) infinite alternate; }
+  @keyframes slide{ from{width:15%} to{width:100%} }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head">
+    <div>
+      <div class="accent-bar"></div>
+      <span class="eyebrow">Fundamentos · Tokens</span>
+      <h1>Tokens estruturais</h1>
+      <p class="lead">Espaçamento, raios, sombras, movimento, grid e dimensões. A regra do sistema: <strong>nada uniforme por preguiça</strong> — raio, sombra e espaço variam por função.</p>
+    </div>
+    <button class="theme-toggle" id="themeBtn">◐ Tema escuro</button>
+  </header>
+
+  <!-- Espaçamento -->
+  <section>
+    <h2 class="sec-title">Espaçamento — base 4</h2>
+    <p class="sec-desc">Escala racional em múltiplos de 4/8px. Ritmo vertical apoiado nela.</p>
+    <div class="panel panel-pad">
+      <div class="sp"><span class="bar" style="width:var(--space-1)"></span><span class="lbl"><b>space-1</b> <span class="mono">4px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-2)"></span><span class="lbl"><b>space-2</b> <span class="mono">8px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-3)"></span><span class="lbl"><b>space-3</b> <span class="mono">12px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-4)"></span><span class="lbl"><b>space-4</b> <span class="mono">16px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-5)"></span><span class="lbl"><b>space-5</b> <span class="mono">24px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-6)"></span><span class="lbl"><b>space-6</b> <span class="mono">32px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-7)"></span><span class="lbl"><b>space-7</b> <span class="mono">48px</span></span></div>
+      <div class="sp"><span class="bar" style="width:var(--space-8)"></span><span class="lbl"><b>space-8</b> <span class="mono">64px</span></span></div>
+    </div>
+  </section>
+
+  <!-- Raios -->
+  <section>
+    <h2 class="sec-title">Raios — por função</h2>
+    <div class="grid grid-4">
+      <div class="rad"><div class="box" style="border-radius:var(--radius-xs)"></div><div class="t"><b>xs · 2px</b><br>imagens, tags</div></div>
+      <div class="rad"><div class="box" style="border-radius:var(--radius-sm)"></div><div class="t"><b>sm · 4px</b><br>cards, badges</div></div>
+      <div class="rad"><div class="box" style="border-radius:var(--radius-md)"></div><div class="t"><b>md · 6px</b><br>botões, inputs</div></div>
+      <div class="rad"><div class="box" style="border-radius:var(--radius-lg)"></div><div class="t"><b>lg · 10px</b><br>modais, popovers</div></div>
+    </div>
+    <p class="cap" style="margin-top:var(--space-3);font-size:var(--fs-sm);color:var(--color-text-secondary)"><span class="mono">--radius-pill (999px)</span> reservado para o botão do WhatsApp e pills de status.</p>
+  </section>
+
+  <!-- Sombras -->
+  <section>
+    <h2 class="sec-title">Sombras — discretas</h2>
+    <div class="grid grid-4">
+      <div class="sh" style="box-shadow:var(--shadow-xs)">xs · separação</div>
+      <div class="sh" style="box-shadow:var(--shadow-sm)">sm · card elevado</div>
+      <div class="sh" style="box-shadow:var(--shadow-md)">md · menu/dropdown</div>
+      <div class="sh" style="box-shadow:var(--shadow-lg)">lg · modal</div>
+    </div>
+    <p class="cap" style="margin-top:var(--space-3);font-size:var(--fs-sm);color:var(--color-text-secondary)">Sombras curtas e de baixa opacidade — nada de “nuvem” difusa e artificial.</p>
+  </section>
+
+  <!-- Movimento + Grid -->
+  <section>
+    <div class="grid grid-2">
+      <div class="panel panel-pad">
+        <div class="kicker">Movimento</div>
+        <p class="mo muted" style="font-size:var(--fs-sm)">Durações: <span class="mono">fast 120ms</span> · <span class="mono">base 180ms</span> · <span class="mono">slow 240ms</span>. Curva padrão <span class="mono">cubic-bezier(.2,0,0,1)</span>. Animação comunica <b>mudança de estado</b>, não decora.</p>
+        <div class="swatch-mo"></div>
+        <p class="cap" style="font-size:var(--fs-xs)">Respeita <span class="mono">prefers-reduced-motion</span> (durações caem para ~0).</p>
+      </div>
+      <div class="panel panel-pad">
+        <div class="kicker">Grid &amp; dimensões</div>
+        <ul class="clean" style="font-size:var(--fs-sm)">
+          <li>Container: <span class="mono">1200px</span> (máx.) · leitura <span class="mono">760px</span>.</li>
+          <li>Colunas: 12 (desktop) · 8 (tablet) · 4 (mobile). Gap <span class="mono">24px</span>.</li>
+          <li>Breakpoints: <span class="mono">480 · 768 · 1024 · 1280</span>.</li>
+          <li>Altura de campo/botão: <span class="mono">44px</span> · toque mínimo <span class="mono">44×44</span>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSS exemplo -->
+  <section>
+    <h2 class="sec-title">Consumo — CSS Custom Properties</h2>
+    <p class="sec-desc">Componentes consomem tokens semânticos, nunca valores crus.</p>
+    <div class="panel panel-pad" style="overflow-x:auto">
+<pre style="margin:0;font-family:ui-monospace,monospace;font-size:var(--fs-sm);line-height:1.6;color:var(--color-text-primary)">.btn-primary {
+  height: var(--button-height-md);
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-interactive);
+  color: var(--color-text-on-brand);
+  font: var(--fw-semibold) var(--fs-sm)/1 var(--font-body);
+  transition: background var(--dur-base) var(--ease-standard);
+}
+.btn-primary:hover  { background: var(--color-interactive-hover); }
+.btn-primary:focus-visible { outline: none; box-shadow: var(--focus-ring); }</pre>
+    </div>
+    <p class="cap" style="margin-top:var(--space-3);font-size:var(--fs-sm);color:var(--color-text-secondary)">Arquivo-fonte: <span class="mono">tokens.css</span> — inclui as duas matrizes de tema.</p>
+  </section>
+
+  <hr class="divider">
+  <p class="muted" style="font-size:var(--fs-xs)">Fase 1 · Fundamentos. Próximas fases consomem exclusivamente estes tokens.</p>
+
+</div></div>
+<script>
+(function(){var b=document.getElementById('themeBtn');if(!b)return;b.addEventListener('click',function(){var r=document.documentElement;var d=r.getAttribute('data-theme')==='dark';r.setAttribute('data-theme',d?'light':'dark');b.textContent=d?'◐ Tema escuro':'◑ Tema claro';});})();
+</script>
+</body>
+</html>

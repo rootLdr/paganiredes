@@ -1,0 +1,426 @@
+<!-- @dsCard group="13 · Telas" name="Carrossel — alternativas" subtitle="5 estudos 3D + 3 estudos anteriores" w=1280 h=19000 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Carrossel de serviços · alternativas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="../components/components.css">
+<style>
+  /* Estudos do carrossel. Prefixo .cx- (comum) e .cN- por variante. Só tokens (exceção: dimensões de layout e ângulos 3D). */
+  .cx-doc-title { font-family: var(--font-heading); font-size: var(--fs-4xl); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--color-text-primary); margin: var(--space-3) 0 var(--space-2); }
+  .cx-var-head { display: flex; align-items: center; gap: var(--space-4); margin: var(--space-8) 0 var(--space-4); flex-wrap: wrap; }
+  .cx-var-tag { font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--color-text-primary); background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-left: var(--border-width-4) solid var(--color-brand); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-4); }
+  .cx-var-legend { font-size: var(--fs-sm); color: var(--color-text-secondary); max-width: 62ch; }
+
+  .cx-rail { position: relative; height: 2400px; background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); overflow: clip; }
+  .cx-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+  .cx-track { display: flex; will-change: transform; }
+  .cx-bar { position: absolute; left: 0; right: 0; bottom: 0; height: var(--border-width-2); background: var(--color-border-subtle); }
+  .cx-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0%; background: var(--color-brand); }
+  @media (prefers-reduced-motion: reduce) {
+    .cx-rail { height: auto; }
+    .cx-stage { position: static; height: auto; min-height: 0; padding: var(--space-6) 0; }
+    .cx-track { flex-wrap: wrap; transform: none !important; gap: var(--space-4); padding: 0 var(--space-5); }
+    .cx-track > * { transform: none !important; opacity: 1 !important; }
+    .cx-bar { display: none; }
+  }
+
+  /* ---- 6 · Fiel ao prompt (cartões escuros arredondados) ---- */
+  .c6-stage { background: var(--color-surface-default); gap: var(--space-5); }
+  .c6-track { gap: var(--space-4); padding: 0 var(--space-6); align-items: center; }
+  .c6-card { position: relative; flex: 0 0 auto; width: clamp(260px, 26vw, 340px); aspect-ratio: 5 / 6; border-radius: 24px; overflow: hidden; background: var(--color-surface-sunken); animation: c6-in 500ms var(--ease-standard) both; }
+  .c6-card:nth-child(1){animation-delay:0ms}.c6-card:nth-child(2){animation-delay:150ms}.c6-card:nth-child(3){animation-delay:300ms}.c6-card:nth-child(4){animation-delay:450ms}.c6-card:nth-child(5){animation-delay:600ms}.c6-card:nth-child(6){animation-delay:750ms}.c6-card:nth-child(7){animation-delay:900ms}
+  @keyframes c6-in { from { opacity: 0; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
+  .c6-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter var(--dur-slow) var(--ease-standard); }
+  .c6-card:hover img { filter: grayscale(0); }
+  .c6-card::after { content: ""; position: absolute; inset: auto 0 0 0; height: 66%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4) 50%, transparent); }
+  .c6-txt { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: var(--space-6); }
+  .c6-txt small { display: block; font-size: var(--fs-sm); font-weight: var(--fw-medium); color: #FFFFFF; opacity: 0.85; }
+  .c6-txt h3 { margin: var(--space-1) 0 0; font-family: var(--font-heading); font-size: var(--fs-xl); line-height: var(--lh-snug); color: #FFFFFF; text-wrap: balance; }
+  .c6-fade { position: absolute; right: 0; top: 0; bottom: 0; width: 8%; background: linear-gradient(to left, var(--color-surface-default), transparent); pointer-events: none; z-index: 3; }
+  .c6-arrows { display: flex; justify-content: center; gap: var(--space-3); }
+  .c6-arrow { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-surface-default); border: 1px solid var(--color-border-default); color: var(--color-text-secondary); cursor: pointer; transition: background var(--dur-base) var(--ease-standard); }
+  .c6-arrow:hover { background: var(--color-surface-sunken); }
+  .c6-arrow:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .c6-arrow svg { width: 22px; height: 22px; }
+
+  /* ---- 7 · Coverflow ---- */
+  .c7-stage { background: var(--color-surface-sunken); perspective: 1200px; }
+  .c7-track { gap: var(--space-4); padding: 0 50vw; align-items: center; transform-style: preserve-3d; }
+  .c7-card { flex: 0 0 auto; width: clamp(260px, 26vw, 360px); will-change: transform; }
+  .c7-fig { aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--color-border-default); box-shadow: var(--shadow-md); background: var(--color-surface-default); }
+  .c7-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c7-card h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: var(--space-3) 0 0; text-align: center; }
+
+  /* ---- 8 · Anel 3D ---- */
+  .c8-stage { background: var(--color-surface-default); }
+  .c8-scene { position: relative; width: 100%; height: min(72vh, 620px); perspective: 1500px; }
+  .c8-ring { position: absolute; left: 50%; top: 50%; transform-style: preserve-3d; will-change: transform; }
+  .c8-card { position: absolute; left: -150px; top: -210px; width: 300px; will-change: opacity; backface-visibility: hidden; }
+  .c8-fig { aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--color-border-default); box-shadow: var(--shadow-md); background: var(--color-surface-default); }
+  .c8-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c8-card h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: var(--space-3) 0 0; text-align: center; }
+  @media (prefers-reduced-motion: reduce) {
+    .c8-scene { height: auto; perspective: none; }
+    .c8-ring { position: static; transform: none !important; display: flex; flex-wrap: wrap; gap: var(--space-4); padding: 0 var(--space-5); }
+    .c8-card { position: static; transform: none !important; opacity: 1 !important; width: 300px; }
+  }
+
+  /* ---- 9 · Dominós que levantam ---- */
+  .c9-stage { background: var(--color-surface-sunken); perspective: 1100px; }
+  .c9-track { gap: var(--space-5); padding: 0 var(--space-6); align-items: flex-end; transform-style: preserve-3d; }
+  .c9-card { flex: 0 0 auto; width: clamp(250px, 25vw, 340px); transform-origin: 50% 100%; will-change: transform, opacity; }
+  .c9-fig { aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--color-border-default); box-shadow: var(--shadow-sm); background: var(--color-surface-default); }
+  .c9-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c9-card h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: var(--space-3) 0 var(--space-1); }
+  .c9-card p { margin: 0 0 var(--space-4); font-size: var(--fs-xs); color: var(--color-text-secondary); }
+  .c9-floor { position: absolute; left: 0; right: 0; bottom: 18%; height: 1px; background: var(--color-border-default); }
+
+  /* ---- 10 · Prateleira isométrica ---- */
+  .c10-stage { background: var(--color-surface-default); perspective: 1600px; overflow: hidden; }
+  .c10-track { gap: var(--space-6); padding: 0 30vw 0 var(--space-7); align-items: center; transform-style: preserve-3d; }
+  .c10-card { flex: 0 0 auto; width: clamp(280px, 28vw, 380px); }
+  .c10-fig { aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--color-border-default); box-shadow: 24px 32px 48px rgba(23, 26, 30, 0.18); background: var(--color-surface-default); }
+  .c10-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c10-card h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: var(--space-3) 0 0; }
+  @media (prefers-reduced-motion: reduce) { .c10-fig { box-shadow: var(--shadow-sm); } }
+
+  /* ---- 2 · Fichas com parallax (estudo anterior) ---- */
+  .c2-stage { gap: var(--space-5); background: var(--color-surface-sunken); }
+  .c2-track { gap: var(--space-5); padding: 0 var(--space-6); align-items: center; }
+  .c2-card { flex: 0 0 auto; width: clamp(300px, 30vw, 440px); background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .c2-fig { overflow: hidden; aspect-ratio: 3 / 4; }
+  .c2-fig img { width: 130%; height: 100%; object-fit: cover; display: block; will-change: transform; }
+  .c2-body { padding: var(--space-4) var(--space-5) var(--space-5); }
+  .c2-body h3 { font-family: var(--font-heading); font-size: var(--fs-xl); margin: 0 0 var(--space-1); }
+  .c2-body p { margin: 0; font-size: var(--fs-sm); color: var(--color-text-secondary); line-height: var(--lh-normal); }
+
+  /* ---- 4 · Módulos em losango (estudo anterior) ---- */
+  .c4-stage { background: var(--color-surface-sunken); }
+  .c4-line { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--color-border-default); }
+  .c4-track { align-items: center; gap: clamp(24px, 4vw, 64px); padding: 0 var(--space-7); }
+  .c4-mod { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: clamp(260px, 26vw, 360px); }
+  .c4-diamond { width: 100%; aspect-ratio: 1; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); background: var(--color-surface-default); position: relative; }
+  .c4-diamond img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .c4-mod:nth-child(odd) { translate: 0 -36px; }
+  .c4-mod:nth-child(even) { translate: 0 36px; }
+  .c4-mod h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: 0; text-align: center; }
+  .c4-mod p { margin: 0; font-size: var(--fs-xs); color: var(--color-text-secondary); text-align: center; max-width: 30ch; }
+  .c4-mod--red .c4-diamond { outline: var(--border-width-2) solid var(--color-brand); outline-offset: -2px; }
+
+  /* ---- 5 · Lupa central (estudo anterior — aplicado no site) ---- */
+  .c5-stage { background: var(--color-surface-default); gap: var(--space-5); }
+  .c5-counter { text-align: center; font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--color-text-primary); }
+  .c5-counter i { font-style: normal; color: var(--color-text-muted); }
+  .c5-track { gap: var(--space-4); padding: 0 50vw; align-items: center; }
+  .c5-card { flex: 0 0 auto; width: clamp(280px, 30vw, 420px); will-change: transform, filter; }
+  .c5-fig { aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--color-border-default); }
+  .c5-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c5-card h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: var(--space-3) 0 0; text-align: center; }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Telas · Estudos</span>
+    <p class="cx-doc-title">Carrossel de serviços — alternativas</p>
+    <p class="lead">Cinco estudos 3D novos (Carrossel 6 a 10) mais os três anteriores que ficaram. Mesma lógica do site: o trilho corre da direita para a esquerda conforme a página rola. Role cada bloco devagar e cite o número da preferida.</p>
+  </div></header>
+
+  <!-- 6 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 6</span>
+    <p class="cx-var-legend">Fiel ao prompt — cartões arredondados com a foto inteira, véu escuro embaixo e título branco sobre a imagem; p&b que ganha cor no hover, fade na borda e setas de apoio.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="none">
+    <div class="cx-stage c6-stage">
+      <div class="cx-track c6-track" data-track>
+        <div class="c6-card"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"><div class="c6-txt"><small>Proteção</small><h3>Redes de proteção</h3></div></div>
+        <div class="c6-card"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"><div class="c6-txt"><small>Conforto</small><h3>Telas mosquiteiras</h3></div></div>
+        <div class="c6-card"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"><div class="c6-txt"><small>Proteção</small><h3>Capas de piscina</h3></div></div>
+        <div class="c6-card"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"><div class="c6-txt"><small>Acabamento</small><h3>Molduras</h3></div></div>
+        <div class="c6-card"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"><div class="c6-txt"><small>Proteção</small><h3>Cercados internos</h3></div></div>
+        <div class="c6-card"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"><div class="c6-txt"><small>Proteção</small><h3>Cercados externos</h3></div></div>
+        <div class="c6-card"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"><div class="c6-txt"><small>Acabamento</small><h3>Portões de alumínio</h3></div></div>
+      </div>
+      <div class="c6-fade" aria-hidden="true"></div>
+      <div class="c6-arrows">
+        <button type="button" class="c6-arrow" data-step="-1" aria-label="Serviço anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="c6-arrow" data-step="1" aria-label="Próximo serviço"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 7</span>
+    <p class="cx-var-legend">Coverflow — o card central fica de frente e os vizinhos giram para dentro, como capas de disco. O 3D mais clássico.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="coverflow" data-center>
+    <div class="cx-stage c7-stage">
+      <div class="cx-track c7-track" data-track>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><h3>Redes de proteção</h3></div>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><h3>Telas mosquiteiras</h3></div>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><h3>Capas de piscina</h3></div>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><h3>Molduras</h3></div>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><h3>Cercados internos</h3></div>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><h3>Cercados externos</h3></div>
+        <div class="c7-card"><div class="c7-fig"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><h3>Portões de alumínio</h3></div>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 8</span>
+    <p class="cx-var-legend">Anel 3D — os sete serviços formam um anel que gira no espaço conforme o scroll; um card de frente por vez. O mais cênico.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="ring">
+    <div class="cx-stage c8-stage">
+      <div class="c8-scene">
+        <div class="c8-ring" data-ring>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><h3>Redes de proteção</h3></div>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><h3>Telas mosquiteiras</h3></div>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><h3>Capas de piscina</h3></div>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><h3>Molduras</h3></div>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><h3>Cercados internos</h3></div>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><h3>Cercados externos</h3></div>
+          <div class="c8-card"><div class="c8-fig"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><h3>Portões de alumínio</h3></div>
+        </div>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 9</span>
+    <p class="cx-var-legend">Dominós — os cards chegam deitados da direita e se levantam ao passar pelo centro, como peças sendo montadas. Combina com "módulos que se encaixam".</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="domino">
+    <div class="cx-stage c9-stage">
+      <div class="c9-floor" aria-hidden="true"></div>
+      <div class="cx-track c9-track" data-track>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><h3>Redes de proteção</h3><p>Janela, sacada, escada, quadra e gatil.</p></div>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><h3>Telas mosquiteiras</h3><p>Sob medida, removíveis para limpeza.</p></div>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><h3>Capas de piscina</h3><p>Proteção tensionada para casas e condomínios.</p></div>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><h3>Molduras</h3><p>Acabamento em alumínio, sem furos aparentes.</p></div>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><h3>Cercados internos</h3><p>Área de brincar delimitada, sem obra.</p></div>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><h3>Cercados externos</h3><p>Piscina, quintal e jardim, com portão que trava.</p></div>
+        <div class="c9-card"><div class="c9-fig"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><h3>Portões de alumínio</h3><p>Sob medida para escadas e vãos.</p></div>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 10</span>
+    <p class="cx-var-legend">Prateleira isométrica — o trilho inteiro fica inclinado no espaço e as fotos deslizam ao longo dessa parede 3D, com sombra profunda. O mais arquitetônico.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="none">
+    <div class="cx-stage c10-stage">
+      <div class="cx-track c10-track" data-track data-pre="rotateY(-16deg) rotateX(6deg)">
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><h3>Redes de proteção</h3></div>
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><h3>Telas mosquiteiras</h3></div>
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><h3>Capas de piscina</h3></div>
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><h3>Molduras</h3></div>
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><h3>Cercados internos</h3></div>
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><h3>Cercados externos</h3></div>
+        <div class="c10-card"><div class="c10-fig"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><h3>Portões de alumínio</h3></div>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 2</span>
+    <p class="cx-var-legend">Fichas com parallax — as fotos deslizam dentro das molduras na direção contrária ao trilho; profundidade sem exagero.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="none" data-parallax>
+    <div class="cx-stage c2-stage">
+      <div class="cx-track c2-track" data-track>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><div class="c2-body"><h3>Redes de proteção</h3><p>Janela, sacada, escada, quadra e gatil.</p></div></article>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><div class="c2-body"><h3>Telas mosquiteiras</h3><p>Sob medida, removíveis para limpeza.</p></div></article>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><div class="c2-body"><h3>Capas de piscina</h3><p>Proteção tensionada para casas e condomínios.</p></div></article>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><div class="c2-body"><h3>Molduras</h3><p>Acabamento em alumínio, sem furos aparentes.</p></div></article>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><div class="c2-body"><h3>Cercados internos</h3><p>Área de brincar delimitada, sem obra.</p></div></article>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><div class="c2-body"><h3>Cercados externos</h3><p>Piscina, quintal e jardim, com portão que trava.</p></div></article>
+        <article class="c2-card"><div class="c2-fig"><img data-para src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><div class="c2-body"><h3>Portões de alumínio</h3><p>Sob medida para escadas e vãos.</p></div></article>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 4</span>
+    <p class="cx-var-legend">Módulos em losango — as fotos entram no losango da marca, alternando acima e abaixo de um fio de tensão. O conceito "módulos que se encaixam" literal.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="none">
+    <div class="cx-stage c4-stage">
+      <div class="c4-line" aria-hidden="true"></div>
+      <div class="cx-track c4-track" data-track>
+        <div class="c4-mod c4-mod--red"><div class="c4-diamond"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><h3>Redes de proteção</h3><p>Janela, sacada, escada, quadra e gatil.</p></div>
+        <div class="c4-mod"><div class="c4-diamond"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><h3>Telas mosquiteiras</h3><p>Sob medida, removíveis para limpeza.</p></div>
+        <div class="c4-mod"><div class="c4-diamond"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><h3>Capas de piscina</h3><p>Proteção tensionada para casas e condomínios.</p></div>
+        <div class="c4-mod"><div class="c4-diamond"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><h3>Molduras</h3><p>Acabamento em alumínio, sem furos aparentes.</p></div>
+        <div class="c4-mod"><div class="c4-diamond"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><h3>Cercados internos</h3><p>Área de brincar delimitada, sem obra.</p></div>
+        <div class="c4-mod"><div class="c4-diamond"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><h3>Cercados externos</h3><p>Piscina, quintal e jardim, com portão que trava.</p></div>
+        <div class="c4-mod"><div class="c4-diamond"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><h3>Portões de alumínio</h3><p>Sob medida para escadas e vãos.</p></div>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <div class="cx-var-head">
+    <span class="cx-var-tag">Carrossel 5</span>
+    <p class="cx-var-legend">Lupa central — o card do centro cresce; é a versão aplicada hoje no site institucional.</p>
+  </div>
+  <section class="cx-rail" data-rail data-fx="lupa" data-center>
+    <div class="cx-stage c5-stage">
+      <p class="c5-counter"><span data-count>01</span> <i>/ 07</i></p>
+      <div class="cx-track c5-track" data-track>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Rede de proteção.png" alt="Rede de proteção em sacada"></div><h3>Redes de proteção</h3></div>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Tela mosquiteira.png" alt="Tela mosquiteira em janela"></div><h3>Telas mosquiteiras</h3></div>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Capa de piscina.png" alt="Capa de piscina tensionada"></div><h3>Capas de piscina</h3></div>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede"></div><h3>Molduras</h3></div>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Cercado areas internas.png" alt="Cercado interno para área de brincar"></div><h3>Cercados internos</h3></div>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Cercado areas externas.jpeg" alt="Cercado externo ao redor de piscina"></div><h3>Cercados externos</h3></div>
+        <div class="c5-card"><div class="c5-fig"><img src="../uploads/Portão de aluminio.png" alt="Portão de alumínio residencial"></div><h3>Portões de alumínio</h3></div>
+      </div>
+      <div class="cx-bar"><i data-bar></i></div>
+    </div>
+  </section>
+
+</div></div>
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var RING_ANGLE = 36, RING_R = 580;
+  var rails = Array.prototype.map.call(document.querySelectorAll('[data-rail]'), function (rail) {
+    var o = {
+      rail: rail,
+      stage: rail.querySelector('.cx-stage'),
+      track: rail.querySelector('[data-track]'),
+      ring: rail.querySelector('[data-ring]'),
+      bar: rail.querySelector('[data-bar]'),
+      paras: rail.querySelectorAll('[data-para]'),
+      fx: rail.getAttribute('data-fx'),
+      center: rail.hasAttribute('data-center'),
+      count: rail.querySelector('[data-count]')
+    };
+    if (o.ring) {
+      Array.prototype.forEach.call(o.ring.children, function (card, i) {
+        card.style.transform = 'rotateY(' + (i * RING_ANGLE) + 'deg) translateZ(' + RING_R + 'px)';
+      });
+    }
+    return o;
+  });
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vw = window.innerWidth;
+    rails.forEach(function (o) {
+      var r = o.rail.getBoundingClientRect();
+      var range = o.rail.offsetHeight - o.stage.offsetHeight;
+      if (range <= 0) return;
+      var p = Math.min(1, Math.max(0, -r.top / range));
+      if (o.bar) o.bar.style.width = (p * 100) + '%';
+
+      if (o.fx === 'ring') {
+        var n = o.ring.children.length;
+        o.ring.style.transform = 'rotateY(' + (-p * (n - 1) * RING_ANGLE) + 'deg)';
+        var rot = -p * (n - 1) * RING_ANGLE;
+        Array.prototype.forEach.call(o.ring.children, function (card, i) {
+          var a = ((i * RING_ANGLE + rot) % 360 + 360) % 360;
+          if (a > 180) a -= 360;
+          var f = Math.max(0, Math.cos(a * Math.PI / 180));
+          card.style.opacity = String(0.12 + f * 0.88);
+        });
+        return;
+      }
+
+      var last = o.track.lastElementChild;
+      var dist;
+      if (o.center) {
+        dist = Math.max(0, last.offsetLeft + last.offsetWidth / 2 - vw / 2);
+      } else {
+        var padR = parseFloat(getComputedStyle(o.track).paddingRight) || 0;
+        dist = Math.max(0, last.offsetLeft + last.offsetWidth + padR - vw);
+      }
+      var pre = o.track.getAttribute('data-pre') || '';
+      o.track.style.transform = pre + ' translate3d(' + (-p * dist) + 'px,0,0)';
+
+      if (o.paras.length) {
+        o.paras.forEach(function (img) {
+          var c = img.getBoundingClientRect();
+          var rel = (c.left + c.width / 2 - vw / 2) / vw;
+          img.style.transform = 'translateX(' + (rel * -14) + '%)';
+        });
+      }
+      if (o.fx === 'coverflow') {
+        Array.prototype.forEach.call(o.track.children, function (card) {
+          var c = card.getBoundingClientRect();
+          var rel = (c.left + c.width / 2 - vw / 2) / vw; // -0.5 … 0.5
+          var rot = Math.max(-45, Math.min(45, rel * 90));
+          var z = -Math.abs(rel) * 380;
+          card.style.transform = 'rotateY(' + (-rot) + 'deg) translateZ(' + z + 'px)';
+        });
+      }
+      if (o.fx === 'domino') {
+        Array.prototype.forEach.call(o.track.children, function (card) {
+          var c = card.getBoundingClientRect();
+          var rel = (c.left + c.width / 2 - vw / 2) / vw;
+          var tip = rel > 0 ? Math.min(55, rel * 110) : Math.max(-10, rel * 24);
+          card.style.transform = 'rotateX(' + (-tip) + 'deg)';
+          card.style.opacity = String(Math.max(0.35, 1 - Math.max(0, rel - 0.15)));
+        });
+      }
+      if (o.fx === 'lupa') {
+        var best = 0, bestD = Infinity;
+        Array.prototype.forEach.call(o.track.children, function (card, i) {
+          var c = card.getBoundingClientRect();
+          var d = Math.abs(c.left + c.width / 2 - vw / 2);
+          var f = Math.max(0, 1 - d / (vw * 0.55));
+          card.style.transform = 'scale(' + (0.86 + f * 0.14) + ')';
+          if (d < bestD) { bestD = d; best = i; }
+        });
+        if (o.count) o.count.textContent = pad(best + 1);
+      }
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+
+  // setas do Carrossel 6: avançam/voltam um card rolando a página
+  document.querySelectorAll('.c6-arrow').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var o = rails[0];
+      var n = o.track.children.length;
+      var range = o.rail.offsetHeight - o.stage.offsetHeight;
+      window.scrollBy({ top: (range / (n - 1)) * Number(btn.getAttribute('data-step')), behavior: 'smooth' });
+    });
+  });
+})();
+</script>
+</body>
+</html>

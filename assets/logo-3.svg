@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 140" fill="none" role="img" aria-label="Pagani Redes">
+  <g fill="none" stroke-width="8">
+    <rect x="34" y="38" width="60" height="60" transform="rotate(45 64 70)" stroke="#3B4149"></rect>
+    <rect x="98" y="38" width="60" height="60" transform="rotate(45 128 70)" stroke="#3B4149"></rect>
+    <rect x="162" y="38" width="60" height="60" transform="rotate(45 192 70)" stroke="#C42A32"></rect>
+    <rect x="226" y="38" width="60" height="60" transform="rotate(45 256 70)" stroke="#3B4149"></rect>
+    <rect x="290" y="38" width="60" height="60" transform="rotate(45 320 70)" stroke="#3B4149"></rect>
+  </g>
+</svg>

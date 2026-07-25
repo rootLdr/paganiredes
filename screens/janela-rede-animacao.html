@@ -1,0 +1,206 @@
+<!-- @dsCard group="13 · Telas" name="Animação — Rede na janela" subtitle="A rede é construída fio a fio até ficar pronta" w=1280 h=1400 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Animação · Rede sendo instalada na janela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="../components/components.css">
+<style>
+  /* Apoio local. Prefixo .jw- para não vazar. Só tokens (exceção: dimensões de layout). */
+  .jw-doc-title { font-family: var(--font-heading); font-size: var(--fs-4xl); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--color-text-primary); margin: var(--space-3) 0 var(--space-2); }
+
+  .jw-frame { background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); box-shadow: var(--shadow-xs); overflow: clip; }
+  .jw-frame a:focus-visible, .jw-frame button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+  .jw-stage { display: grid; grid-template-columns: 420px 1fr; align-items: stretch; }
+  .jw-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-7) var(--space-6); border-right: 1px solid var(--color-border-default); }
+  .jw-title { font-size: var(--fs-3xl); margin: var(--space-3) 0 var(--space-4); text-wrap: pretty; }
+  .jw-sub { font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal); text-wrap: pretty; }
+  .jw-step { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--color-text-secondary); min-height: 48px; }
+  .jw-step svg { width: 12px; height: 12px; color: var(--color-brand); flex: none; }
+  .jw-actions { margin-top: var(--space-5); display: flex; gap: var(--space-3); }
+
+  .jw-art { background: var(--color-surface-sunken); display: flex; align-items: center; justify-content: center; padding: var(--space-7); }
+  .jw-art svg { width: min(560px, 100%); height: auto; display: block; }
+
+  /* fios da rede: desenham com dashoffset; a página aplica .is-on para iniciar */
+  .jw-thread { stroke-dasharray: var(--jw-len, 600); stroke-dashoffset: var(--jw-len, 600); }
+  .jw-on .jw-thread { animation: jw-draw var(--dur-slow) var(--ease-standard) forwards; animation-duration: 600ms; animation-delay: var(--jw-delay, 0ms); }
+  @keyframes jw-draw { to { stroke-dashoffset: 0; } }
+
+  /* ganchos: aparecem antes dos fios */
+  .jw-hook { opacity: 0; }
+  .jw-on .jw-hook { animation: jw-pop var(--dur-base) var(--ease-standard) forwards; animation-delay: var(--jw-delay, 0ms); }
+  @keyframes jw-pop { to { opacity: 1; } }
+
+  /* selo final: losango que pulsa uma vez quando a rede termina */
+  .jw-seal-mark { opacity: 0; transform-origin: center; transform-box: fill-box; }
+  .jw-on .jw-seal-mark { animation: jw-seal var(--dur-slow) var(--ease-standard) forwards; animation-delay: var(--jw-delay, 0ms); }
+  @keyframes jw-seal { 0% { opacity: 0; transform: scale(0.6); } 60% { opacity: 1; transform: scale(1.15); } 100% { opacity: 1; transform: scale(1); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .jw-thread { stroke-dashoffset: 0 !important; animation: none !important; }
+    .jw-hook, .jw-seal-mark { opacity: 1 !important; animation: none !important; transform: none !important; }
+    .jw-replay { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    .jw-stage { grid-template-columns: 1fr; }
+    .jw-copy { border-right: 0; border-bottom: 1px solid var(--color-border-default); padding: var(--space-6) var(--space-5); }
+    .jw-title { font-size: var(--fs-2xl); }
+    .jw-art { padding: var(--space-5); }
+  }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Telas · Animações</span>
+    <p class="jw-doc-title">Rede sendo instalada na janela</p>
+    <p class="lead">A janela começa desprotegida; os ganchos entram, os fios são tensionados um a um e a trama fecha — proteção que se constrói. Desenho vetorial no traço da marca, sem foto. A hero com vídeo segue em <a href="home-hero-video.html">Hero 4 (vídeo)</a>.</p>
+  </div></header>
+
+  <div class="note" role="note"><strong>Estudo de animação.</strong> Peça visual para a home ou para redes sociais. O texto ao lado é fictício e serve só para avaliar o desenho.</div>
+
+  <section aria-labelledby="jw-title" style="margin-top: var(--space-6)">
+    <div class="jw-frame">
+      <div class="jw-stage">
+        <div class="jw-copy">
+          <span class="eyebrow">Como a proteção acontece</span>
+          <h1 class="jw-title" id="jw-title">A janela fica pronta fio a fio</h1>
+          <p class="jw-sub">Ganchos fixados na alvenaria, fios de polietileno tensionados um a um e a trama conferida no final. Sem furo desnecessário, sem sujeira.</p>
+          <p class="jw-step">
+            <svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M5 0l5 5-5 5-5-5z"/></svg>
+            <span id="jw-step-text" aria-live="polite">Janela sem proteção</span>
+          </p>
+          <div class="jw-actions">
+            <button type="button" class="pg-btn pg-btn--secondary jw-replay" id="jw-replay">Ver de novo</button>
+          </div>
+        </div>
+        <div class="jw-art">
+          <svg id="jw-svg" viewBox="0 0 560 520" fill="none" role="img" aria-label="Animação: rede de proteção sendo instalada numa janela, fio a fio, até ficar pronta">
+            <!-- parede -->
+            <rect x="0" y="0" width="560" height="520" fill="var(--color-surface-sunken)"/>
+            <!-- moldura da janela -->
+            <rect x="80" y="60" width="400" height="360" fill="var(--color-surface-default)" stroke="var(--color-text-primary)" stroke-width="3"/>
+            <rect x="100" y="80" width="360" height="320" stroke="var(--color-border-strong)" stroke-width="2"/>
+            <!-- folhas de vidro -->
+            <line x1="280" y1="80" x2="280" y2="400" stroke="var(--color-border-strong)" stroke-width="2"/>
+            <line x1="118" y1="120" x2="180" y2="92" stroke="var(--color-border-default)" stroke-width="2"/>
+            <line x1="130" y1="160" x2="230" y2="115" stroke="var(--color-border-default)" stroke-width="2"/>
+            <line x1="300" y1="150" x2="380" y2="112" stroke="var(--color-border-default)" stroke-width="2"/>
+            <!-- peitoril -->
+            <rect x="64" y="420" width="432" height="14" fill="var(--color-surface-default)" stroke="var(--color-text-primary)" stroke-width="3"/>
+            <!-- céu/cidade dentro do vidro, traço leve -->
+            <path d="M150 340v-60h30v60M330 360v-90h44v90M400 360v-52h30v52" stroke="var(--color-border-default)" stroke-width="2"/>
+
+            <!-- ganchos (aparecem primeiro) -->
+            <g id="jw-hooks" stroke="var(--color-text-primary)" stroke-width="3" stroke-linecap="round"></g>
+            <!-- fios verticais e horizontais (desenham em sequência) -->
+            <g id="jw-threads" stroke="var(--color-text-secondary)" stroke-width="2.5" stroke-linecap="round"></g>
+            <!-- filete de tensão + selo final -->
+            <g class="jw-seal-mark" id="jw-seal" style="--jw-delay: 5200ms">
+              <path d="M280 26l14 14-14 14-14-14z" fill="var(--color-brand)"/>
+              <line x1="196" y1="40" x2="258" y2="40" stroke="var(--color-brand)" stroke-width="2"/>
+              <line x1="302" y1="40" x2="364" y2="40" stroke="var(--color-brand)" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div></div>
+<script>
+(function () {
+  var svg = document.getElementById('jw-svg');
+  var hooksG = document.getElementById('jw-hooks');
+  var threadsG = document.getElementById('jw-threads');
+  var stepEl = document.getElementById('jw-step-text');
+  var replay = document.getElementById('jw-replay');
+  var NS = 'http://www.w3.org/2000/svg';
+
+  // geometria da trama: fios verticais e horizontais dentro da moldura
+  var x0 = 100, x1 = 460, y0 = 80, y1 = 400, gap = 40;
+  var hookDur = 900, threadStep = 320, drawDur = 600;
+  var t = hookDur; // relógio da sequência
+  var steps = [
+    [0, 'Janela sem proteção'],
+    [hookDur * 0.4, 'Ganchos fixados na alvenaria'],
+    [hookDur + threadStep, 'Fios tensionados um a um…'],
+    [0, '…trama conferida ponto a ponto'], // preenchido abaixo
+    [0, 'Pronto. Rede instalada e tensionada.']
+  ];
+
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function hook(x, y, dx, dy) {
+    hooksG.appendChild(el('line', { x1: x, y1: y, x2: x + dx, y2: y + dy, 'class': 'jw-hook', style: '--jw-delay:' + Math.round(Math.random() * hookDur * 0.5) + 'ms' }));
+  }
+  function thread(xa, ya, xb, yb) {
+    var len = Math.hypot(xb - xa, yb - ya);
+    threadsG.appendChild(el('line', { x1: xa, y1: ya, x2: xb, y2: yb, 'class': 'jw-thread', style: '--jw-len:' + Math.ceil(len) + ';--jw-delay:' + t + 'ms' }));
+    t += threadStep;
+  }
+
+  function build() {
+    hooksG.textContent = '';
+    threadsG.textContent = '';
+    t = hookDur;
+    var x, y;
+    for (x = x0; x <= x1; x += gap) { hook(x, y0 - 6, 0, -8); hook(x, y1 + 6, 0, 8); }
+    for (y = y0; y <= y1; y += gap) { hook(x0 - 6, y, -8, 0); hook(x1 + 6, y, 8, 0); }
+    for (x = x0; x <= x1; x += gap) thread(x, y0, x, y1);         // verticais
+    var back = false;
+    for (y = y0; y <= y1; y += gap) {                              // horizontais em zigue-zague
+      if (back) thread(x1, y, x0, y); else thread(x0, y, x1, y);
+      back = !back;
+    }
+    steps[3][0] = hookDur + threadStep * 10;
+    steps[4][0] = t + drawDur;
+    document.getElementById('jw-seal').style.setProperty('--jw-delay', (t + drawDur) + 'ms');
+  }
+
+  var timers = [];
+  function play() {
+    timers.forEach(clearTimeout); timers = [];
+    svg.classList.remove('jw-on');
+    build();
+    void svg.getBoundingClientRect(); // reinicia as animações
+    svg.classList.add('jw-on');
+    steps.forEach(function (s) {
+      timers.push(setTimeout(function () { stepEl.textContent = s[1]; }, s[0]));
+    });
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    build();
+    svg.classList.add('jw-on');
+    stepEl.textContent = 'Pronto. Rede instalada e tensionada.';
+    return;
+  }
+
+  var started = false;
+  var io = new IntersectionObserver(function (entries) {
+    if (!started && entries[0].isIntersecting) { started = true; play(); io.disconnect(); }
+  }, { threshold: 0.35 });
+  io.observe(svg);
+  replay.addEventListener('click', play);
+})();
+</script>
+</body>
+</html>

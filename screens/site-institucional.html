@@ -1,0 +1,432 @@
+<!-- @dsCard group="13 · Telas" name="Site institucional" subtitle="Hero de expansão no scroll + páginas institucionais" w=1280 h=6200 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Site institucional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../components/components.css">
+<style>
+  /* Página do site (sem chrome de catálogo). Prefixo .si-. Só tokens (exceção: dimensões de layout). */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-surface-default); font-family: var(--font-body); color: var(--color-text-primary); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a { color: var(--color-interactive); }
+  a:not(.pg-btn):not(.si-brand):hover { color: var(--color-brand); }
+  .si a:focus-visible, .si button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+  .si-note { background: var(--color-surface-sunken); border-bottom: 1px solid var(--color-border-default); padding: var(--space-2) var(--space-5); font-size: var(--fs-xs); color: var(--color-text-secondary); text-align: center; }
+  .ficticio { text-decoration: underline dotted; text-decoration-color: var(--color-text-muted); text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: help; }
+
+  .si-container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-5); }
+  .si-header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-5); }
+  .si-header-inner .si-nav { grid-column: 2; justify-self: center; }
+  .si-header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; background: var(--color-surface-default); border-bottom: 1px solid var(--color-border-default); transform: translateY(-100%); transition: transform var(--dur-slow) var(--ease-standard); }
+  .si-header.is-in { transform: translateY(0); }
+  .si-brand { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; border-radius: var(--radius-xs); padding: var(--space-3) 0; }
+  .si-brand img { height: 34px; width: auto; display: block; }
+  .si-brand b { font-family: "Archivo", var(--font-body); font-weight: 900; font-size: var(--fs-md); letter-spacing: 0.02em; color: var(--color-text-primary); line-height: 1; white-space: nowrap; }
+  .si-brand b em { font-style: normal; font-weight: 800; color: var(--color-text-muted); }
+  /* ícone flutuante de WhatsApp — só aparece quando o vídeo termina de se assentar */
+  .si-wa-fab { position: fixed; right: var(--space-5); bottom: var(--space-5); z-index: 30; display: block; width: 64px; height: 64px; opacity: 0; translate: 0 12px; pointer-events: none; transition: opacity var(--dur-slow) var(--ease-standard), translate var(--dur-slow) var(--ease-standard), transform var(--dur-base) var(--ease-standard); filter: drop-shadow(var(--shadow-md)); }
+  .si-wa-fab.is-in { opacity: 1; translate: 0 0; pointer-events: auto; }
+  .si-wa-fab:hover { transform: scale(1.06); }
+  .si-wa-fab img { width: 100%; height: 100%; display: block; }
+  @media (prefers-reduced-motion: reduce) { .si-wa-fab { transition: none; opacity: 1; translate: 0 0; pointer-events: auto; } .si-wa-fab:hover { transform: none; } }
+  .si-header-actions { display: flex; align-items: center; gap: var(--space-3); }
+
+  /* ---- hero: vídeo fullscreen que se assenta à direita ---- */
+  .si-expand { position: relative; height: 2600px; }
+  .si-stage { position: sticky; top: 0; height: 100vh; min-height: 560px; overflow: clip; background: var(--color-surface-sunken); }
+  /* trama de losangos bem sutil ao fundo */
+  .si-stage::before { content: ""; position: absolute; inset: 0; opacity: 0.5;
+    background-image: linear-gradient(45deg, var(--color-border-subtle) 1px, transparent 1px), linear-gradient(-45deg, var(--color-border-subtle) 1px, transparent 1px);
+    background-size: 56px 56px; }
+  /* o vídeo não encolhe: o container corta e o object-fit mantém o foco no centro */
+  .si-media { position: absolute; z-index: 2; inset: 0; overflow: hidden; background: var(--color-surface-default); box-shadow: var(--shadow-md); }
+  .si-media video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .si-hero-copy { position: absolute; z-index: 3; left: 0; top: 50%; transform: translateY(-50%); width: 46%; box-sizing: border-box; padding: 0 var(--space-6) 0 var(--space-7); opacity: 0; pointer-events: none; }
+  .si-hero-title { font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: clamp(32px, 3.4vw, 56px); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--color-text-primary); margin: 0 0 var(--space-4); text-wrap: pretty; }
+  .si-hero-title i { font-style: normal; color: var(--color-brand); }
+  .si-hero-copy p { margin: 0 0 var(--space-5); font-size: var(--fs-md); color: var(--color-text-secondary); line-height: var(--lh-normal); max-width: 46ch; }
+  .si-expand-hint { position: absolute; z-index: 3; bottom: var(--space-6); left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-pill); font-size: var(--fs-xs); font-weight: var(--fw-semibold); color: var(--color-text-secondary); box-shadow: var(--shadow-sm); white-space: nowrap; transition: opacity var(--dur-base) var(--ease-standard); }
+  .si-expand-hint svg { width: 14px; height: 14px; color: var(--color-text-muted); }
+  .si-hero-ctas { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-3); }
+  .si-hero-copy .si-hero-ctas { justify-content: flex-start; }
+
+  /* ---- seções institucionais ---- */
+  .si-sec { padding: var(--space-9) 0; }
+  .si-sec--alt { background: var(--color-surface-sunken); border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle); }
+  .si-kicker { font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-brand); display: inline-flex; align-items: center; gap: var(--space-2); }
+  .si-kicker::before { content: ""; width: 24px; height: 2px; background: var(--color-brand); }
+  .si-h2 { font-family: var(--font-heading); font-size: var(--fs-3xl); line-height: var(--lh-tight); margin: var(--space-3) 0 var(--space-3); text-wrap: pretty; }
+  .si-lead { font-size: var(--fs-md); color: var(--color-text-secondary); line-height: var(--lh-normal); max-width: 62ch; margin: 0; text-wrap: pretty; }
+
+  .si-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+  .si-ph { display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-4); aspect-ratio: 4 / 3; background: var(--color-surface-sunken); border-bottom: 1px solid var(--color-border-subtle); color: var(--color-text-muted); font-size: var(--fs-xs); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: var(--ls-wide); line-height: var(--lh-snug); }
+
+  /* ---- carrossel de serviços (cartões escuros arredondados, foto colorida) ---- */
+  .si-rail { position: relative; height: 3200px; background: var(--color-surface-default); }
+  .si-rail-stage { position: sticky; top: 0; height: 100vh; min-height: 480px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: var(--space-5); padding-top: 60px; box-sizing: border-box; }
+  .si-rail-track { display: flex; gap: var(--space-4); padding: 0 var(--space-5); align-items: center; will-change: transform; }
+  .si-rail-card { position: relative; flex: 0 0 auto; width: clamp(250px, 25vw, 340px); aspect-ratio: 5 / 6; border-radius: 24px; overflow: hidden; background: var(--color-surface-sunken); }
+  .si-rail-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .si-rail-card::after { content: ""; position: absolute; inset: auto 0 0 0; height: 66%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4) 50%, transparent); }
+  .si-rail-txt { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: var(--space-5) var(--space-6); }
+  .si-rail-txt small { display: block; font-size: var(--fs-sm); font-weight: var(--fw-medium); color: #FFFFFF; opacity: 0.85; }
+  .si-rail-txt h3 { margin: var(--space-1) 0 0; font-family: var(--font-heading); font-size: var(--fs-xl); line-height: var(--lh-snug); color: #FFFFFF; text-wrap: balance; }
+  .si-rail-txt p { margin: var(--space-2) 0 0; font-size: var(--fs-sm); line-height: var(--lh-normal); color: #FFFFFF; opacity: 0.9; }
+  .si-rail-fade { position: absolute; right: 0; top: 0; bottom: 0; width: 8%; background: linear-gradient(to left, var(--color-surface-default), transparent); pointer-events: none; z-index: 3; }
+  .si-rail-arrows { display: flex; justify-content: center; gap: var(--space-3); }
+  .si-rail-arrow { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-surface-default); border: 1px solid var(--color-border-default); color: var(--color-text-secondary); cursor: pointer; transition: background var(--dur-base) var(--ease-standard); }
+  .si-rail-arrow:hover { background: var(--color-surface-sunken); }
+  .si-rail-arrow:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+  .si-rail-arrow svg { width: 22px; height: 22px; }
+  @media (max-height: 700px) {
+    .si-rail-stage { gap: var(--space-4); }
+    .si-rail-card { aspect-ratio: 1 / 1; }
+    .si-rail-txt p { display: none; }
+  }
+
+  .si-about { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; }
+  .si-about .si-ph { aspect-ratio: 4 / 3; border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); }
+  .si-about-img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); }
+  .si-facts { list-style: none; margin: var(--space-5) 0 0; padding: 0; display: grid; gap: var(--space-3); }
+  .si-facts li { display: flex; gap: var(--space-3); align-items: baseline; font-size: var(--fs-base); color: var(--color-text-secondary); }
+  .si-facts svg { width: 10px; height: 10px; flex: none; color: var(--color-brand); }
+
+  .si-steps { counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+  .si-step { counter-increment: step; background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); padding: var(--space-5); }
+  .si-step::before { content: counter(step, decimal-leading-zero); font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: var(--fs-2xl); color: var(--color-brand); display: block; margin-bottom: var(--space-2); }
+  .si-step h3 { font-family: var(--font-heading); font-size: var(--fs-lg); margin: 0 0 var(--space-2); }
+  .si-step p { margin: 0; font-size: var(--fs-sm); color: var(--color-text-secondary); line-height: var(--lh-normal); }
+
+  .si-quote { max-width: 720px; margin: 0 auto; text-align: center; }
+  .si-quote blockquote { font-family: var(--font-heading); font-size: var(--fs-xl); line-height: var(--lh-snug); margin: var(--space-4) 0; color: var(--color-text-primary); }
+  .si-quote figcaption { font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+  .si-cta-final { text-align: center; max-width: 640px; margin: 0 auto; }
+
+  .si-footer { background: var(--color-surface-sunken); border-top: 1px solid var(--color-border-default); padding: var(--space-7) 0; }
+  .si-footer-inner { display: flex; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; align-items: flex-start; }
+  .si-footer nav { display: flex; flex-direction: column; gap: var(--space-2); }
+  .si-footer a { font-size: var(--fs-sm); color: var(--color-text-secondary); text-decoration: none; }
+  .si-footer a:hover { color: var(--color-brand); }
+  .si-social { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; color: var(--color-text-primary); font-weight: var(--fw-semibold); margin-bottom: var(--space-3); }
+  .si-social img { width: 32px; height: 32px; display: block; }
+  .si-social:hover { color: var(--color-brand); }
+  .si-footer-meta { font-size: var(--fs-xs); color: var(--color-text-muted); margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .si-header { position: sticky; transform: none; transition: none; }
+    .si-expand { height: auto; }
+    .si-stage { position: static; height: auto; min-height: 0; padding: var(--space-8) var(--space-5); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); align-items: center; }
+    .si-media { position: static; inset: auto; aspect-ratio: 16 / 10; border-radius: var(--radius-md); }
+    .si-hero-copy { position: static; transform: none; width: auto; padding: 0; opacity: 1 !important; pointer-events: auto; }
+    .si-expand-hint { display: none; }
+    .si-rail { height: auto; }
+    .si-rail-stage { position: static; height: auto; min-height: 0; padding: var(--space-8) 0; }
+    .si-rail-track { flex-wrap: wrap; transform: none !important; }
+    .si-rail-card { width: 320px; }
+    .si-rail-progress { display: none; }
+  }
+
+  @media (max-width: 1150px) { .si-nav { gap: var(--space-3); } }
+  @media (max-width: 860px) { .si-nav { display: none; } }
+  @media (max-width: 900px) {
+    .si-grid-3, .si-steps { grid-template-columns: 1fr; }
+    .si-about { grid-template-columns: 1fr; gap: var(--space-5); }
+    .si-h2 { font-size: var(--fs-2xl); }
+  }
+  @media (max-width: 768px) {
+    /* no celular o texto tem faixa própria com fundo sólido; o vídeo se assenta embaixo */
+    .si-hero-copy { top: 0; transform: none; width: 100%; padding: calc(60px + var(--space-4)) var(--space-5) var(--space-4); background: var(--color-surface-default); border-bottom: 1px solid var(--color-border-default); }
+    .si-hero-title { font-size: clamp(24px, 6.5vw, 32px); margin-bottom: var(--space-3); }
+    .si-hero-copy p { font-size: var(--fs-sm); margin-bottom: var(--space-4); }
+    .si-rail { height: 2600px; }
+    .si-rail-card { width: 72vw; }
+    @media (prefers-reduced-motion: reduce) { .si-stage { grid-template-columns: 1fr; } .si-hero-copy { border-bottom: 0; } }
+  }
+  @media (max-width: 480px) {
+    .si-brand b { display: none; }
+    .si-hero-ctas { flex-direction: column; align-items: stretch; }
+    .si-hero-ctas .pg-btn { width: 100%; }
+    .si-expand { height: 1900px; }
+  }
+</style>
+</head>
+<body class="si">
+
+<header class="si-header">
+  <div class="si-container si-header-inner">
+    <a href="#" class="si-brand">
+      <img src="../assets/logo-3.svg" alt="Pagani Redes de Proteção — logotipo">
+    </a>
+    <nav class="pg-nav si-nav" aria-label="Navegação principal">
+      <a href="#servicos" class="pg-nav__link">Serviços</a>
+      <a href="#empresa" class="pg-nav__link">A empresa</a>
+      <a href="#como-funciona" class="pg-nav__link">Como funciona</a>
+      <a href="#contato" class="pg-nav__link">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<!-- hero: o vídeo abre em tela cheia; com o scroll ele se assenta à direita (cortado, foco no centro) e o texto surge à esquerda -->
+<section class="si-expand" id="si-expand" aria-label="Apresentação">
+  <div class="si-stage" id="si-stage">
+    <div class="si-media" id="si-media">
+      <video src="../uploads/Installer_tightening_steel_cable_202607251512.mp4" autoplay muted loop playsinline preload="auto" aria-label="Vídeo: instalador tensionando o cabo de aço da rede de proteção"></video>
+    </div>
+    <div class="si-hero-copy" id="si-copy">
+      <h1 class="si-hero-title">Proteção para quem <i>você ama</i></h1>
+      <p>Redes de proteção, telas mosquiteiras e capas de piscina instaladas com cuidado, acabamento limpo e materiais de qualidade.</p>
+      <p>Atendimento na Grande Florianópolis e em outras regiões de Santa Catarina. Consulte a disponibilidade para sua cidade.</p>
+      <div class="si-hero-ctas">
+        <a href="#" class="pg-btn pg-btn--whatsapp">
+          <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.5-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+          Pedir orçamento
+        </a>
+      </div>
+    </div>
+    <span class="si-expand-hint" id="si-hint" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
+      Role para conhecer
+    </span>
+  </div>
+</section>
+
+<!-- 2ª dobra: carrossel de serviços que corre da direita para a esquerda conforme o scroll -->
+<section class="si-rail" id="si-rail" aria-label="Serviços">
+  <div class="si-rail-stage" id="si-rail-stage">
+    <span id="servicos" style="position:absolute; top:0;"></span>
+    <div class="si-rail-track" id="si-rail-track">
+      <article class="si-rail-card">
+        <img src="../uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Rede de proteção instalada em sacada de apartamento">
+        <div class="si-rail-txt"><small>Proteção</small><h3>Redes de proteção</h3><p>Janela, sacada, escada, quadra e gatil. O carro-chefe há mais de vinte anos.</p></div>
+      </article>
+      <article class="si-rail-card">
+        <img src="../uploads/Tela%20mosquiteira.png" alt="Tela mosquiteira com moldura de alumínio em janela">
+        <div class="si-rail-txt"><small>Conforto</small><h3>Telas mosquiteiras</h3><p>Sob medida, com moldura de alumínio, removíveis para limpeza.</p></div>
+      </article>
+      <article class="si-rail-card">
+        <img src="../uploads/Capa%20de%20piscina.png" alt="Capa de proteção azul tensionada sobre piscina residencial">
+        <div class="si-rail-txt"><small>Proteção</small><h3>Capas de piscina</h3><p>Proteção tensionada para piscinas de casas e condomínios.</p></div>
+      </article>
+      <article class="si-rail-card">
+        <img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede instalada em janela de banheiro">
+        <div class="si-rail-txt"><small>Acabamento</small><h3>Molduras</h3><p>Acabamento em alumínio para redes e telas, sem furos aparentes.</p></div>
+      </article>
+      <article class="si-rail-card">
+        <img src="../uploads/Cercado%20areas%20internas.png" alt="Cercado branco montado na sala, delimitando área de brincar">
+        <div class="si-rail-txt"><small>Proteção</small><h3>Cercados para áreas internas</h3><p>Área de brincar delimitada na sala ou no quarto, sem obra.</p></div>
+      </article>
+      <article class="si-rail-card">
+        <img src="../uploads/Cercado%20areas%20externas.jpeg" alt="Cercado metálico verde ao redor de piscina externa">
+        <div class="si-rail-txt"><small>Proteção</small><h3>Cercados para áreas externas</h3><p>Cerca ao redor de piscina, quintal e jardim, com portão que trava.</p></div>
+      </article>
+      <article class="si-rail-card">
+        <img src="../uploads/Port%C3%A3o%20de%20aluminio.png" alt="Portão de alumínio ripado cinza na entrada de uma casa">
+        <div class="si-rail-txt"><small>Acabamento</small><h3>Portões de alumínio</h3><p>Portões leves e resistentes, sob medida para escadas e vãos.</p></div>
+      </article>
+    </div>
+    <div class="si-rail-fade" aria-hidden="true"></div>
+    <div class="si-rail-arrows">
+      <button type="button" class="si-rail-arrow" data-step="-1" aria-label="Serviço anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="si-rail-arrow" data-step="1" aria-label="Próximo serviço"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section class="si-sec si-sec--alt" id="empresa">
+  <div class="si-container si-about">
+    <div>
+      <span class="si-kicker">A empresa</span>
+      <h2 class="si-h2">Uma empresa de bairro que faz um trabalho impecável <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">desde 2003</span></h2>
+      <p class="si-lead">Somos de Santa Catarina. Quem mede é quem instala, e quem instala assina o serviço. Sem terceirização, sem pressa e sem sujeira no seu apartamento.</p>
+      <ul class="si-facts">
+        <li><svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M5 0l5 5-5 5-5-5z"/></svg>Mais de 20 anos instalando redes em Santa Catarina</li>
+        <li><svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M5 0l5 5-5 5-5-5z"/></svg><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Medição gratuita no local, sem compromisso</span></li>
+        <li><svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M5 0l5 5-5 5-5-5z"/></svg><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Garantia de fábrica em todos os materiais</span></li>
+        <li><svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M5 0l5 5-5 5-5-5z"/></svg>Atendemos <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Florianópolis, São José, Palhoça e Biguaçu</span></li>
+      </ul>
+    </div>
+    <img class="si-about-img" src="../uploads/Equipe.jpeg" alt="Instalador da Pagani fixando a rede de proteção na janela de um quarto infantil">
+  </div>
+</section>
+
+<section class="si-sec" id="como-funciona">
+  <div class="si-container">
+    <span class="si-kicker">Como funciona</span>
+    <h2 class="si-h2">Do primeiro contato à janela protegida</h2>
+    <div class="si-steps">
+      <div class="si-step"><h3>Você chama no WhatsApp</h3><p>Manda fotos da janela ou sacada e a gente já orienta. <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Resposta no mesmo dia útil</span>.</p></div>
+      <div class="si-step"><h3>Medição no local</h3><p><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Visita gratuita</span> para medir cada vão e fechar o orçamento sem surpresa.</p></div>
+      <div class="si-step"><h3>Instalação limpa</h3><p>Fios tensionados um a um, conferência ponto a ponto e nada de sujeira. <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Na maioria das casas, meio dia de serviço</span>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="si-sec si-sec--alt">
+  <div class="si-container">
+    <figure class="si-quote">
+      <svg width="28" height="28" viewBox="0 0 10 10" fill="var(--color-brand)" aria-hidden="true" style="display:inline-block"><path d="M5 0l5 5-5 5-5-5z"/></svg>
+      <blockquote><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">“Instalaram num sábado de manhã e à tarde o apartamento já estava arrumado. A rede quase não aparece na janela.”</span></blockquote>
+      <figcaption><span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Cliente em São José — depoimento de exemplo</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="si-sec" id="contato">
+  <div class="si-container si-cta-final">
+    <span class="si-kicker" style="justify-content:center">Contato</span>
+    <h2 class="si-h2">Proteja sua janela esta semana</h2>
+    <p class="si-lead" style="margin: 0 auto var(--space-6)">Chame no WhatsApp <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">(48) 99999-0000</span> ou peça o orçamento pelo formulário. <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Medição gratuita</span> em toda a região.</p>
+    <div class="si-hero-ctas">
+      <a href="#" class="pg-btn pg-btn--whatsapp">
+        <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+        Chamar no WhatsApp
+      </a>
+      <a href="#" class="pg-btn pg-btn--secondary">Pedir orçamento</a>
+    </div>
+  </div>
+</section>
+
+<footer class="si-footer">
+  <div class="si-container">
+    <div class="si-footer-inner">
+      <a href="#" class="si-brand">
+        <img src="../assets/logo-3.svg" alt="Pagani Redes de Proteção — logotipo">
+        <b>PAGANI <em>REDES</em></b>
+      </a>
+      <nav aria-label="Serviços">
+        <a href="#servicos">Redes de proteção</a>
+        <a href="#servicos">Telas mosquiteiras</a>
+        <a href="#servicos">Capas de piscina</a>
+        <a href="#servicos">Molduras, cercados e portões</a>
+      </nav>
+      <nav aria-label="Institucional">
+        <a href="#empresa">A empresa</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div style="font-size: var(--fs-sm); color: var(--color-text-secondary);">
+        <a class="si-social" href="#" aria-label="Instagram da Pagani Redes" title="Instagram"><img src="../assets/icons/instagram-modulo.svg" alt=""><span>@paganiredes</span></a>
+        WhatsApp <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">(48) 99999-0000</span><br>
+        <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Florianópolis · São José · Palhoça · Biguaçu</span>
+      </div>
+    </div>
+    <p class="si-footer-meta">Pagani Redes de Proteção · Santa Catarina · <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">desde 2003</span>. Página de estudo — conteúdo comercial fictício.</p>
+  </div>
+</footer>
+
+<a href="#" class="si-wa-fab" id="si-wa-fab" aria-label="Conversar no WhatsApp" title="Conversar no WhatsApp">
+  <img src="../assets/icons/whatsapp-fab-vermelho.svg" alt="">
+</a>
+
+<script>
+(function () {
+  var section = document.getElementById('si-expand');
+  var stage = document.getElementById('si-stage');
+  var media = document.getElementById('si-media');
+  var hint = document.getElementById('si-hint');
+  var copy = document.getElementById('si-copy');
+  var header = document.querySelector('.si-header');
+  var fab = document.getElementById('si-wa-fab');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    header.classList.add('is-in');
+    fab.classList.add('is-in');
+    return;
+  }
+
+  var ticking = false;
+  function lerp(a, b, p) { return a + (b - a) * p; }
+  function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+  function update() {
+    ticking = false;
+    var r = section.getBoundingClientRect();
+    var range = section.offsetHeight - stage.offsetHeight;
+    if (range <= 0) return;
+    var p = clamp01(-r.top / range);
+    var e = 1 - Math.pow(1 - p, 2); // ease-out
+    var mobile = window.innerWidth < 768;
+    var vw = window.innerWidth, vh = stage.offsetHeight;
+    var gap = mobile ? 16 : 24;
+    // o container encolhe (o vídeo é cortado pelo object-fit: cover, foco no centro)
+    if (mobile) {
+      // assenta abaixo da faixa de texto (medida real do bloco)
+      var copyH = Math.min(vh * 0.62, copy.offsetHeight || vh * 0.46);
+      media.style.left = lerp(0, gap, e) + 'px';
+      media.style.right = lerp(0, gap, e) + 'px';
+      media.style.top = lerp(0, copyH + gap, e) + 'px';
+      media.style.bottom = lerp(0, gap, e) + 'px';
+    } else {
+      // assenta do centro para a direita
+      media.style.left = lerp(0, vw * 0.5, e) + 'px';
+      media.style.right = lerp(0, gap, e) + 'px';
+      media.style.top = lerp(0, gap, e) + 'px';
+      media.style.bottom = lerp(0, gap, e) + 'px';
+    }
+    media.style.borderRadius = (e * 12) + 'px';
+    // o texto surge à esquerda ao mesmo tempo que o vídeo se assenta
+    var k = clamp01((e - 0.35) / 0.5);
+    copy.style.opacity = String(k);
+    copy.style.translate = ((1 - k) * -28) + 'px 0';
+    copy.style.pointerEvents = k > 0.6 ? 'auto' : 'none';
+    // header aparece no primeiro scroll
+    header.classList.toggle('is-in', window.scrollY > 8);
+    fab.classList.toggle('is-in', p > 0.98);
+    hint.style.opacity = p > 0.06 ? '0' : '1';
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+
+// carrossel de serviços: corre da direita para a esquerda conforme o scroll
+(function () {
+  var rail = document.getElementById('si-rail');
+  var stage = document.getElementById('si-rail-stage');
+  var track = document.getElementById('si-rail-track');
+  if (!rail || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vw = window.innerWidth;
+    var r = rail.getBoundingClientRect();
+    var range = rail.offsetHeight - stage.offsetHeight;
+    if (range <= 0) return;
+    var p = Math.min(1, Math.max(0, -r.top / range));
+    var last = track.lastElementChild;
+    var padR = parseFloat(getComputedStyle(track).paddingRight) || 0;
+    // começa com a tela cheia e termina com o último card encostado na direita
+    var distance = Math.max(0, last.offsetLeft + last.offsetWidth + padR - vw);
+    track.style.transform = 'translate3d(' + (-p * distance) + 'px,0,0)';
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+
+  // setas: avançam/voltam um card rolando a página
+  document.querySelectorAll('.si-rail-arrow').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var n = track.children.length;
+      var range = rail.offsetHeight - stage.offsetHeight;
+      window.scrollBy({ top: (range / (n - 1)) * Number(btn.getAttribute('data-step')), behavior: 'smooth' });
+    });
+  });
+})();
+</script>
+</body>
+</html>

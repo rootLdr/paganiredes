@@ -1,0 +1,118 @@
+<!-- @dsCard group="03 · Tipografia" name="Tipografia" subtitle="3 combinações, escolha principal e escala" w=1280 h=2000 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Tipografia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Archivo:wght@600;700;800&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<style>
+  .combo { border:1px solid var(--color-border-default); border-radius: var(--radius-sm); overflow:hidden; }
+  .combo.pick { border-color: var(--color-brand-red); box-shadow: 0 0 0 1px var(--color-brand-red); }
+  .combo-hd { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-surface-sunken); border-bottom:1px solid var(--color-border-default); }
+  .combo-hd .nm { font-weight: var(--fw-semibold); }
+  .combo-bd { padding: var(--space-5); background: var(--color-surface-default); }
+  .badge-pick { font-size: var(--fs-xs); font-weight:var(--fw-bold); color:#fff; background:var(--color-brand-red); padding:3px 10px; border-radius: var(--radius-pill); }
+  .spec-h { margin:0 0 var(--space-1); }
+  .spec-sub { color: var(--color-text-secondary); margin-bottom: var(--space-3); }
+  .why { font-size: var(--fs-sm); color: var(--color-text-secondary); margin-top: var(--space-3); line-height: var(--lh-normal); }
+  .scale-row { display:flex; align-items:baseline; gap: var(--space-4); padding: var(--space-3) 0; border-bottom:1px solid var(--color-border-subtle); }
+  .scale-row .tk { width: 120px; flex:none; font-family:ui-monospace,monospace; font-size:var(--fs-xs); color:var(--color-text-muted); }
+  .scale-row .px { width: 90px; flex:none; font-size:var(--fs-xs); color:var(--color-text-muted); }
+  .scale-row .sample { font-family: var(--font-heading); color: var(--color-text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .fA-h{font-family:"Archivo";font-weight:800} .fA-b{font-family:"Source Sans 3"}
+  .fB-h{font-family:"Roboto Slab";font-weight:700} .fB-b{font-family:"Source Sans 3"}
+  .fC-h{font-family:"Barlow Condensed";font-weight:700} .fC-b{font-family:"Barlow"}
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head">
+    <div>
+      <div class="accent-bar"></div>
+      <span class="eyebrow">Fundamentos · Tipografia</span>
+      <h1>Tipografia</h1>
+      <p class="lead">A Pagani ainda não tem tipografia oficial. Três combinações profissionais (Google Fonts, ótimas em pt-BR com acentos), uma escolha principal justificada e a escala tipográfica do sistema.</p>
+    </div>
+    <button class="theme-toggle" id="themeBtn">◐ Tema escuro</button>
+  </header>
+
+  <section>
+    <h2 class="sec-title">Três combinações</h2>
+    <div class="stack">
+
+      <!-- A -->
+      <div class="combo">
+        <div class="combo-hd"><span class="nm">A · Grotesca robusta</span><span class="tag tag-note">Archivo + Source Sans 3</span></div>
+        <div class="combo-bd">
+          <p class="fA-h" style="font-size:var(--fs-3xl);line-height:var(--lh-tight)">Proteção que se percebe no acabamento</p>
+          <p class="fA-b spec-sub" style="font-size:var(--fs-md)">Redes de proteção, telas mosquiteiras e cercados instalados com precisão em toda a Grande Florianópolis. Áçãõ, coração, instalação — acentuação impecável.</p>
+          <p class="why"><b>Personalidade:</b> sólida, industrial, alinhada ao peso do wordmark. <b>Usar em:</b> marca forte e neutra. <b>Atenção:</b> pode ficar “corporativa demais” sem contraponto humano.</p>
+        </div>
+      </div>
+
+      <!-- B (pick) -->
+      <div class="combo pick">
+        <div class="combo-hd"><span class="nm">B · Slab estrutural</span><span class="badge-pick">✓ Escolha principal</span></div>
+        <div class="combo-bd">
+          <p class="fB-h" style="font-size:var(--fs-3xl);line-height:var(--lh-tight)">Proteção que se percebe no acabamento</p>
+          <p class="fB-b spec-sub" style="font-size:var(--fs-md)">Redes de proteção, telas mosquiteiras e cercados instalados com precisão em toda a Grande Florianópolis. Áçãõ, coração, instalação — acentuação impecável.</p>
+          <p class="why"><b>Principal:</b> Roboto Slab (títulos) · <b>Secundária:</b> Source Sans 3 (corpo). <b>Personalidade:</b> estrutura, engenharia e confiança consolidada — humana sem ser informal. É o que mais afasta a marca de “startup SaaS” e de “seguradora”. <b>Pesos:</b> 400/600/700. <b>Web/mobile:</b> excelente legibilidade em telas pequenas.</p>
+        </div>
+      </div>
+
+      <!-- C -->
+      <div class="combo">
+        <div class="combo-hd"><span class="nm">C · Condensada industrial</span><span class="tag tag-note">Barlow Condensed + Barlow</span></div>
+        <div class="combo-bd">
+          <p class="fC-h" style="font-size:var(--fs-4xl);line-height:var(--lh-tight)">Proteção que se percebe no acabamento</p>
+          <p class="fC-b spec-sub" style="font-size:var(--fs-md)">Redes de proteção, telas mosquiteiras e cercados instalados com precisão em toda a Grande Florianópolis. Áçãõ, coração, instalação — acentuação impecável.</p>
+          <p class="why"><b>Personalidade:</b> forte e econômica no espaço — ótima para fachada, veículo e uniforme. <b>Atenção:</b> condensada cansa em textos longos; reservar para títulos e sinalização.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="note" style="margin-top:var(--space-5)"><strong>Decisão: combinação B.</strong> Roboto Slab + Source Sans 3 entrega personalidade discreta e confiável, diferencia do template genérico, tem pesos médios/semibold sólidos e lê bem em português — títulos institucionais, orçamentos, formulários e botões.</div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">Escala tipográfica</h2>
+    <p class="sec-desc">Títulos em Roboto Slab; corpo em Source Sans 3. Tamanhos em <span class="mono">rem</span> (base 16px).</p>
+    <div class="panel panel-pad">
+      <div class="scale-row"><span class="tk">--fs-5xl</span><span class="px">60 / 3.75rem</span><span class="sample" style="font-size:var(--fs-5xl)">Hero</span></div>
+      <div class="scale-row"><span class="tk">--fs-4xl</span><span class="px">48 / 3rem</span><span class="sample" style="font-size:var(--fs-4xl)">Título de página</span></div>
+      <div class="scale-row"><span class="tk">--fs-3xl</span><span class="px">36 / 2.25rem</span><span class="sample" style="font-size:var(--fs-3xl)">Seção principal</span></div>
+      <div class="scale-row"><span class="tk">--fs-2xl</span><span class="px">30 / 1.875rem</span><span class="sample" style="font-size:var(--fs-2xl)">Subseção</span></div>
+      <div class="scale-row"><span class="tk">--fs-xl</span><span class="px">24 / 1.5rem</span><span class="sample" style="font-size:var(--fs-xl)">Título de card</span></div>
+      <div class="scale-row"><span class="tk">--fs-lg</span><span class="px">20 / 1.25rem</span><span class="sample" style="font-size:var(--fs-lg)">Destaque de texto</span></div>
+      <div class="scale-row"><span class="tk">--fs-md</span><span class="px">18 / 1.125rem</span><span class="sample" style="font-family:var(--font-body);font-size:var(--fs-md)">Lead / introdução (corpo)</span></div>
+      <div class="scale-row"><span class="tk">--fs-base</span><span class="px">16 / 1rem</span><span class="sample" style="font-family:var(--font-body);font-size:var(--fs-base)">Corpo padrão — parágrafos e formulários</span></div>
+      <div class="scale-row"><span class="tk">--fs-sm</span><span class="px">14 / .875rem</span><span class="sample" style="font-family:var(--font-body);font-size:var(--fs-sm)">Apoio, legendas, ajuda de campo</span></div>
+      <div class="scale-row" style="border-bottom:0"><span class="tk">--fs-xs</span><span class="px">12 / .75rem</span><span class="sample" style="font-family:var(--font-body);font-size:var(--fs-xs)">Rótulos, metadados (uso restrito)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">Pesos &amp; regras</h2>
+    <div class="grid grid-3">
+      <div class="panel panel-pad"><div class="kicker">Pesos</div><ul class="clean"><li>400 Regular — corpo</li><li>500 Medium — ênfase leve</li><li>600 Semibold — botões, rótulos, títulos de card</li><li>700 Bold — títulos de seção e página</li></ul></div>
+      <div class="panel panel-pad"><div class="kicker">Entrelinha</div><ul class="clean"><li>Títulos: 1.15</li><li>Subtítulos: 1.3</li><li>Corpo: 1.55</li><li>Leitura longa: 1.7</li></ul></div>
+      <div class="panel panel-pad"><div class="kicker">Boas práticas</div><ul class="clean"><li>Medida de leitura: 60–75 caracteres.</li><li>Não usar Slab em blocos longos de corpo.</li><li>Caixa alta só em rótulos curtos, com <span class="mono">letter-spacing</span> ampliado.</li></ul></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+  <p class="muted" style="font-size:var(--fs-xs)">Fontes livres para uso comercial (Google Fonts / OFL). Fallbacks: Georgia (títulos), system-ui (corpo).</p>
+
+</div></div>
+<script>
+(function(){var b=document.getElementById('themeBtn');if(!b)return;b.addEventListener('click',function(){var r=document.documentElement;var d=r.getAttribute('data-theme')==='dark';r.setAttribute('data-theme',d?'light':'dark');b.textContent=d?'◐ Tema escuro':'◑ Tema claro';});})();
+</script>
+</body>
+</html>

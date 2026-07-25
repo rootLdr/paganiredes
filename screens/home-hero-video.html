@@ -1,0 +1,249 @@
+<!-- @dsCard group="13 · Telas" name="Home — Hero 4 (vídeo)" subtitle="Vídeo reativo ao scroll — página de trabalho" w=1280 h=5000 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Home · Hero 4 (vídeo scroll)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../preview.css">
+<link rel="stylesheet" href="../components/components.css">
+<style>
+  /* Apoio local desta tela. Prefixo .hv- para não vazar. Só tokens (exceção: dimensões de layout). */
+  .ficticio { text-decoration: underline dotted; text-decoration-color: var(--color-text-muted); text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: help; }
+  .hv-doc-title { font-family: var(--font-heading); font-size: var(--fs-4xl); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); color: var(--color-text-primary); margin: var(--space-3) 0 var(--space-2); }
+
+  .hv-frame { background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); box-shadow: var(--shadow-xs); overflow: clip; }
+  .hv-frame a:focus-visible, .hv-frame button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+  /* header do site (mesmo das outras variantes) */
+  .hv-brand { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; border-radius: var(--radius-xs); }
+  .hv-brand__img { height: 34px; width: auto; display: block; }
+  .hv-brand__word { font-family: "Archivo", var(--font-body); font-weight: 900; font-size: var(--fs-md); letter-spacing: 0.02em; color: var(--color-text-primary); line-height: 1; white-space: nowrap; }
+  .hv-brand__word em { font-style: normal; font-weight: 800; color: var(--color-text-muted); }
+  .hv-menu-btn { display: none; }
+  .hv-header-actions { display: flex; align-items: center; gap: var(--space-3); }
+
+  /* seção de scroll: o palco gruda e o vídeo avança com a rolagem */
+  .hv-scrolly { position: relative; height: 4200px; }
+  .hv-stage { position: sticky; top: 0; height: 660px; display: grid; grid-template-columns: 460px 1fr; }
+
+  /* coluna de texto — separada do vídeo, nunca sobreposta */
+  .hv-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-7) var(--space-6); background: var(--color-surface-default); border-right: 1px solid var(--color-border-default); }
+  .hv-title { font-size: var(--fs-3xl); margin: var(--space-3) 0 var(--space-4); text-wrap: pretty; }
+  .hv-sub { font-size: var(--fs-base); color: var(--color-text-secondary); line-height: var(--lh-normal); text-wrap: pretty; }
+  .hv-ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+  .hv-cta-note { margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--color-text-muted); }
+  .hv-caption { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--color-text-secondary); display: flex; align-items: center; gap: var(--space-2); }
+  .hv-caption svg { width: 12px; height: 12px; color: var(--color-brand); flex: none; }
+
+  /* área do vídeo */
+  .hv-media { position: relative; background: var(--color-surface-sunken); min-height: 240px; }
+  .hv-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+  .hv-media canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hv-progress { position: absolute; left: 0; top: 0; height: var(--border-width-2); width: 0%; background: var(--color-brand); z-index: 1; }
+  .hv-hint { position: absolute; bottom: var(--space-4); left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-pill); font-size: var(--fs-xs); font-weight: var(--fw-semibold); color: var(--color-text-secondary); box-shadow: var(--shadow-sm); white-space: nowrap; transition: opacity var(--dur-base) var(--ease-standard); }
+  .hv-hint svg { width: 14px; height: 14px; color: var(--color-text-muted); flex: none; }
+  .hv-fallback { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; text-align: center; padding: var(--space-5); color: var(--color-text-muted); font-size: var(--fs-xs); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: var(--ls-wide); }
+  .hv-media.is-error video, .hv-media.is-error canvas { display: none; }
+  .hv-media.is-error .hv-fallback { display: flex; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hv-scrolly { height: auto; }
+    .hv-stage { position: static; height: auto; }
+    .hv-media { aspect-ratio: 16 / 10; }
+    .hv-media canvas { display: none; }
+    .hv-media video { display: block; }
+  }
+
+  @media (max-width: 1150px) {
+    .hv-nav { display: none; }
+    .hv-menu-btn { display: inline-flex; }
+  }
+  @media (max-width: 900px) {
+    .hv-stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: 760px; }
+    .hv-copy { justify-content: flex-start; padding: var(--space-6) var(--space-5); border-right: 0; border-bottom: 1px solid var(--color-border-default); }
+    .hv-title { font-size: var(--fs-2xl); }
+    .hv-caption { display: none; }
+  }
+  @media (max-width: 480px) {
+    .hv-brand__word { display: none; }
+    .hv-header-wa .hv-wa-label { display: none; }
+    .hv-ctas { flex-direction: column; align-items: stretch; }
+    .hv-ctas .pg-btn { width: 100%; }
+    .hv-stage { height: 820px; }
+  }
+</style>
+</head>
+<body>
+<div class="doc"><div class="wrap">
+
+  <header class="head"><div>
+    <div class="accent-bar"></div>
+    <span class="eyebrow">Telas · Home</span>
+    <p class="hv-doc-title">Hero 4 — vídeo reativo ao scroll</p>
+    <p class="lead">Página de trabalho da variante com vídeo. O texto fica numa coluna própria, fora do vídeo; conforme a página rola, o vídeo avança quadro a quadro — a queda do gato termina segura na rede. As outras variantes seguem em <a href="home-hero.html">Home — Hero</a>.</p>
+  </div></header>
+
+  <div class="note" role="note"><strong>Todo conteúdo comercial desta tela é fictício.</strong> Telefone, cidades, prazos e garantias são exemplos para avaliar o desenho. Os trechos com sublinhado pontilhado aguardam dados reais. Role devagar sobre o vídeo para ver a reação ao scroll.</div>
+
+  <section aria-labelledby="hv-title" style="margin-top: var(--space-6)">
+    <div class="hv-frame">
+      <header class="pg-header">
+        <a href="#" class="hv-brand">
+          <img class="hv-brand__img" src="../assets/logo-tight.svg" alt="Pagani Redes de Proteção — logotipo">
+          <span class="hv-brand__word">PAGANI <em>REDES</em></span>
+        </a>
+        <nav class="pg-nav hv-nav" aria-label="Navegação principal">
+          <a href="#" class="pg-nav__link">Redes de proteção</a>
+          <a href="#" class="pg-nav__link">Telas mosquiteiras</a>
+          <a href="#" class="pg-nav__link">Capas de piscina</a>
+          <a href="#" class="pg-nav__link">A empresa</a>
+          <a href="#" class="pg-nav__link">Contato</a>
+        </nav>
+        <div class="hv-header-actions">
+          <a href="#" class="pg-btn pg-btn--whatsapp hv-header-wa">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+            <span class="hv-wa-label">WhatsApp</span>
+          </a>
+          <button type="button" class="pg-btn pg-btn--icon pg-btn--tertiary hv-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+            <svg class="pg-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="hv-scrolly" id="hv-scrolly">
+        <div class="hv-stage" id="hv-stage">
+          <div class="hv-copy">
+            <span class="eyebrow">Redes de proteção em Santa Catarina</span>
+            <h1 class="hv-title" id="hv-title">Rede de proteção em janela, sacada e escada, para casa com criança ou pet</h1>
+            <p class="hv-sub">Instalamos redes de proteção, telas mosquiteiras e capas de piscina em <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">Florianópolis, São José, Palhoça e Biguaçu</span> — com <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">medição no local</span>, instalação limpa e <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">garantia de fábrica</span>.</p>
+            <div class="hv-ctas">
+              <a href="#" class="pg-btn pg-btn--whatsapp">
+                <svg class="pg-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1 3.7 3.8-1A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-5.6-4.9c-.4-.7-.7-1.5-.7-2.3 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1 1.4 1.8 1.9.2.1.4.1.5 0l.6-.7c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.5 0 .9Z"/></svg>
+                Chamar no WhatsApp
+              </a>
+              <a href="#orcamento" class="pg-btn pg-btn--secondary">Pedir orçamento</a>
+            </div>
+            <p class="hv-cta-note">WhatsApp <span class="ficticio" title="Conteúdo fictício — aguardando dados reais do cliente">(48) 99999-0000</span></p>
+            <p class="hv-caption">
+              <svg viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M5 0l5 5-5 5-5-5z"/></svg>
+              <span id="hv-caption-text">A queda acontece no seu ritmo — role a página</span>
+            </p>
+          </div>
+          <div class="hv-media" id="hv-media">
+            <video id="hv-video" src="../uploads/Gato_caindo_e_acordando_seguro_202607171937.mp4" muted playsinline preload="none" aria-label="Vídeo: gato cai e acorda seguro sobre a rede de proteção"></video>
+            <canvas id="hv-canvas" role="img" aria-label="Sequência: gato cai e acorda seguro sobre a rede de proteção"></canvas>
+            <div class="hv-progress" id="hv-progress" aria-hidden="true"></div>
+            <span class="hv-hint" id="hv-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
+              Role para ver a rede segurar a queda
+            </span>
+            <div class="hv-fallback"><span>Vídeo não carregou — verifique o arquivo em uploads/</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div></div>
+<script>
+(function () {
+  var video = document.getElementById('hv-video');
+  var canvas = document.getElementById('hv-canvas');
+  var section = document.getElementById('hv-scrolly');
+  var stage = document.getElementById('hv-stage');
+  var bar = document.getElementById('hv-progress');
+  var hint = document.getElementById('hv-hint');
+  var media = document.getElementById('hv-media');
+  var captionEl = document.getElementById('hv-caption-text');
+  var captions = [
+    [0.00, 'A queda acontece no seu ritmo — role a página'],
+    [0.35, 'É rápido demais para reagir…'],
+    [0.70, '…mas a rede já estava lá.'],
+    [0.92, 'Acordou seguro. É para isso que instalamos.']
+  ];
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    video.setAttribute('controls', '');
+    video.setAttribute('preload', 'metadata');
+    hint.style.display = 'none';
+    bar.style.display = 'none';
+    video.addEventListener('error', function () { media.classList.add('is-error'); });
+    return;
+  }
+
+  // scrub por sequência de quadros (mp4 tem keyframes esparsos e engasga no seek)
+  var N = 64;
+  var frames = new Array(N);
+  var loaded = 0, firstReady = false, current = -1;
+  var ctx = canvas.getContext('2d');
+
+  function src(i) { return 'hv-frames/f' + String(i).padStart(2, '0') + '.jpg'; }
+  for (var i = 0; i < N; i++) {
+    (function (i) {
+      var img = new Image();
+      img.onload = function () {
+        frames[i] = img; loaded++;
+        if (i === 0) { firstReady = true; draw(0); }
+        if (loaded === N) update();
+      };
+      img.onerror = function () { if (i === 0) media.classList.add('is-error'); };
+      img.src = src(i);
+    })(i);
+  }
+
+  function fit() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = media.clientWidth, h = media.clientHeight;
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+    }
+  }
+  function draw(i) {
+    var img = frames[i];
+    if (!img) { // quadro ainda carregando: usa o mais próximo já disponível
+      for (var d = 1; d < N; d++) {
+        if (frames[i - d]) { img = frames[i - d]; break; }
+        if (frames[i + d]) { img = frames[i + d]; break; }
+      }
+      if (!img) return;
+    }
+    fit();
+    var cw = canvas.width, ch = canvas.height;
+    var s = Math.max(cw / img.width, ch / img.height);
+    var dw = img.width * s, dh = img.height * s;
+    ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    current = i;
+  }
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    if (!firstReady) return;
+    var r = section.getBoundingClientRect();
+    var range = section.offsetHeight - stage.offsetHeight;
+    if (range <= 0) return;
+    var p = Math.min(1, Math.max(0, -r.top / range));
+    var idx = Math.min(N - 1, Math.round(p * (N - 1)));
+    if (idx !== current) draw(idx);
+    bar.style.width = (p * 100) + '%';
+    hint.style.opacity = p > 0.08 ? '0' : '1';
+    for (var i = captions.length - 1; i >= 0; i--) {
+      if (p >= captions[i][0]) { captionEl.textContent = captions[i][1]; break; }
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { current = -1; onScroll(); }, { passive: true });
+})();
+</script>
+</body>
+</html>
