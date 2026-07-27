@@ -188,6 +188,21 @@
     .si-wa-fab { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); }
     .si-footer { padding-bottom: calc(var(--space-7) + env(safe-area-inset-bottom)); }
   }
+
+  /* ============ GALERIA: acordeão no mouse, arrastar no dedo ============
+     .sv-gal é um acordeão de ripas que abre no :hover. Sem hover, as ripas
+     ficariam todas fechadas e as fotos viram tiras inúteis. Em ponteiro
+     grosseiro ela vira carrossel de arrastar, com a foto seguinte espiando
+     na borda para sinalizar que há mais. Mesmo HTML, mesmos alt. */
+  @media (hover: none) {
+    .sv-gal { height: auto; display: grid; grid-auto-flow: column;
+      grid-auto-columns: 78%; gap: 8px; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-padding: 0;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .sv-gal::-webkit-scrollbar { display: none; }
+    .sv-gal-slat { flex: none; aspect-ratio: 4 / 5; scroll-snap-align: center;
+      filter: none; }
+  }
 </style>
 </head>
 <body id="topo">

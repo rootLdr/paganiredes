@@ -344,6 +344,40 @@
     .si-wa-fab { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); }
     .si-footer { padding-bottom: calc(var(--space-7) + env(safe-area-inset-bottom)); }
   }
+
+  /* ================= CELULAR: sem scroll sequestrado =================
+     No desktop o hero e o carrossel são conduzidos pelo scroll (sticky +
+     trilho longo). No dedo isso vira ~4.500px de rolagem sem avanço de
+     conteúdo. Aqui os dois viram blocos normais, e o carrossel passa a ser
+     arrastável com o polegar (scroll-snap) — o gesto que o usuário espera.
+     O JS correspondente já desliga sozinho em <=768px. */
+  @media (max-width: 768px) {
+    .si-header { position: sticky; transform: none; transition: none; }
+
+    .si-expand { height: auto; }
+    .si-stage { position: static; height: auto; min-height: 0; overflow: visible;
+      display: flex; flex-direction: column; gap: var(--space-5);
+      padding: calc(60px + var(--space-5)) var(--space-5) var(--space-6); }
+    .si-stage::before { display: none; }
+    .si-media { position: static; inset: auto; order: 2; aspect-ratio: 4 / 3;
+      border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+    .si-hero-copy { position: static; order: 1; width: auto; padding: 0;
+      transform: none; translate: none !important; background: none; border-bottom: 0;
+      opacity: 1 !important; pointer-events: auto !important; }
+    .si-expand-hint { display: none; }
+
+    .si-rail { height: auto; }
+    .si-rail-stage { position: static; height: auto; min-height: 0;
+      padding: var(--space-7) 0; overflow: visible; }
+    .si-rail-track { transform: none !important; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-padding: 0 var(--space-5);
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      padding-bottom: var(--space-2); }
+    .si-rail-track::-webkit-scrollbar { display: none; }
+    .si-rail-slot { width: 78vw; scroll-snap-align: center; }
+    /* setas e barra de progresso pertencem ao modo conduzido por scroll */
+    .si-rail-arrows, .si-rail-fade, .si-rail-progress { display: none; }
+  }
 </style>
 </head>
 <body class="si">
@@ -710,7 +744,7 @@
     }, 1180);
   }
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 768px)').matches) {
     header.classList.add('is-in');
     playHeroFab();
     startTypewriter();
@@ -805,7 +839,7 @@
   var rail = document.getElementById('si-rail');
   var stage = document.getElementById('si-rail-stage');
   var track = document.getElementById('si-rail-track');
-  if (!rail || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!rail || window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 768px)').matches) return;
 
   var ticking = false;
   function update() {
