@@ -195,13 +195,26 @@
      grosseiro ela vira carrossel de arrastar, com a foto seguinte espiando
      na borda para sinalizar que há mais. Mesmo HTML, mesmos alt. */
   @media (hover: none) {
-    .sv-gal { height: auto; display: grid; grid-auto-flow: column;
-      grid-auto-columns: 78%; gap: 8px; overflow-x: auto;
+    /* CAUSA DA GALERIA "QUEBRADA": .sv-gal nasce com opacity 0 e só aparece
+       quando o JS marca .is-in, com transição de 1600ms — e o observador
+       DESMARCA ao sair da tela. Rolando com o polegar, as galerias de baixo
+       são atravessadas antes de terminarem de surgir e ficam em branco. Só a
+       primeira escapava, porque já está visível quando a página carrega.
+       Em toque a revelação sai de cena: a foto está sempre visível. */
+    .sv-item .sv-gal,
+    .sv-item .sv-item-body { opacity: 1 !important; transform: none !important;
+      transition: none !important; }
+    /* e o acordeão de ripas vira carrossel de arrastar, em TODAS as galerias
+       (par e ímpar — a alternância esquerda/direita é só `order`) */
+    .sv-item .sv-gal { height: auto; display: grid; grid-auto-flow: column;
+      grid-auto-columns: 86%; gap: 8px; overflow-x: auto; order: 0;
       scroll-snap-type: x mandatory; scroll-padding: 0;
       scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-    .sv-gal::-webkit-scrollbar { display: none; }
-    .sv-gal-slat { flex: none; aspect-ratio: 4 / 5; scroll-snap-align: center;
-      filter: none; }
+    .sv-item .sv-gal::-webkit-scrollbar { display: none; }
+    /* 4:3 deitado: são fotos de obra em paisagem — o recorte 4:5 em pé
+       cortava demais, que é o "ficou feio" da primeira galeria */
+    .sv-item .sv-gal-slat { flex: none; aspect-ratio: 4 / 3; filter: none;
+      scroll-snap-align: center; }
   }
 </style>
 </head>

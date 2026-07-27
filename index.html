@@ -354,16 +354,15 @@
   @media (max-width: 768px) {
     .si-header { position: sticky; transform: none; transition: none; }
 
+    /* O vídeo CONTINUA em tela cheia — o que sai é só o trilho de 1900px que
+       obrigava a rolar sem o conteúdo andar. O palco vira uma tela de altura
+       fixa (100svh, estável com a barra de URL) e a faixa de texto por cima
+       segue exatamente como o desenho original de <=768px já previa. */
     .si-expand { height: auto; }
-    .si-stage { position: static; height: auto; min-height: 0; overflow: visible;
-      display: flex; flex-direction: column; gap: var(--space-5);
-      padding: calc(60px + var(--space-5)) var(--space-5) var(--space-6); }
-    .si-stage::before { display: none; }
-    .si-media { position: static; inset: auto; order: 2; aspect-ratio: 4 / 3;
-      border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
-    .si-hero-copy { position: static; order: 1; width: auto; padding: 0;
-      transform: none; translate: none !important; background: none; border-bottom: 0;
-      opacity: 1 !important; pointer-events: auto !important; }
+    .si-stage { position: static; height: 100svh; min-height: 480px; }
+    .si-media { position: absolute; inset: 0; border-radius: 0; }
+    .si-hero-copy { opacity: 1 !important; pointer-events: auto !important;
+      translate: none !important; }
     .si-expand-hint { display: none; }
 
     .si-rail { height: auto; }
