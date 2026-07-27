@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="components/components.css">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../components/components.css">
 <style>
   /* Página do site (sem chrome de catálogo). Prefixo .si-. Só tokens (exceção: dimensões de layout). */
   *, *::before, *::after { box-sizing: border-box; }
@@ -19,8 +19,8 @@
   body { margin: 0; background: var(--color-surface-default); font-family: var(--font-body); color: var(--color-text-primary); }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   a { color: var(--color-interactive); }
-  @media (hover: hover) and (pointer: fine) { a:not(.pg-btn):not(.si-brand):not(.si-fab):not(.si-wa-fab):not(.si-rail-card):hover { color: var(--color-brand); } }
-  @media (hover: hover) and (pointer: fine) { .si-wa-fab, .si-wa-fab:hover, .si-fab, .si-fab:hover { text-decoration: none; } }
+  a:not(.pg-btn):not(.si-brand):not(.si-fab):not(.si-wa-fab):not(.si-rail-card):hover { color: var(--color-brand); }
+  .si-wa-fab, .si-wa-fab:hover, .si-fab, .si-fab:hover { text-decoration: none; }
   .si a:focus-visible, .si button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
   .si-note { background: var(--color-surface-sunken); border-bottom: 1px solid var(--color-border-default); padding: var(--space-2) var(--space-5); font-size: var(--fs-xs); color: var(--color-text-secondary); text-align: center; }
@@ -41,19 +41,19 @@
   .si-wa-disc { position: relative; display: grid; place-items: center; width: 44px; height: 44px; transition: width var(--dur-base, 220ms) var(--ease-decelerate), height var(--dur-base, 220ms) var(--ease-decelerate); }
   .si-wa-disc::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25D366; opacity: 0.35; animation: si-fab-pulse 2.4s var(--ease-decelerate) infinite; }
   .si-wa-fab img { position: relative; width: 100%; height: 100%; display: block; filter: drop-shadow(0 6px 14px rgba(16,32,22,0.22)); transition: filter var(--dur-base, 220ms) ease; }
-  @media (hover: hover) and (pointer: fine) { .si-wa-fab:hover .si-wa-disc, .si-wa-fab:focus-visible .si-wa-disc { width: 56px; height: 56px; } }
-  @media (hover: hover) and (pointer: fine) { .si-wa-fab:hover img { filter: drop-shadow(0 12px 22px rgba(16,32,22,0.3)); } }
+  .si-wa-fab:hover .si-wa-disc, .si-wa-fab:focus-visible .si-wa-disc { width: 56px; height: 56px; }
+  .si-wa-fab:hover img { filter: drop-shadow(0 12px 22px rgba(16,32,22,0.3)); }
   .si-wa-fab:active .si-wa-disc { width: 52px; height: 52px; }
   .si-wa-fab:focus-visible { outline: 2px solid var(--red-500); outline-offset: 6px; border-radius: var(--radius-pill); }
   .si-wa-label { display: flex; align-items: center; height: 56px; margin-right: -14px; background: var(--color-surface-default); color: var(--color-text-primary); font-family: var(--font-body); font-size: var(--fs-base); font-weight: var(--fw-semibold); white-space: nowrap; border-radius: var(--radius-pill); border: 1px solid var(--color-border-default); box-shadow: 0 6px 16px rgba(16,32,22,0.14); max-width: 0; padding: 0 14px 0 0; overflow: hidden; opacity: 0; transition: max-width var(--dur-slow, 360ms) var(--ease-decelerate), opacity var(--dur-base, 220ms) ease, padding var(--dur-slow, 360ms) var(--ease-decelerate); }
-  @media (hover: hover) and (pointer: fine) { .si-wa-fab:hover .si-wa-label, .si-wa-fab:focus-visible .si-wa-label { max-width: 340px; opacity: 1; padding-left: var(--space-5); padding-right: calc(var(--space-5) + 14px); } }
+  .si-wa-fab:hover .si-wa-label, .si-wa-fab:focus-visible .si-wa-label { max-width: 340px; opacity: 1; padding-left: var(--space-5); padding-right: calc(var(--space-5) + 14px); }
   @keyframes si-fab-pulse { 0% { transform: scale(1); opacity: 0.35; } 70% { transform: scale(1.55); opacity: 0; } 100% { transform: scale(1.55); opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .si-wa-fab { transition: none; opacity: 1; translate: 0 0; pointer-events: auto; } .si-wa-disc::before { animation: none; opacity: 0.18; } .si-wa-fab img, .si-wa-label, .si-wa-disc { transition-duration: 1ms; } }
   .si-header-actions { display: flex; align-items: center; gap: var(--space-3); }
 
   /* ---- hero: vídeo fullscreen que se assenta à direita ---- */
   .si-expand { position: relative; height: 2600px; }
-  .si-stage { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 560px; overflow: clip; background: var(--color-surface-sunken); }
+  .si-stage { position: sticky; top: 0; height: 100vh; min-height: 560px; overflow: clip; background: var(--color-surface-sunken); }
   /* trama de losangos bem sutil ao fundo */
   .si-stage::before { content: ""; position: absolute; inset: 0; opacity: 0.5;
     background-image: linear-gradient(45deg, var(--color-border-subtle) 1px, transparent 1px), linear-gradient(-45deg, var(--color-border-subtle) 1px, transparent 1px);
@@ -75,7 +75,7 @@
   /* CTA do hero: pílula que nasce redonda e se estica escrevendo a frase (versão B do catálogo) */
   .si-fab { position: relative; display: flex; align-items: center; box-sizing: border-box; height: 56px; border-radius: var(--radius-pill); text-decoration: none; color: #FFFFFF; background: #0E8A2D; box-shadow: 0 10px 24px rgba(8,60,24,0.28), inset 0 -2px 0 rgba(0,0,0,0.18); overflow: hidden; opacity: 0; pointer-events: none; }
   .si-fab { transition: box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard); }
-  @media (hover: hover) and (pointer: fine) { .si-fab:hover { color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(8,60,24,0.32), inset 0 -2px 0 rgba(0,0,0,0.18); } }
+  .si-fab:hover { color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(8,60,24,0.32), inset 0 -2px 0 rgba(0,0,0,0.18); }
   .si-fab:active { transform: translateY(0); }
   .si-fab__disc { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; display: grid; place-items: center; }
   .si-fab__disc img { width: 100%; height: 100%; display: block; }
@@ -119,14 +119,14 @@
 
   /* ---- carrossel de serviços (cartões escuros arredondados, foto colorida) ---- */
   .si-rail { position: relative; height: 3200px; background: var(--color-surface-default); }
-  .si-rail-stage { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 480px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: var(--space-5); padding-top: 60px; box-sizing: border-box; }
+  .si-rail-stage { position: sticky; top: 0; height: 100vh; min-height: 480px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: var(--space-5); padding-top: 60px; box-sizing: border-box; }
   .si-rail-head { margin: 0 var(--space-5); padding-left: var(--space-5); border-left: var(--border-width-4) solid var(--color-brand); display: flex; flex-direction: column; gap: var(--space-2); }
   .si-rail-eyebrow { font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-text-muted); }
   .si-rail-title { margin: 0; font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-3xl); line-height: var(--lh-snug); letter-spacing: var(--ls-tight); color: var(--color-text-primary); text-wrap: balance; }
   .si-rail-sub { margin: 0; max-width: 52ch; font-size: var(--fs-md); line-height: var(--lh-normal); color: var(--color-text-secondary); text-wrap: pretty; }
   .si-rail-link { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--color-brand); text-decoration: none; }
   .si-rail-link svg { width: 15px; height: 15px; transition: transform var(--dur-base) var(--ease-standard); }
-  @media (hover: hover) and (pointer: fine) { .si-rail-link:hover svg { transform: translateX(4px); } }
+  .si-rail-link:hover svg { transform: translateX(4px); }
   .si-rail-track { display: flex; gap: var(--space-4); padding: 0 var(--space-5); align-items: center; will-change: transform; }
   .si-rail-slot { position: relative; flex: 0 0 auto; width: clamp(250px, 25vw, 340px); aspect-ratio: 5 / 6;
     --radius: 24; --border-size: 2px; --spotlight-size: 460px; --outer: 0.7;
@@ -138,7 +138,7 @@
   .si-rail-card:focus-visible { outline: none; box-shadow: var(--focus-ring); }
   .si-rail-more { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: #FFFFFF; }
   .si-rail-more svg { width: 15px; height: 15px; transition: transform var(--dur-base) var(--ease-standard); }
-  @media (hover: hover) and (pointer: fine) { .si-rail-card:hover .si-rail-more svg { transform: translateX(4px); } }
+  .si-rail-card:hover .si-rail-more svg { transform: translateX(4px); }
   .si-rail-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .si-rail-card::after { content: ""; position: absolute; inset: auto 0 0 0; height: 66%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4) 50%, transparent); }
   .si-rail-txt { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: var(--space-5) var(--space-6); }
@@ -148,7 +148,7 @@
   .si-rail-fade { position: absolute; right: 0; top: 0; bottom: 0; width: 8%; background: linear-gradient(to left, var(--color-surface-default), transparent); pointer-events: none; z-index: 3; }
   .si-rail-arrows { display: flex; justify-content: center; gap: var(--space-3); }
   .si-rail-arrow { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-surface-default); border: 1px solid var(--color-border-default); color: var(--color-text-secondary); cursor: pointer; transition: background var(--dur-base) var(--ease-standard); }
-  @media (hover: hover) and (pointer: fine) { .si-rail-arrow:hover { background: var(--color-surface-sunken); } }
+  .si-rail-arrow:hover { background: var(--color-surface-sunken); }
   .si-rail-arrow:focus-visible { outline: none; box-shadow: var(--focus-ring); }
   .si-rail-arrow svg { width: 22px; height: 22px; }
   @media (max-height: 700px) {
@@ -200,7 +200,7 @@
   .si-jn-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); padding-top: var(--space-6); border-top: 1px solid var(--color-border-subtle); }
   .si-jn-foot p { margin: 0; font-family: var(--font-heading); font-size: var(--fs-lg); color: var(--color-text-primary); }
   .si-jn-cta { display: inline-flex; align-items: center; gap: var(--space-2); height: 44px; padding: 0 var(--space-6); border-radius: var(--radius-pill); background: var(--color-brand); color: #FFFFFF; font-size: var(--fs-base); font-weight: var(--fw-semibold); text-decoration: none; transition: background var(--dur-base) var(--ease-standard); }
-  @media (hover: hover) and (pointer: fine) { .si-jn-cta:hover { background: var(--color-interactive-hover); color: #FFFFFF; } }
+  .si-jn-cta:hover { background: var(--color-interactive-hover); color: #FFFFFF; }
   @media (max-width: 900px) {
     /* no celular o trilho vira vertical e a régua acompanha a leitura */
     .si-jn-track { grid-template-columns: 1fr; gap: var(--space-6); padding-left: var(--space-6); }
@@ -223,15 +223,15 @@
   .si-footer-brandmark { display: inline-flex; align-items: center; gap: var(--space-3); text-decoration: none; }
   .si-footer-brandmark img { height: 26px; width: auto; display: block; filter: brightness(0) invert(1); }
   .si-footer-brandmark b { font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-lg); line-height: 1.1; color: #FFFFFF; }
-  @media (hover: hover) and (pointer: fine) { .si-footer-brandmark:hover b { color: rgba(255,255,255,0.72); } }
+  .si-footer-brandmark:hover b { color: rgba(255,255,255,0.72); }
   .si-footer-brand p { margin: 0; font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: rgba(255,255,255,0.72); max-width: 40ch; text-wrap: pretty; }
   .si-footer-ig { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: #FFFFFF; text-decoration: none; }
   .si-footer-ig img { width: 20px; height: 20px; }
-  @media (hover: hover) and (pointer: fine) { .si-footer-ig:hover { color: rgba(255,255,255,0.7); } }
+  .si-footer-ig:hover { color: rgba(255,255,255,0.7); }
   .si-footer-col h2 { margin: 0 0 var(--space-4); font-family: var(--font-body); font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: rgba(255,255,255,0.5); }
   .si-footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); font-size: var(--fs-sm); line-height: var(--lh-normal); color: rgba(255,255,255,0.72); }
   .si-footer-col a { color: #FFFFFF; text-decoration: none; }
-  @media (hover: hover) and (pointer: fine) { .si-footer-col a:hover { color: rgba(255,255,255,0.65); } }
+  .si-footer-col a:hover { color: rgba(255,255,255,0.65); }
   .si-footer-note { color: rgba(255,255,255,0.5); font-size: var(--fs-xs); }
   .si-footer-meta { max-width: none; margin: var(--space-7) 0 0; padding-top: var(--space-5); border-top: 1px solid rgba(255,255,255,0.14); font-size: var(--fs-xs); color: rgba(255,255,255,0.5); }
   @media (max-width: 1000px) { .si-footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
@@ -244,13 +244,13 @@
   .si-logos-title { margin: 0; font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-lg); line-height: var(--lh-snug); color: var(--color-text-secondary); text-wrap: balance; }
   .si-logos-mask { position: relative; width: 100%; overflow: hidden; }
   .si-logos-track { display: flex; width: max-content; animation: si-marquee 38s linear infinite; }
-  @media (hover: hover) and (pointer: fine) { .si-logos-mask:hover .si-logos-track { animation-play-state: paused; } }
+  .si-logos-mask:hover .si-logos-track { animation-play-state: paused; }
   .si-logo { flex: none; width: 168px; height: 76px; margin-right: var(--space-6); display: flex; align-items: center; justify-content: center; }
   /* marcas quadradas ganham um pouco mais de fôlego que as deitadas */
   .si-logo--tall img { max-height: 76px; }
   .si-logo--wide img { max-height: 52px; }
   .si-logo img { max-width: 100%; max-height: 64px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.6; transition: filter var(--dur-base) var(--ease-standard), opacity var(--dur-base) var(--ease-standard); }
-  @media (hover: hover) and (pointer: fine) { .si-logo:hover img { filter: none; opacity: 1; } }
+  .si-logo:hover img { filter: none; opacity: 1; }
   .si-logos-edge { position: absolute; top: 0; bottom: 0; width: 56px; pointer-events: none; z-index: 2; }
   .si-logos-edge--l { left: 0; background: linear-gradient(to right, var(--color-surface-sunken), transparent); }
   .si-logos-edge--r { right: 0; background: linear-gradient(to left, var(--color-surface-sunken), transparent); }
@@ -295,7 +295,9 @@
 
   .si-social { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; color: var(--color-text-primary); font-weight: var(--fw-semibold); margin-bottom: var(--space-3); }
   .si-social img { width: 32px; height: 32px; display: block; }
-  @media (hover: hover) and (pointer: fine) { .si-social:hover { color: var(--color-brand); } }
+  .si-social:hover { color: var(--color-brand); }
+
+
   @media (prefers-reduced-motion: reduce) {
     .si-header { position: sticky; transform: none; transition: none; }
     .si-expand { height: auto; }
@@ -334,16 +336,6 @@
     .si-fab { height: 52px; }
     .si-expand { height: 1900px; }
   }
-
-  /* ---- ajustes para toque / telas pequenas (aplicado na publicação) ---- */
-  @media (hover: none) {
-    /* o spotlight persegue o cursor: em toque é custo de GPU sem retorno */
-    [data-glow]::before, [data-glow]::after, [data-glow] [data-glow] { display: none; }
-  }
-  @supports (padding: env(safe-area-inset-bottom)) {
-    .si-wa-fab { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); }
-    .si-footer { padding-bottom: calc(var(--space-7) + env(safe-area-inset-bottom)); }
-  }
 </style>
 </head>
 <body class="si">
@@ -351,7 +343,7 @@
 <header class="si-header">
   <div class="si-container si-header-inner">
     <a href="#" class="si-brand">
-      <img src="assets/logo-3.svg" alt="Pagani Redes de Proteção — logotipo">
+      <img src="../assets/logo-3.svg" alt="Pagani Redes de Proteção — logotipo">
     </a>
     <nav class="pg-nav si-nav" aria-label="Navegação principal">
       <a href="#servicos" class="pg-nav__link">Serviços</a>
@@ -364,7 +356,7 @@
 <section class="si-expand" id="si-expand" aria-label="Apresentação">
   <div class="si-stage" id="si-stage">
     <div class="si-media" id="si-media">
-      <video id="si-video" src="uploads/Hero 2.mp4" autoplay muted loop playsinline preload="none" aria-label="Vídeo: instalação da rede de proteção Pagani"></video>
+      <video id="si-video" src="../uploads/Hero 2.mp4" autoplay muted loop playsinline preload="auto" aria-label="Vídeo: instalação da rede de proteção Pagani"></video>
     </div>
     <div class="si-hero-copy" id="si-copy">
       <h1 class="si-hero-title">Proteção sob medida para quem <i id="si-type" data-words="você ama|depende de você|faz parte da família|espera você chegar|faz sua casa ser um lar">você ama</i></h1>
@@ -372,7 +364,7 @@
       <p>Atendimento em Florianópolis e diversas cidades de Santa Catarina. Orçamento rápido e sem compromisso.</p>
       <div class="si-hero-ctas">
         <a href="https://wa.me/5548991075991" class="si-fab" id="si-hero-fab" target="_blank" rel="noopener" aria-label="Pedir orçamento no WhatsApp">
-          <span class="si-fab__disc" aria-hidden="true"><img src="assets/icons/whatsapp-branco.svg" alt="" loading="lazy" decoding="async"></span>
+          <span class="si-fab__disc" aria-hidden="true"><img src="../assets/icons/whatsapp-branco.svg" alt=""></span>
           <span class="si-fab__text" aria-hidden="true">Pedir orçamento</span>
         </a>
       </div>
@@ -398,49 +390,49 @@
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#redes">
-        <img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Rede de proteção instalada em sacada de apartamento" loading="lazy" decoding="async">
+        <img src="../uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Rede de proteção instalada em sacada de apartamento">
         <div class="si-rail-txt"><small>Proteção</small><h3>Redes de proteção</h3><p>Janelas, sacadas, escadas e mezaninos. Polietileno 100% virgem, malha 5×5 cm, tratamento anti-UV.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#telas">
-        <img src="uploads/Tela%20mosquiteira.png" alt="Tela mosquiteira com moldura de alumínio em janela" loading="lazy" decoding="async">
+        <img src="../uploads/Tela%20mosquiteira.png" alt="Tela mosquiteira com moldura de alumínio em janela">
         <div class="si-rail-txt"><small>Conforto</small><h3>Telas mosquiteiras</h3><p>Perfil de alumínio e tela em fibra de vidro revestida em PVC. Ventila sem deixar entrar insetos.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#capas">
-        <img src="uploads/Capa%20de%20piscina.png" alt="Capa de proteção azul tensionada sobre piscina residencial" loading="lazy" decoding="async">
+        <img src="../uploads/Capa%20de%20piscina.png" alt="Capa de proteção azul tensionada sobre piscina residencial">
         <div class="si-rail-txt"><small>Proteção</small><h3>Capas de piscina</h3><p>Dois produtos diferentes: capa de segurança, que suporta peso, e capa de folhas, só para reter sujeira.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#molduras">
-        <img src="uploads/Molduras.jpeg" alt="Moldura de alumínio com rede instalada em janela de banheiro" loading="lazy" decoding="async">
+        <img src="../uploads/Molduras.jpeg" alt="Moldura de alumínio com rede instalada em janela de banheiro">
         <div class="si-rail-txt"><small>Sem furar</small><h3>Molduras em alumínio</h3><p>Para a janela que não pode ser perfurada — a saída de quem mora de aluguel. Mais de 20 anos de vida útil.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#cercados-internos">
-        <img src="uploads/Cercado%20areas%20internas.png" alt="Cercado branco montado na sala, delimitando área de brincar" loading="lazy" decoding="async">
+        <img src="../uploads/Cercado%20areas%20internas.png" alt="Cercado branco montado na sala, delimitando área de brincar">
         <div class="si-rail-txt"><small>Proteção</small><h3>Cercados para áreas internas</h3><p>Escada e área de brincar isoladas sob medida. Alumínio com tela de poliéster revestida em PVC.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#cercados-externos">
-        <img src="uploads/Cercado%20areas%20externas.jpeg" alt="Cercado metálico verde ao redor de piscina externa" loading="lazy" decoding="async">
+        <img src="../uploads/Cercado%20areas%20externas.jpeg" alt="Cercado metálico verde ao redor de piscina externa">
         <div class="si-rail-txt"><small>Proteção</small><h3>Cercados para áreas externas</h3><p>Barreira ao redor da piscina e do quintal, feita sob medida, sem fechar a vista.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
       <div class="si-rail-slot" data-glow>
         <div data-glow></div>
         <a class="si-rail-card" href="servicos.html#portoes">
-        <img src="uploads/Port%C3%A3o%20de%20aluminio.png" alt="Portão de alumínio ripado cinza na entrada de uma casa" loading="lazy" decoding="async">
+        <img src="../uploads/Port%C3%A3o%20de%20aluminio.png" alt="Portão de alumínio ripado cinza na entrada de uma casa">
         <div class="si-rail-txt"><small>Acesso</small><h3>Portões em alumínio</h3><p>Alumínio sob medida, com rede opcional, para controlar o acesso de crianças e pets.</p><span class="si-rail-more">Ver detalhes<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></div>
       </a>
       </div>
@@ -461,27 +453,27 @@
       <p class="si-lead">Somos uma empresa catarinense especializada em soluções de proteção sob medida. Cuidamos de todas as etapas do serviço, desde a medição até a instalação, com equipe própria, atendimento direto e responsabilidade técnica.</p>
       <a class="pg-btn pg-btn--primary si-about-btn" href="empresa-historia.html">Conheça nossa história</a>
     </div>
-    <img class="si-about-img si-reveal" src="uploads/Equipe.jpeg" alt="Instalador da Pagani fixando a rede de proteção na janela de um quarto infantil" loading="lazy" decoding="async">
+    <img class="si-about-img si-reveal" src="../uploads/Equipe.jpeg" alt="Instalador da Pagani fixando a rede de proteção na janela de um quarto infantil">
   </div>
 
   <div class="si-container si-logos si-reveal">
     <h3 class="si-logos-title">Empresas que confiam no nosso trabalho</h3>
     <div class="si-logos-mask">
       <div class="si-logos-track" id="si-logos-track">
-        <div class="si-logo si-logo--tall"><img src="uploads/clientes/cepon.png" alt="CEPON" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall"><img src="uploads/clientes/hijg.png" alt="Hospital Infantil Joana de Gusmão" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--wide"><img src="uploads/clientes/prefeitura-palhoca.png" alt="Prefeitura de Palhoça" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall"><img src="uploads/clientes/educacao-adventista.png" alt="Educação Adventista" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--wide"><img src="uploads/clientes/colegio-elcana.png" alt="Colégio Elcana" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall"><img src="uploads/clientes/alfa-visao.png" alt="Alfa Visão" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall"><img src="uploads/clientes/cafe-paris.png" alt="Café Paris" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="uploads/clientes/cepon.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="uploads/clientes/hijg.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--wide" aria-hidden="true"><img src="uploads/clientes/prefeitura-palhoca.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="uploads/clientes/educacao-adventista.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--wide" aria-hidden="true"><img src="uploads/clientes/colegio-elcana.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="uploads/clientes/alfa-visao.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="uploads/clientes/cafe-paris.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="si-logo si-logo--tall"><img src="../uploads/clientes/cepon.png" alt="CEPON"></div>
+        <div class="si-logo si-logo--tall"><img src="../uploads/clientes/hijg.png" alt="Hospital Infantil Joana de Gusmão"></div>
+        <div class="si-logo si-logo--wide"><img src="../uploads/clientes/prefeitura-palhoca.png" alt="Prefeitura de Palhoça"></div>
+        <div class="si-logo si-logo--tall"><img src="../uploads/clientes/educacao-adventista.png" alt="Educação Adventista"></div>
+        <div class="si-logo si-logo--wide"><img src="../uploads/clientes/colegio-elcana.png" alt="Colégio Elcana"></div>
+        <div class="si-logo si-logo--tall"><img src="../uploads/clientes/alfa-visao.png" alt="Alfa Visão"></div>
+        <div class="si-logo si-logo--tall"><img src="../uploads/clientes/cafe-paris.png" alt="Café Paris"></div>
+        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="../uploads/clientes/cepon.png" alt=""></div>
+        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="../uploads/clientes/hijg.png" alt=""></div>
+        <div class="si-logo si-logo--wide" aria-hidden="true"><img src="../uploads/clientes/prefeitura-palhoca.png" alt=""></div>
+        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="../uploads/clientes/educacao-adventista.png" alt=""></div>
+        <div class="si-logo si-logo--wide" aria-hidden="true"><img src="../uploads/clientes/colegio-elcana.png" alt=""></div>
+        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="../uploads/clientes/alfa-visao.png" alt=""></div>
+        <div class="si-logo si-logo--tall" aria-hidden="true"><img src="../uploads/clientes/cafe-paris.png" alt=""></div>
       </div>
       <div class="si-logos-edge si-logos-edge--l" aria-hidden="true"></div>
       <div class="si-logos-edge si-logos-edge--r" aria-hidden="true"></div>
@@ -546,12 +538,12 @@
   <div class="si-footer-inner">
     <div class="si-footer-brand">
       <a class="si-footer-brandmark" href="#">
-        <img src="assets/logo-3.svg" alt="">
+        <img src="../assets/logo-3.svg" alt="">
         <b>Pagani Redes de Proteção</b>
       </a>
       <p>Soluções sob medida em redes de proteção, telas mosquiteiras, capas de piscina e estruturas em alumínio para residências, empresas e instituições.</p>
       <a class="si-footer-ig" href="https://www.instagram.com/paganiredes/" target="_blank" rel="noopener">
-        <img src="assets/icons/instagram-branco.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img src="../assets/icons/instagram-branco.svg" alt="" aria-hidden="true">
         @paganiredes
       </a>
     </div>
@@ -596,7 +588,7 @@
 
 <a href="https://wa.me/5548991075991" target="_blank" rel="noopener" class="si-wa-fab" id="si-wa-fab" aria-label="Fale com a gente no WhatsApp">
   <span class="si-wa-label" aria-hidden="true">Fale com a gente no WhatsApp</span>
-  <span class="si-wa-disc"><img src="assets/icons/whatsapp-botao.svg" alt="" loading="lazy" decoding="async"></span>
+  <span class="si-wa-disc"><img src="../assets/icons/whatsapp-botao.svg" alt=""></span>
 </a>
 
 <script>

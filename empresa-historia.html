@@ -1,0 +1,164 @@
+<!-- @dsCard group="13 · Telas" name="A empresa — nossa história" subtitle="Página dedicada: origem, equipe e responsabilidade técnica" w=1280 h=3200 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Nossa história</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components/components.css">
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--color-surface-default); color: var(--color-text-primary); font-family: var(--font-body); }
+  a { color: var(--color-interactive); }
+  @media (hover: hover) and (pointer: fine) { a:hover { color: var(--color-interactive-hover); } }
+  img { display: block; }
+
+  .hs-container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-6); }
+  .hs-sec { padding: var(--space-9) 0; }
+  .hs-sec--alt { background: var(--color-surface-sunken); }
+  .hs-kicker { display: block; font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-text-muted); }
+  .hs-h1 { margin: var(--space-3) 0 0; font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-4xl); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); text-wrap: balance; }
+  .hs-h2 { margin: 0; font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-2xl); line-height: var(--lh-snug); text-wrap: balance; }
+  .hs-lead { margin: var(--space-5) 0 0; max-width: 62ch; font-size: var(--fs-lg); line-height: var(--lh-relaxed); color: var(--color-text-secondary); text-wrap: pretty; }
+  .hs-p { margin: var(--space-4) 0 0; max-width: 64ch; font-size: var(--fs-base); line-height: var(--lh-relaxed); color: var(--color-text-secondary); text-wrap: pretty; }
+
+  /* topo com a régua vermelha da marca */
+  .hs-head { border-left: var(--border-width-4) solid var(--color-brand); padding-left: var(--space-6); }
+  .hs-back { display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-6); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--color-text-muted); text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .hs-back:hover { color: var(--color-brand); } }
+  .hs-back svg { width: 16px; height: 16px; }
+
+  .hs-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: var(--space-8); align-items: center; }
+  .hs-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); }
+
+  /* linha do tempo: marcos ancorados numa régua vertical */
+  .hs-time { margin: var(--space-7) 0 0; padding: 0 0 0 var(--space-6); list-style: none; border-left: 1px solid var(--color-border-strong); display: grid; gap: var(--space-6); }
+  .hs-time li { position: relative; }
+  .hs-time li::before { content: ""; position: absolute; left: calc(var(--space-6) * -1 - 5px); top: 9px; width: 9px; height: 9px; border-radius: 50%; background: var(--color-brand); }
+  .hs-time b { display: block; font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-lg); }
+  .hs-time span { display: block; margin-top: var(--space-2); font-size: var(--fs-base); line-height: var(--lh-normal); color: var(--color-text-secondary); max-width: 58ch; text-wrap: pretty; }
+
+  .hs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-5); margin-top: var(--space-7); }
+  .hs-card { background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); padding: var(--space-6); }
+  .hs-card h3 { margin: 0 0 var(--space-3); font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-lg); line-height: var(--lh-snug); }
+  .hs-card p { margin: 0; font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--color-text-secondary); text-wrap: pretty; }
+
+  .hs-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-7); }
+  .hs-gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--color-border-default); }
+
+  .hs-cta { text-align: center; }
+  .hs-cta .hs-h2 { margin-bottom: var(--space-5); }
+
+  @media (max-width: 900px) {
+    .hs-hero { grid-template-columns: 1fr; }
+    .hs-gallery { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .hs-h1 { font-size: var(--fs-3xl); }
+    .hs-gallery { grid-template-columns: 1fr; }
+  }
+
+  /* ---- ajustes para toque / telas pequenas (aplicado na publicação) ---- */
+  @media (hover: none) {
+    /* o spotlight persegue o cursor: em toque é custo de GPU sem retorno */
+    [data-glow]::before, [data-glow]::after, [data-glow] [data-glow] { display: none; }
+  }
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .si-wa-fab { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); }
+    .si-footer { padding-bottom: calc(var(--space-7) + env(safe-area-inset-bottom)); }
+  }
+</style>
+</head>
+<body>
+
+<section class="hs-sec">
+  <div class="hs-container">
+    <a class="hs-back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Voltar ao início
+    </a>
+    <div class="hs-hero">
+      <div class="hs-head">
+        <span class="hs-kicker">A empresa</span>
+        <h1 class="hs-h1">Nossa história</h1>
+        <p class="hs-lead">Somos uma empresa catarinense especializada em soluções de proteção sob medida. Cuidamos de todas as etapas do serviço, desde a medição até a instalação, com equipe própria, atendimento direto e responsabilidade técnica.</p>
+      </div>
+      <img src="uploads/Equipe.jpeg" alt="Equipe da Pagani Redes durante a instalação de uma rede de proteção" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="hs-sec hs-sec--alt">
+  <div class="hs-container">
+    <h2 class="hs-h2">Como chegamos até aqui</h2>
+    <ol class="hs-time">
+      <li>
+        <b>Cerca de 18 anos no ramo</b>
+        <span>A prática começou muito antes da empresa existir no papel: quase duas décadas medindo janelas, sacadas e escadas na Grande Florianópolis.</span>
+      </li>
+      <li>
+        <b>CNPJ próprio desde 2017</b>
+        <span>A formalização veio para dar nota fiscal, garantia por escrito e responsabilidade técnica a um trabalho que já era feito com rigor.</span>
+      </li>
+      <li>
+        <b>Equipe certificada para trabalho em altura</b>
+        <span>Instaladores com certificação NR-35 e instalação conforme a ABNT NBR 16046-1 — a norma que rege redes de proteção para vãos.</span>
+      </li>
+      <li>
+        <b>Nenhum incidente em toda a operação</b>
+        <span>Em todos esses anos, nunca houve um incidente ligado às nossas instalações. É o número do qual mais nos orgulhamos.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="hs-sec">
+  <div class="hs-container">
+    <h2 class="hs-h2">Como trabalhamos</h2>
+    <p class="hs-p">Não temos loja física. O atendimento acontece no endereço do cliente, porque medida de proteção não se compra em prateleira: cada vão tem uma solução.</p>
+    <div class="hs-grid">
+      <div class="hs-card">
+        <h3>Equipe própria</h3>
+        <p>Quem mede é quem instala, e quem instala assina o serviço. Sem terceirização e sem intermediário entre você e o responsável pela obra.</p>
+      </div>
+      <div class="hs-card">
+        <h3>Atendimento direto</h3>
+        <p>Você fala com quem executa. Orçamento no mesmo dia, sem taxa de deslocamento dentro de Santa Catarina e sem compromisso.</p>
+      </div>
+      <div class="hs-card">
+        <h3>Responsabilidade técnica</h3>
+        <p>Material com laudo, fixação dimensionada para o vão e instalação dentro da norma. A garantia é registrada em nota.</p>
+      </div>
+      <div class="hs-card">
+        <h3>Obra limpa</h3>
+        <p>Chegamos, protegemos o ambiente e devolvemos o espaço como estava. Sem pressa e sem sujeira no seu apartamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hs-sec hs-sec--alt">
+  <div class="hs-container">
+    <h2 class="hs-h2">Onde já estivemos</h2>
+    <p class="hs-p">Atendemos residências, condomínios, escolas, hospitais e restaurantes da Grande Florianópolis e de diversas cidades de Santa Catarina.</p>
+    <div class="hs-gallery">
+      <img src="uploads/Sacada.jpeg" alt="Sacada de apartamento com rede de proteção instalada" loading="lazy" decoding="async">
+      <img src="uploads/Cercado%20areas%20externas.jpeg" alt="Cercado instalado em área externa ao redor de piscina" loading="lazy" decoding="async">
+      <img src="uploads/Cercado%20areas%20internas.png" alt="Cercado branco delimitando área interna de brincar" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="hs-sec">
+  <div class="hs-container hs-cta">
+    <h2 class="hs-h2">Vamos medir o seu vão?</h2>
+    <a class="pg-btn pg-btn--primary" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento</a>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!-- @dsCard group="13 · Telas" name="Serviços — catálogo" subtitle="Hero com foto, sete linhas de produto com galeria, garantias e certificações" w=1280 h=6400 -->
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<script>(function(){var r=document.documentElement;function f(){if(r.getAttribute('data-theme')!=='light')r.setAttribute('data-theme','light');}f();new MutationObserver(f).observe(r,{attributes:true,attributeFilter:['data-theme']});})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagani Redes — Serviços</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Roboto+Slab:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components/components.css">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: var(--space-7); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; overflow-x: clip; background: var(--color-surface-default); color: var(--color-text-primary); font-family: var(--font-body); }
+  a { color: var(--color-interactive); }
+  @media (hover: hover) and (pointer: fine) { a:not(.pg-btn):hover { color: var(--color-interactive-hover); } }
+  img { display: block; }
+
+  .sv-container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-5); }
+  .sv-sec { padding: var(--space-9) 0; }
+  .sv-sec--alt { background: var(--color-surface-sunken); border-top: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle); }
+  .sv-kicker { font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-brand); display: flex; align-items: center; gap: var(--space-3); }
+  .sv-kicker::before { content: ""; width: 24px; height: 2px; background: var(--color-brand); }
+  .sv-h2 { font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-3xl); line-height: var(--lh-tight); margin: var(--space-3) 0; text-wrap: pretty; }
+  .sv-lead { font-size: var(--fs-md); line-height: var(--lh-normal); color: var(--color-text-secondary); max-width: 62ch; margin: var(--space-5) 0 0; text-wrap: pretty; }
+
+  /* ---- hero com foto ---- */
+  .sv-hero { position: relative; min-height: 620px; display: flex; align-items: flex-end; overflow: hidden; background: #14161A; }
+  .sv-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; animation: sv-zoom 1400ms var(--ease-decelerate) both; }
+  .sv-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(10,11,13,0.94) 0%, rgba(10,11,13,0.86) 46%, rgba(10,11,13,0.6) 68%, rgba(10,11,13,0.2) 100%); }
+  .sv-hero-inner { position: relative; z-index: 2; width: 100%; padding: var(--space-9) 0; }
+  .sv-hero-copy { max-width: 62ch; }
+  .sv-hero .sv-kicker { color: #FFFFFF; }
+  .sv-hero .sv-kicker::before { background: var(--color-brand); width: 32px; height: 3px; }
+  .sv-back { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: rgba(255,255,255,0.78); text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .sv-back:hover { color: #FFFFFF; } }
+  .sv-back svg { width: 16px; height: 16px; }
+  .sv-h1 { font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: clamp(34px, 3.8vw, 60px); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); margin: var(--space-4) 0 0; color: #FFFFFF; text-wrap: balance; }
+  .sv-h1 em { font-style: normal; color: var(--red-300); }
+  .sv-hero-lead { font-size: var(--fs-md); line-height: var(--lh-normal); color: rgba(255,255,255,0.92); max-width: 48ch; margin: var(--space-5) 0 0; text-wrap: pretty; }
+
+  /* entrada em cascata */
+  .sv-up { opacity: 0; transform: translateY(18px); animation: sv-up 700ms var(--ease-decelerate) forwards; }
+  .sv-d1 { animation-delay: 120ms; } .sv-d2 { animation-delay: 240ms; } .sv-d3 { animation-delay: 380ms; } .sv-d4 { animation-delay: 520ms; }
+  @keyframes sv-up { to { opacity: 1; transform: translateY(0); } }
+  @keyframes sv-zoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+
+  /* índice */
+  .sv-index { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-2) var(--space-6); margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid rgba(255,255,255,0.18); }
+  .sv-chip { position: relative; display: inline-flex; align-items: center; min-height: 44px; font-size: var(--fs-sm); font-weight: var(--fw-medium); color: rgba(255,255,255,0.74); text-decoration: none; transition: color var(--dur-base) var(--ease-standard); }
+  .sv-chip::after { content: ""; position: absolute; left: 0; right: 0; bottom: 12px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--dur-base) var(--ease-standard); }
+  @media (hover: hover) and (pointer: fine) { .sv-chip:hover { color: #FFFFFF; } }
+  @media (hover: hover) and (pointer: fine) { .sv-chip:hover::after { transform: scaleX(1); } }
+  @media (max-width: 1100px) { .sv-index { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; gap: var(--space-5); } .sv-chip { flex: none; } }
+  @media (prefers-reduced-motion: reduce) { .sv-chip::after { transition: none; } }
+
+  /* ---- bloco de produto ---- */
+  .sv-item { display: grid; grid-template-columns: 1.45fr 1fr; gap: var(--space-8); align-items: start; padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border-subtle); }
+  .sv-item:last-of-type { border-bottom: none; }
+  .sv-item:nth-of-type(even) { grid-template-columns: 1fr 1.45fr; }
+  .sv-item:nth-of-type(even) .sv-gal { order: 2; }
+  /* galeria acordeão: a foto sob o cursor se abre e as vizinhas cedem espaço */
+  .sv-gal { display: flex; gap: 8px; height: 440px; overflow: hidden; }
+  /* flex-grow interpolado: as faixas sempre somam exatamente a largura do trilho, em qualquer quadro da animação */
+  .sv-gal-slat { position: relative; flex: 1 1 0; min-width: 0; border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-sunken); transition: flex-grow 500ms cubic-bezier(0.4, 0, 0.2, 1), filter 420ms ease; }
+  .sv-gal-slat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  @media (hover: hover) and (pointer: fine) { .sv-gal:has(.sv-gal-slat:hover) .sv-gal-slat { filter: saturate(0.9) brightness(0.9); } }
+  @media (hover: hover) and (pointer: fine) { .sv-gal .sv-gal-slat:hover { flex-grow: 11; filter: none; } }
+  .sv-item-body { display: flex; flex-direction: column; align-items: flex-start; padding-top: var(--space-2); }
+  .sv-tag { font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-text-muted); }
+  .sv-item-body h3 { font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-2xl); line-height: var(--lh-snug); margin: var(--space-2) 0 var(--space-4); text-wrap: balance; }
+  .sv-item-body p { margin: 0; font-size: var(--fs-base); line-height: var(--lh-relaxed); color: var(--color-text-secondary); max-width: 54ch; text-wrap: pretty; }
+  .sv-aplic { margin-top: var(--space-6); }
+  .sv-aplic b { display: block; font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+  .sv-aplic ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .sv-aplic li { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--color-text-secondary); padding: var(--space-1) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-pill); background: var(--color-surface-sunken); }
+  .sv-item-cta { margin-top: var(--space-6); }
+
+  .si-pend { text-decoration: underline dotted; text-decoration-color: var(--color-text-muted); text-decoration-thickness: 1px; text-underline-offset: 3px; cursor: help; }
+  /* ---- rodapé ---- */
+  .si-footer { background: var(--color-surface-inverse); color: #FFFFFF; padding: var(--space-8) var(--space-7) var(--space-6); }
+  .si-footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1.15fr 1fr; gap: var(--space-7); align-items: start; }
+  .si-footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+  .si-footer-brandmark { display: inline-flex; align-items: center; gap: var(--space-3); text-decoration: none; }
+  .si-footer-brandmark img { height: 26px; width: auto; display: block; filter: brightness(0) invert(1); }
+  .si-footer-brandmark b { font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-lg); line-height: 1.1; color: #FFFFFF; }
+  @media (hover: hover) and (pointer: fine) { .si-footer-brandmark:hover b { color: rgba(255,255,255,0.72); } }
+  .si-footer-brand p { margin: 0; font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: rgba(255,255,255,0.72); max-width: 40ch; text-wrap: pretty; }
+  .si-footer-ig { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: #FFFFFF; text-decoration: none; }
+  .si-footer-ig img { width: 20px; height: 20px; }
+  @media (hover: hover) and (pointer: fine) { .si-footer-ig:hover { color: rgba(255,255,255,0.7); } }
+  .si-footer-col h2 { margin: 0 0 var(--space-4); font-family: var(--font-body); font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-wide); text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .si-footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); font-size: var(--fs-sm); line-height: var(--lh-normal); color: rgba(255,255,255,0.72); }
+  .si-footer-col a { color: #FFFFFF; text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) { .si-footer-col a:hover { color: rgba(255,255,255,0.65); } }
+  .si-footer-note { color: rgba(255,255,255,0.5); font-size: var(--fs-xs); }
+  .si-footer-meta { max-width: none; margin: var(--space-7) 0 0; padding-top: var(--space-5); border-top: 1px solid rgba(255,255,255,0.14); font-size: var(--fs-xs); color: rgba(255,255,255,0.5); }
+  @media (max-width: 1000px) { .si-footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
+  @media (max-width: 600px) { .si-footer { padding: var(--space-7) var(--space-5) var(--space-5); } .si-footer-inner { grid-template-columns: 1fr; } }
+
+  /* ícone flutuante de WhatsApp — só aparece quando o vídeo termina de se assentar */
+  .si-wa-fab { position: fixed; right: var(--space-5); bottom: var(--space-5); z-index: 30; display: inline-flex; align-items: center; opacity: 0; translate: 0 12px; pointer-events: none; transition: opacity var(--dur-slow, 360ms) ease, translate var(--dur-slow, 360ms) var(--ease-decelerate); }
+  .si-wa-fab.is-in { opacity: 1; translate: 0 0; pointer-events: auto; }
+  .si-wa-disc { position: relative; display: grid; place-items: center; width: 44px; height: 44px; transition: width var(--dur-base, 220ms) var(--ease-decelerate), height var(--dur-base, 220ms) var(--ease-decelerate); }
+  .si-wa-disc::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25D366; opacity: 0.35; animation: si-fab-pulse 2.4s var(--ease-decelerate) infinite; }
+  .si-wa-fab img { position: relative; width: 100%; height: 100%; display: block; filter: drop-shadow(0 6px 14px rgba(16,32,22,0.22)); transition: filter var(--dur-base, 220ms) ease; }
+  @media (hover: hover) and (pointer: fine) { .si-wa-fab:hover .si-wa-disc, .si-wa-fab:focus-visible .si-wa-disc { width: 56px; height: 56px; } }
+  @media (hover: hover) and (pointer: fine) { .si-wa-fab:hover img { filter: drop-shadow(0 12px 22px rgba(16,32,22,0.3)); } }
+  .si-wa-fab:active .si-wa-disc { width: 52px; height: 52px; }
+  .si-wa-fab:focus-visible { outline: 2px solid var(--red-500); outline-offset: 6px; border-radius: var(--radius-pill); }
+  .si-wa-label { display: flex; align-items: center; height: 56px; margin-right: -14px; background: var(--color-surface-default); color: var(--color-text-primary); font-family: var(--font-body); font-size: var(--fs-base); font-weight: var(--fw-semibold); white-space: nowrap; border-radius: var(--radius-pill); border: 1px solid var(--color-border-default); box-shadow: 0 6px 16px rgba(16,32,22,0.14); max-width: 0; padding: 0 14px 0 0; overflow: hidden; opacity: 0; transition: max-width var(--dur-slow, 360ms) var(--ease-decelerate), opacity var(--dur-base, 220ms) ease, padding var(--dur-slow, 360ms) var(--ease-decelerate); }
+  @media (hover: hover) and (pointer: fine) { .si-wa-fab:hover .si-wa-label, .si-wa-fab:focus-visible .si-wa-label { max-width: 340px; opacity: 1; padding-left: var(--space-5); padding-right: calc(var(--space-5) + 14px); } }
+  @keyframes si-fab-pulse { 0% { transform: scale(1); opacity: 0.35; } 70% { transform: scale(1.55); opacity: 0; } 100% { transform: scale(1.55); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .si-wa-fab { transition: none; opacity: 1; translate: 0 0; pointer-events: auto; } .si-wa-disc::before { animation: none; opacity: 0.18; } .si-wa-fab img, .si-wa-label, .si-wa-disc { transition-duration: 1ms; } }
+
+  /* reveal no scroll — reversível: sai da tela, o efeito regride */
+  .sv-reveal { opacity: 0; transform: translateY(26px); transition: opacity 620ms var(--ease-decelerate), transform 720ms var(--ease-decelerate); }
+  .sv-reveal.is-in { opacity: 1; transform: none; }
+  .sv-item.sv-reveal { opacity: 1; transform: none; transition: none; }
+  /* acordeão: fade-in bem lento */
+  .sv-item .sv-gal { opacity: 0; transition: opacity 1600ms ease; }
+  .sv-item.is-in .sv-gal { opacity: 1; }
+  /* texto: entra pelo lado em que está — direita nos ímpares, esquerda nos pares */
+  .sv-item .sv-item-body { opacity: 0; transform: translateX(64px); transition: opacity 800ms var(--ease-decelerate), transform 900ms var(--ease-decelerate); }
+  .sv-item:nth-of-type(even) .sv-item-body { transform: translateX(-64px); }
+  .sv-item.is-in .sv-item-body { opacity: 1; transform: none; }
+
+  /* garantias e certificações */
+  .sv-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4); margin-top: var(--space-7); }
+  .sv-card { background: var(--color-surface-default); border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); padding: var(--space-6); }
+  .sv-card b { display: block; font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-lg); color: var(--color-brand); margin-bottom: var(--space-2); }
+  .sv-card p { margin: 0; font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--color-text-secondary); }
+  /* dobra de confiança: foto de fundo com parallax e leve zoom, conteúdo sobre vidro escuro */
+  .sv-conf { position: relative; overflow: hidden; background: #14161A url('uploads/Equipe.jpeg') center 30% / cover no-repeat fixed; }
+  .sv-conf::before { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(10,11,13,0.94) 0%, rgba(10,11,13,0.88) 46%, rgba(10,11,13,0.72) 100%); }
+  .sv-conf > .sv-container { position: relative; z-index: 2; }
+  .sv-conf .sv-kicker { color: #FFFFFF; }
+  .sv-conf .sv-h2 { color: #FFFFFF; }
+  .sv-conf .sv-lead { color: rgba(255,255,255,0.82); }
+  .sv-conf .sv-badge figcaption { color: #FFFFFF; }
+  .sv-conf .sv-badge small { color: rgba(255,255,255,0.68); }
+  .sv-conf .sv-seal { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.16); backdrop-filter: blur(6px); }
+  .sv-conf .sv-seal b { color: #FFFFFF; }
+  .sv-conf .sv-seal span { color: rgba(255,255,255,0.76); }
+  .sv-conf .sv-seal svg { color: var(--red-300); }
+  @media (max-width: 900px) { .sv-conf { background-attachment: scroll; } }
+  .sv-badges { display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: var(--space-7); }
+  .sv-badge { margin: 0; display: flex; align-items: center; gap: var(--space-4); }
+  .sv-badge img { width: 72px; height: 72px; object-fit: contain; border-radius: 50%; background: #FFFFFF; border: 1px solid var(--color-border-default); padding: 6px; box-sizing: border-box; }
+  .sv-badge figcaption { font-family: var(--font-heading); font-weight: var(--fw-semibold); font-size: var(--fs-base); color: var(--color-text-primary); }
+  .sv-badge small { display: block; margin-top: 2px; font-family: var(--font-body); font-weight: var(--fw-regular); font-size: var(--fs-sm); color: var(--color-text-muted); }
+  .sv-seals { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-7); }
+  @media (max-width: 1000px) { .sv-seals { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .sv-seals { grid-template-columns: 1fr; } }
+  .sv-seal { display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-5); border: 1px solid var(--color-border-default); border-radius: var(--radius-sm); background: var(--color-surface-sunken); }
+  .sv-seal svg { flex: none; width: 28px; height: 28px; color: var(--color-brand); }
+  .sv-seal b { display: block; font-size: var(--fs-base); font-weight: var(--fw-semibold); color: var(--color-text-primary); }
+  .sv-seal span { display: block; margin-top: var(--space-1); font-size: var(--fs-sm); line-height: var(--lh-normal); color: var(--color-text-secondary); }
+  .sv-note { margin: var(--space-7) 0 0; padding: var(--space-5) var(--space-6); border-left: var(--border-width-4) solid var(--color-brand); background: var(--color-surface-sunken); font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--color-text-muted); max-width: 76ch; }
+  .sv-cta { text-align: center; }
+  .sv-cta .sv-h2 { margin-bottom: var(--space-5); }
+
+
+  @media (max-width: 900px) {
+    .sv-hero { min-height: 520px; }
+    .sv-item { grid-template-columns: 1fr; gap: var(--space-6); }
+    .sv-item:nth-of-type(even) .sv-gal { order: 0; }
+    .sv-gal { height: 340px; }
+    .sv-h2 { font-size: var(--fs-2xl); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sv-up, .sv-hero img { animation: none; opacity: 1; transform: none; }
+    .sv-reveal { opacity: 1; transform: none; transition: none; }
+    .sv-item .sv-gal, .sv-item .sv-item-body { opacity: 1; transform: none; transition: none; }
+    .sv-gal-slat { transition: none; }
+  }
+
+  /* ---- ajustes para toque / telas pequenas (aplicado na publicação) ---- */
+  @media (hover: none) {
+    /* o spotlight persegue o cursor: em toque é custo de GPU sem retorno */
+    [data-glow]::before, [data-glow]::after, [data-glow] [data-glow] { display: none; }
+  }
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .si-wa-fab { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); }
+    .si-footer { padding-bottom: calc(var(--space-7) + env(safe-area-inset-bottom)); }
+  }
+</style>
+</head>
+<body id="topo">
+
+<header class="sv-hero">
+  <img src="uploads/Equipe.jpeg" alt="Instalador da Pagani tensionando o cabo da rede de proteção na janela de um quarto infantil" loading="lazy" decoding="async">
+  <div class="sv-hero-inner">
+    <div class="sv-container">
+      <div class="sv-hero-copy">
+      <a class="sv-back sv-up" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        Voltar ao início
+      </a>
+      <span class="sv-kicker sv-up sv-d1" style="margin-top: var(--space-6);">Catálogo de serviços</span>
+      <h1 class="sv-h1 sv-up sv-d2">Uma solução para <em>cada espaço</em></h1>
+      <p class="sv-hero-lead sv-up sv-d3">Conheça nossas opções de proteção para residências, condomínios, empresas e instituições. Cada projeto é medido no local e produzido sob medida, de acordo com o ambiente e a necessidade do cliente.</p>
+      </div>
+      <nav class="sv-index sv-up sv-d4" aria-label="Índice de serviços">
+        <a class="sv-chip" href="#redes">Redes de proteção</a>
+        <a class="sv-chip" href="#telas">Telas mosquiteiras</a>
+        <a class="sv-chip" href="#capas">Capas de piscina</a>
+        <a class="sv-chip" href="#molduras">Molduras em alumínio</a>
+        <a class="sv-chip" href="#cercados-internos">Cercados internos</a>
+        <a class="sv-chip" href="#cercados-externos">Cercados externos</a>
+        <a class="sv-chip" href="#portoes">Portões em alumínio</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="sv-sec">
+  <div class="sv-container">
+
+    <article class="sv-item sv-reveal" id="redes">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Rede de proteção instalada — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/ChatGPT%20Image%2027%20de%20jul.%20de%202026,%2014_44_47.png" alt="Rede de proteção instalada — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Equipe.jpeg" alt="Rede de proteção instalada — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Rede de proteção instalada — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Rede de proteção instalada — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Rede de proteção instalada — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Proteção</span>
+        <h3>Redes de proteção</h3>
+        <p>A linha mais pedida. Fecha janelas, sacadas, escadas e mezaninos sem tirar a luz nem a vista — a poucos metros de distância a malha praticamente desaparece. Polietileno 100% virgem com tratamento anti-UV, malha de 5 × 5 cm (ou 3 × 3 cm quando há pet pequeno na casa), com fixação dimensionada para o vão.</p>
+        <div class="sv-aplic">
+          <ul><li>Janelas</li><li>Sacadas</li><li>Escadas</li><li>Mezaninos</li><li>Vãos de escada</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+
+    <article class="sv-item sv-reveal" id="telas">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Tela%20mosquiteira.png" alt="Tela mosquiteira instalada — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Molduras.jpeg" alt="Tela mosquiteira instalada — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Equipe.jpeg" alt="Tela mosquiteira instalada — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Tela mosquiteira instalada — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Molduras.jpeg" alt="Tela mosquiteira instalada — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Tela mosquiteira instalada — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Conforto</span>
+        <h3>Telas mosquiteiras</h3>
+        <p>Para dormir com a janela aberta. Moldura de alumínio sob medida, removível para a limpeza, com tela em fibra de vidro revestida em PVC — não enferruja, não deforma com o sol e mantém a ventilação sem deixar entrar insetos.</p>
+        <div class="sv-aplic">
+          <ul><li>Quartos</li><li>Cozinhas</li><li>Áreas de serviço</li><li>Janelas de correr</li><li>Portas-balcão</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+
+    <article class="sv-item sv-reveal" id="capas">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Capa%20de%20piscina.png" alt="Capa de piscina instalada — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Cercado%20areas%20externas.jpeg" alt="Capa de piscina instalada — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Capa de piscina instalada — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/ChatGPT%20Image%2027%20de%20jul.%20de%202026,%2014_44_47.png" alt="Capa de piscina instalada — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Capa de piscina instalada — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Capa de piscina instalada — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Piscina</span>
+        <h3>Capas de piscina</h3>
+        <p>São dois produtos diferentes, e a confusão entre eles é comum: a capa de segurança é tensionada e suporta peso, impedindo a queda; a capa de folhas apenas retém sujeira. Na visita explicamos a diferença e cotamos a que resolve o seu caso — inclusive em piscinas com prainha ou recorte fora do padrão.</p>
+        <div class="sv-aplic">
+          <ul><li>Capa de segurança</li><li>Capa de folhas</li><li>Formato sob medida</li><li>Fixação embutida na borda</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+
+    <article class="sv-item sv-reveal" id="molduras">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Molduras.jpeg" alt="Moldura em alumínio instalada — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Molduras.jpeg" alt="Moldura em alumínio instalada — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Tela%20mosquiteira.png" alt="Moldura em alumínio instalada — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Equipe.jpeg" alt="Moldura em alumínio instalada — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Moldura em alumínio instalada — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Moldura em alumínio instalada — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Sem furar</span>
+        <h3>Molduras em alumínio</h3>
+        <p>A saída para a janela que não pode ser perfurada — vidro temperado, pele de vidro, apartamento alugado. A rede vem tensionada dentro de um quadro de alumínio que se encaixa no vão e sai sem deixar marca na alvenaria nem no vidro.</p>
+        <div class="sv-aplic">
+          <ul><li>Vidro temperado</li><li>Pele de vidro</li><li>Imóvel alugado</li><li>Banheiros</li><li>Janelas basculantes</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+
+    <article class="sv-item sv-reveal" id="cercados-internos">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Cercado%20areas%20internas.png" alt="Cercado interno instalado — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Cercado%20areas%20externas.jpeg" alt="Cercado interno instalado — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Port%C3%A3o%20de%20aluminio.png" alt="Cercado interno instalado — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Cercado interno instalado — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Equipe.jpeg" alt="Cercado interno instalado — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Cercado interno instalado — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Proteção</span>
+        <h3>Cercados para áreas internas</h3>
+        <p>Isola escada, lareira ou área de brincar sem transformar a sala em obra. Módulos de alumínio com tela de poliéster revestida em PVC, com portinhola opcional e desmontáveis quando a criança crescer.</p>
+        <div class="sv-aplic">
+          <ul><li>Escadas</li><li>Lareiras</li><li>Área de brincar</li><li>Divisão de ambientes</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+
+    <article class="sv-item sv-reveal" id="cercados-externos">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Cercado%20areas%20externas.jpeg" alt="Cercado externo instalado — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Capa%20de%20piscina.png" alt="Cercado externo instalado — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Port%C3%A3o%20de%20aluminio.png" alt="Cercado externo instalado — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Sacada.jpeg" alt="Cercado externo instalado — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Cercado%20areas%20internas.png" alt="Cercado externo instalado — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/ChatGPT%20Image%2027%20de%20jul.%20de%202026,%2014_44_47.png" alt="Cercado externo instalado — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Proteção</span>
+        <h3>Cercados para áreas externas</h3>
+        <p>Barreira ao redor da piscina, do quintal ou do canil, feita sob medida e sem fechar a vista. Estrutura de alumínio com pintura eletrostática preparada para maresia — diferença que aparece em quem mora perto do mar.</p>
+        <div class="sv-aplic">
+          <ul><li>Piscina</li><li>Quintal</li><li>Canil</li><li>Terreno em declive</li><li>Portão com mola</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+
+    <article class="sv-item sv-reveal" id="portoes">
+      <div class="sv-gal" aria-label="Galeria de fotos">
+          <div class="sv-gal-slat"><img src="uploads/Port%C3%A3o%20de%20aluminio.png" alt="Portão em alumínio instalado — foto de obra 1" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Port%C3%A3o%20de%20aluminio.png" alt="Portão em alumínio instalado — foto de obra 2" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Cercado%20areas%20externas.jpeg" alt="Portão em alumínio instalado — foto de obra 3" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/ChatGPT%20Image%2027%20de%20jul.%20de%202026,%2014_44_47.png" alt="Portão em alumínio instalado — foto de obra 4" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Equipe.jpeg" alt="Portão em alumínio instalado — foto de obra 5" loading="lazy" draggable="false"></div>
+          <div class="sv-gal-slat"><img src="uploads/Rede%20de%20prote%C3%A7%C3%A3o.png" alt="Portão em alumínio instalado — foto de obra 6" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="sv-item-body">
+        <span class="sv-tag">Acesso</span>
+        <h3>Portões em alumínio</h3>
+        <p>Controla quem entra e quem sai — criança, pet, visita. Alumínio sob medida, em versão ripada, com tela ou mista, quando a prioridade é continuar vendo o outro lado. Abertura de batente, de correr ou vaivém, com trava fora do alcance das crianças.</p>
+        <div class="sv-aplic">
+          <ul><li>Entrada social</li><li>Corredor lateral</li><li>Acesso à piscina</li><li>Vaivém para pets</li></ul>
+        </div>
+        <a class="pg-btn pg-btn--primary sv-item-cta" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Pedir orçamento desta linha</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sv-sec sv-conf" id="confianca">
+  <div class="sv-container">
+    <span class="sv-kicker">Confiança</span>
+    <h2 class="sv-h2">Segurança comprovada, do material à instalação</h2>
+    <p class="sv-lead">Rede mal fixada é falsa sensação de segurança. Por isso, tudo o que entra numa obra da Pagani tem procedência, norma e garantia — e vale para as sete linhas, do apartamento de um quarto à escola com trinta janelas.</p>
+
+    <div class="sv-badges" aria-label="Selos e certificações">
+      <figure class="sv-badge">
+        <img src="uploads/certifica%C3%A7%C3%A3o-aed472a1.png" alt="Selo de certificação — exemplo" loading="lazy" decoding="async">
+        <figcaption>Certificação do instalador<small>NR-35 · trabalho em altura</small></figcaption>
+      </figure>
+      <figure class="sv-badge">
+        <img src="uploads/img-inmetro-saiba-o-que-e-e-quais-as-exigencias-desse-orgao-para-as-balancas-1024x683-2627bdd9.jpeg" alt="Selo INMETRO — exemplo" loading="lazy" decoding="async">
+        <figcaption>Material certificado<small>Polietileno com laudo do fabricante</small></figcaption>
+      </figure>
+      <figure class="sv-badge">
+        <img src="uploads/maquete-editavel-de-fita-de-selo-de-certificado-de-selo-de-ouro-de-luxo-realista_384205-308-a8771ae9.avif" alt="Selo de garantia — exemplo" loading="lazy" decoding="async">
+        <figcaption>Garantia por escrito<small>Registrada em nota fiscal</small></figcaption>
+      </figure>
+    </div>
+
+    <div class="sv-seals">
+      <div class="sv-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><b>Equipe certificada</b><span>Instaladores próprios com treinamento NR-35 para trabalho em altura e EPI em toda obra externa.</span></div>
+      </div>
+      <div class="sv-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+        <div><b>Instalação dentro da norma</b><span>Malha, tensionamento e espaçamento das fixações seguem a norma técnica brasileira de redes de proteção para vãos.</span></div>
+      </div>
+      <div class="sv-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 14h6M9 17h4"/></svg>
+        <div><b>Material com procedência</b><span>Polietileno virgem e alumínio de fornecedor identificado, com laudo de resistência e tratamento anti-UV por lote.</span></div>
+      </div>
+      <div class="sv-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><path d="M7 15H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1M11 13h5M11 17h3"/></svg>
+        <div><b>Nota fiscal e termo de garantia</b><span>Todo serviço sai com nota e garantia registrada por escrito, conforme a linha de produto.</span></div>
+      </div>
+      <div class="sv-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+        <div><b>Medição e orçamento gratuitos</b><span>Visita, medida e valor fechado sem custo e sem compromisso, em toda a área atendida.</span></div>
+      </div>
+      <div class="sv-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-6.36 2.64L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></svg>
+        <div><b>Assistência depois da obra</b><span>Retorno para ajuste ou reaperto dentro do período de garantia, sem custo de visita. Já atendemos hospital infantil, prefeitura e rede de colégios.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sv-sec sv-sec--alt">
+  <div class="sv-container sv-cta">
+    <h2 class="sv-h2">Cada espaço pede uma solução diferente</h2>
+    <p class="sv-lead" style="margin: 0 auto var(--space-6); text-align: center;">Conte para a gente o que você precisa. Nossa equipe avalia o seu caso, tira suas dúvidas e indica a opção mais adequada para o ambiente, sem complicação.</p>
+    <a class="pg-btn pg-btn--primary" href="https://wa.me/5548991075991" target="_blank" rel="noopener">Falar com nossa equipe</a>
+  </div>
+</section>
+
+<footer class="si-footer">
+  <div class="si-footer-inner">
+    <div class="si-footer-brand">
+      <a class="si-footer-brandmark" href="index.html">
+        <img src="assets/logo-3.svg" alt="">
+        <b>Pagani Redes de Proteção</b>
+      </a>
+      <p>Soluções sob medida em redes de proteção, telas mosquiteiras, capas de piscina e estruturas em alumínio para residências, empresas e instituições.</p>
+      <a class="si-footer-ig" href="https://www.instagram.com/paganiredes/" target="_blank" rel="noopener">
+        <img src="assets/icons/instagram-branco.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        @paganiredes
+      </a>
+    </div>
+
+    <nav class="si-footer-col" aria-label="Links rápidos">
+      <h2>Links rápidos</h2>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#topo">Serviços</a></li>
+        <li><a href="empresa-historia.html">A empresa</a></li>
+        <li><a href="#" class="si-pend" title="Página em produção">Áreas atendidas</a></li>
+        <li><a href="#" class="si-pend" title="Página em produção">Perguntas frequentes</a></li>
+        <li><a href="https://wa.me/5548991075991" target="_blank" rel="noopener">Solicitar orçamento</a></li>
+      </ul>
+    </nav>
+
+    <div class="si-footer-col">
+      <h2>Contato</h2>
+      <ul>
+        <li>WhatsApp <a href="https://wa.me/5548991075991" target="_blank" rel="noopener">(48) 99107-5991</a></li>
+        <li>Telefone <a href="tel:+554833422772">(48) 3342-2772</a></li>
+        <li>E-mail <span class="si-pend" title="Endereço de e-mail a confirmar com a empresa">a confirmar</span></li>
+        <li>Segunda a sexta, 8h às 19h<br>Sábado, 8h às 13h</li>
+        <li>Florianópolis e regiões atendidas em Santa Catarina</li>
+        <li class="si-footer-note">Atendimento técnico realizado no endereço do cliente.</li>
+      </ul>
+    </div>
+
+    <div class="si-footer-col">
+      <h2>Informações institucionais</h2>
+      <ul>
+        <li>CNPJ 27.893.366/0001-93</li>
+        <li><a href="#" class="si-pend" title="Documento em elaboração">Política de Privacidade</a></li>
+        <li><a href="#" class="si-pend" title="Documento em elaboração">Termos de Uso</a></li>
+        <li><a href="#" class="si-pend" title="Aviso a publicar quando o site passar a usar rastreamento">Aviso de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="si-footer-meta">© 2026 Pagani Redes de Proteção. Todos os direitos reservados.</p>
+</footer>
+
+<a href="https://wa.me/5548991075991" target="_blank" rel="noopener" class="si-wa-fab" id="si-wa-fab" aria-label="Fale com a gente no WhatsApp">
+  <span class="si-wa-label" aria-hidden="true">Fale com a gente no WhatsApp</span>
+  <span class="si-wa-disc"><img src="assets/icons/whatsapp-botao.svg" alt="" loading="lazy" decoding="async"></span>
+</a>
+
+<script>
+(function () {
+  var fab = document.getElementById('si-wa-fab');
+  if (fab) fab.classList.add('is-in');
+  var items = document.querySelectorAll('.sv-reveal');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      en.target.classList.toggle('is-in', en.isIntersecting);
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
